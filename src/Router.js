@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import Login from './pages/Login/login';
-import Main from './pages/Main/main';
-import Nav from './pages/Nav/nav';
+import Login from './pages/Login/Login';
+import Main from './pages/Main/Main';
+import Nav from './pages/Nav/Nav';
 
 const Router = () => {
   return (
