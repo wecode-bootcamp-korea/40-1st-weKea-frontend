@@ -10,7 +10,7 @@ html {
   padding: 0 3%;
 }
 
-.nav__button {
+.navButton {
   position: fixed;
   top: 5%;
   left: 3%;
@@ -21,12 +21,12 @@ html {
   }
 }
 
-.nav__container {
+.navContainer {
   @include flex(space-between, center);
   margin-left: 6%;
   height: 100%;
 
-  & .nav__logo {
+  .navContainerLogo {
     width: 90px;
     height: 36px;
     background-color: yellow;
@@ -37,18 +37,18 @@ html {
   }
 }
 
-.nav__search {
+.navSearch {
   position: relative;
   width: 70%;
 
-  &--icon-left {
+  .navSearchIconLeft {
     position: absolute;
     top: 50%;
     left: 3%;
     transform: translate(-50%, -50%);
   }
 
-  &--input {
+  .navSearchInput {
     width: 100%;
     padding: 16px;
     padding-left: 5%;
@@ -68,7 +68,7 @@ html {
     }
   }
 
-  &--icon-right {
+  .navSearchIconRight {
     position: absolute;
     top: 50%;
     right: 2%;
@@ -76,39 +76,43 @@ html {
   }
 }
 
-.nav__icons {
+.navIcons {
   display: flex;
 
-  &--left {
+  .navIconsLeft {
     margin-right: 10px;
 
     & .fontawesome {
       margin-right: 10px;
     }
   }
-  &--hamburger {
-    display: none;
-  }
+}
+// 기존에 바로위 .navIcons 선택자에 네스팅되어있어도 정상적으로 작동했었는데
+// camelCase로 변경한 뒤 네스팅을 풀어줘야지 반응형이 작동하는 이유가 잘 이해가 안됩니다ㅠ.
+// 하단 119번째 줄 "disblay:block"
+.navIconsHamburger {
+  display: none;
 }
 
 @media (max-width: 1200px) {
-  .nav__icons .fontawesome {
+  .navIcons .fontawesome {
     margin-right: 0;
   }
-  .nav__icons * {
+  .navIcons * {
     margin-right: 20px;
     display: flex;
   }
-  .nav__icons--left > span {
+  .navIconsLeft > span {
     display: none;
   }
-  .nav__button {
+  .navButton {
     display: none;
   }
-  .nav__container {
+  .navContainer {
     margin-left: 0;
   }
-  .nav__icons--hamburger {
+  .navIconsHamburger {
+    display: block;
     margin-right: 0;
   }
 }

@@ -7,7 +7,7 @@ const Nav = () => {
   const navigate = useNavigate();
   return (
     <>
-      <span className="nav__button">
+      <span className="navButton">
         <FontAwesomeIcon
           className="fontawesome"
           icon="fa-solid fa-bars"
@@ -16,9 +16,9 @@ const Nav = () => {
         <span>메뉴</span>
       </span>
       <nav className="nav">
-        <div className="nav__container">
+        <div className="navContainer">
           <img
-            className="nav__logo"
+            className="navContainerLogo"
             onClick={() => {
               navigate('/main');
             }}
@@ -26,8 +26,8 @@ const Nav = () => {
             alt="로고"
           />
           {/* 검색 */}
-          <div className="nav__search">
-            <div className="nav__search--icon-left">
+          <div className="navSearch">
+            <div className="navSearchIconLeft">
               <FontAwesomeIcon
                 className="fontawesome"
                 icon="fa-solid fa-magnifying-glass"
@@ -35,11 +35,11 @@ const Nav = () => {
               />
             </div>
             <input
-              className="nav__search--input"
+              className="navSearchInput"
               type="text"
               placeholder="검색어 입력"
             />
-            <div className="nav__search--icon-right">
+            <div className="navSearchIconRight">
               <FontAwesomeIcon
                 className="fontawesome"
                 icon="fa-solid fa-camera"
@@ -48,8 +48,8 @@ const Nav = () => {
             </div>
           </div>
           {/* 아이콘 */}
-          <div className="nav__icons">
-            <span className="nav__icons--left">
+          <div className="navIcons">
+            <span className="navIconsLeft">
               <FontAwesomeIcon
                 className="fontawesome"
                 icon="fa-solid fa-user"
@@ -57,14 +57,14 @@ const Nav = () => {
               />
               <span>Hej! 로그인 또는 가입하기</span>
             </span>
-            <span className="nav__icons--right">
+            <span className="navIconsRight">
               <FontAwesomeIcon
                 className="fontawesome"
                 icon="fa-solid fa-cart-shopping"
                 size="lg"
               />
             </span>
-            <span className="nav__icons--hamburger">
+            <span className="navIconsHamburger">
               <FontAwesomeIcon
                 className="fontawesome"
                 icon="fa-solid fa-bars"
