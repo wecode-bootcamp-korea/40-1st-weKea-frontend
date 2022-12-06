@@ -1,27 +1,20 @@
 .login {
   display: flex;
-  /* background-color: aqua; */
-  /* height: 100%; */
-  /* width: 30vw;
-  height: 100vh; */
 }
-.login__left-box {
+.loginLeftBox {
   background-color: rgb(0, 88, 163);
   width: 40%;
-  /* height: 80vh; */
 }
 
-.left-box__text-box {
-  /* background-color: green; */
+.leftBoxTextBox {
   width: 20vw;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 0 auto;
-  /* padding: auto; */
 }
-.left-box__logo {
+.leftBoxLogo {
   margin-top: 20px;
   width: 70%;
   height: 40px;
@@ -30,21 +23,19 @@
   justify-content: space-between;
   margin-right: 80px;
 }
-.logo__icon {
+.logoIcon {
   width: 0%;
   height: 10px;
-  /* background-color: aqua; */
   margin-left: 10px;
 }
 
-.text-box__title {
+.textBoxTitle {
   width: 100%;
   height: 300px;
-  /* background-color: black; */
   color: aliceblue;
   margin-top: 90%;
   position: relative;
-  /* right: 40px; */
+
   h1 {
     font-size: 2rem;
     color: yellow;
@@ -54,38 +45,35 @@
     line-height: 35px;
   }
 }
-.title__detail {
+.titleDetail {
   width: 80%;
   height: 40px;
-  /* background-color: black; */
   color: #cdcdcd;
   margin-top: 100px;
   margin-right: auto;
 }
 
-.login__right-box {
-  /* background-color: brown; */
+.loginRightBox {
   width: 80%;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.login__board {
-  margin-bottom: 40px;
-}
-.right-box__login {
+.rightBoxLogin {
   width: 50vw;
   height: 100%;
-  /* background-color: aqua; */
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-.right-box__login div {
+.loginBoard {
   margin-bottom: 40px;
 }
-.input-id {
+.rightBoxLogin div {
+  margin-bottom: 40px;
+}
+.inputId {
   border: 1px solid black;
   width: 100%;
   height: 50px;
@@ -93,19 +81,17 @@
   border-radius: 5px;
   padding-left: 1rem;
 }
-.input-pw {
+.inputPw {
   border: 1px solid black;
   width: 100%;
   height: 50px;
   border-radius: 5px;
-  /* margin-top: 100px; */
   display: flex;
   justify-content: center;
   align-items: center;
   padding-left: 1rem;
-  /* margin-bottom: 40px; */
 }
-.login__btn {
+.loginBtn {
   background-color: rgb(0, 88, 163);
   font-size: 0.95rem;
   color: white;
@@ -120,7 +106,7 @@
   border: 0;
   outline: 0;
 }
-.join__btn {
+.joinBtn {
   border: 1px solid black;
   width: 100%;
   height: 70px;
@@ -129,28 +115,23 @@
   justify-content: center;
   align-items: center;
 }
-.login__bord-email {
-}
 
 @media screen and (max-width: 640px) {
-  .login__left-box {
+  .loginLeftBox {
     width: 100%;
   }
 
   .login {
     flex-direction: column;
-    /* width: 100%; */
   }
-  .left-box__text-box {
-    /* margin: 10px; */
+  .leftBoxTextBox {
     width: 100vw;
     margin: 0 30px 0 30px;
-    /* height: none; */
   }
-  .login__right-box {
+  .loginRightBox {
     width: auto;
   }
-  .text-box__title {
+  .textBoxTitle {
     margin-top: 0;
     height: auto;
     margin: 0;
