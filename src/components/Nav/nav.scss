@@ -1,0 +1,128 @@
+@import '../../styles/mixin.scss';
+
+html {
+  height: 1000px;
+}
+// nav 높이 90px
+.nav {
+  position: relative;
+  height: 90px;
+  padding: 0 3%;
+}
+
+.nav__button {
+  position: fixed;
+  top: 8%;
+  left: 3%;
+  @include flex_column;
+
+  & .fontawesome {
+    margin-bottom: 14px;
+  }
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 6%;
+  height: 100%;
+
+  & .nav__logo {
+    width: 90px;
+    height: 36px;
+    background-color: yellow;
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.nav__search {
+  position: relative;
+  width: 70%;
+  // margin-right: 2%;
+
+  &--icon-left {
+    position: absolute;
+    top: 50%;
+    left: 3%;
+    transform: translate(-50%, -50%);
+  }
+
+  &--input {
+    width: 100%;
+    padding: 16px;
+    padding-left: 5%;
+    padding-right: 5%;
+    border-radius: 50rem;
+    background-color: #f5f5f5;
+    border: 2px solid transparent;
+    font-size: 16px;
+
+    &:hover {
+      background-color: #dfdfdf;
+    }
+
+    &:focus {
+      background-color: #fff;
+      border-color: #0058a3;
+    }
+  }
+
+  &--icon-right {
+    position: absolute;
+    top: 50%;
+    right: 2%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+.nav__icons {
+  display: flex;
+
+  &--left {
+    margin-right: 10px;
+    // margin-left: -10%;
+
+    & .fontawesome {
+      margin-right: 10px;
+    }
+  }
+  &--hamburger {
+    display: none;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav__icons .fontawesome {
+    margin-right: 0;
+  }
+  .nav__icons * {
+    margin-right: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .nav__icons--left > span {
+    display: none;
+  }
+  .nav__icons--hamburger {
+    display: block;
+  }
+  .nav__button {
+    display: none;
+  }
+  .nav__container {
+    margin-left: 0;
+  }
+  .nav__icons--hamburger {
+    margin-right: 0;
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    height: 60px;
+  }
+}
