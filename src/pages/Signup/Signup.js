@@ -69,7 +69,7 @@ const Signup = () => {
         </div>
         <div>
           비밀번호
-          <input type="text" className="signup__input-items" />
+          <input type="password" className="signup__input-items" />
         </div>
 
         <button className="signup__button-style">가입 하기</button>
