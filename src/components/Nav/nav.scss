@@ -1,5 +1,5 @@
 @import '../../styles/mixin.scss';
-
+// fixed 체크용
 html {
   height: 1000px;
 }
@@ -12,7 +12,7 @@ html {
 
 .nav__button {
   position: fixed;
-  top: 8%;
+  top: 5%;
   left: 3%;
   @include flex_column;
 
@@ -42,7 +42,6 @@ html {
 .nav__search {
   position: relative;
   width: 70%;
-  // margin-right: 2%;
 
   &--icon-left {
     position: absolute;
@@ -102,13 +101,9 @@ html {
   .nav__icons * {
     margin-right: 20px;
     display: flex;
-    justify-content: space-between;
   }
   .nav__icons--left > span {
     display: none;
-  }
-  .nav__icons--hamburger {
-    display: block;
   }
   .nav__button {
     display: none;
