@@ -1,0 +1,31 @@
+.footer {
+  background-color: gray;
+}
+
+.footer__first-column {
+  background-color: red;
+  height: 100px;
+  width: 30vw;
+
+  display: flex;
+}
+.footer__link {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__lists {
+  display: flex;
+}
+
+.footer__second-column {
+  background-color: yellow;
+  height: 100px;
+}
+
+.footer__copy
+
+.footer__third-column {
+  background-color: orange;
+  height: 100px;
+}

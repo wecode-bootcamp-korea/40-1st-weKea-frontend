@@ -16,15 +16,13 @@ const Nav = () => {
       </Link>
       <div className="nav__container">
         {/* 임시 로고 */}
-        <div className="nav__logo">
-          <h1>
-            <img
-              src="https://www.ikea.com/kr/ko/static/ikea-logo.f7d9229f806b59ec64cb.svg"
-              alt="로고"
-              width="90px"
-            />
-          </h1>
-        </div>
+        <Link className="nav__logo" to="/main">
+          <img
+            src="https://www.ikea.com/kr/ko/static/ikea-logo.f7d9229f806b59ec64cb.svg"
+            alt="로고"
+            width="90px"
+          />
+        </Link>
         {/* 검색 */}
         <div className="nav__search">
           <div className="nav__search--icon-left">
@@ -49,21 +47,21 @@ const Nav = () => {
         </div>
         {/* 아이콘 */}
         <div className="nav__icons">
-          <div className="nav__icons--left">
+          <Link className="nav__icons--left" to="#">
             <FontAwesomeIcon
               className="font-awesome"
               icon="fa-solid fa-user"
               size="lg"
             />
             <span>HeJ! 로그인 또는 가입하기</span>
-          </div>
-          <div className="nav__icons--right">
+          </Link>
+          <Link className="nav__icons--right" to="#">
             <FontAwesomeIcon
               className="font-awesome"
               icon="fa-solid fa-cart-shopping"
               size="lg"
             />
-          </div>
+          </Link>
         </div>
       </div>
     </nav>
