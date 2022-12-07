@@ -5,11 +5,18 @@
   height: 90px;
   padding: 0 3%;
 
+  @media (max-width: 1200px) {
+    .navButton {
+      display: flex;
+    }
+  }
   .navButton {
+    @include flex_column;
+    display: flex;
+    flex-direction: column;
     position: fixed;
     top: 25px;
     left: 3%;
-    @include flex_column;
 
     & .fontawesome {
       margin-bottom: 14px;
@@ -101,6 +108,7 @@
       margin-right: 20px;
       display: flex;
     }
+
     & .fontawesome {
       margin-right: 0;
     }

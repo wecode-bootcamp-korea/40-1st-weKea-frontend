@@ -24,7 +24,7 @@ const Nav = () => {
           src="wekea"
           alt="로고"
         />
-        {/* 검색 */}
+
         <div className="navSearch">
           <div className="navSearchIconLeft">
             <FontAwesomeIcon
@@ -46,7 +46,7 @@ const Nav = () => {
             />
           </div>
         </div>
-        {/* 아이콘 */}
+
         <div className="navIcons">
           <span className="navIconsUser">
             <FontAwesomeIcon
