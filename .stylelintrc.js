@@ -21,8 +21,8 @@ module.exports = {
     'scss/at-rule-conditional-no-parentheses': null,
     // 조건부 @ 규칙(if, elsif, while)(자동 수정 가능)에서 괄호를 허용합니다.
     'no-duplicate-selectors': true,
-    // css 중복 선택자 사용 금지
+    // 동일한 css 선택자 중복 사용 금지
     'color-named': 'never',
-    // 컬러 HEX코드로 작성
+    // 색상 HEX코드로 작성
   },
 };
