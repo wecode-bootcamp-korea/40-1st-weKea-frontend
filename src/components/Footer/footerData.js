@@ -1,5 +1,6 @@
 const FOOTER_DATA = [
   {
+    id: 1,
     title: '고객문의',
     list: [
       '고객지원',
@@ -14,6 +15,7 @@ const FOOTER_DATA = [
     ],
   },
   {
+    id: 2,
     title: '쇼핑하기',
     list: [
       '쇼핑하기',
@@ -29,6 +31,7 @@ const FOOTER_DATA = [
     ],
   },
   {
+    id: 3,
     title: '서비스',
     list: [
       'IKEA 서비스',
@@ -42,6 +45,7 @@ const FOOTER_DATA = [
     ],
   },
   {
+    id: 4,
     title: 'IKEA 이야기',
     list: [
       '브랜드 소개',

@@ -22,38 +22,14 @@ const Footer = () => {
           </Link>
         </div>
         <div className="footer__lists">
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
-          <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
-            <li>4</li>
-            <li>5</li>
-          </ul>
-          <ul>
-            <li>
-              <ul>
-                <li>123</li>
-              </ul>
-            </li>
-          </ul>
-          {FOOTER_DATA.map((list, i) => {
+          {FOOTER_DATA.map(footerLists => {
             return (
-              <ul>
-                <li />
+              <ul key={footerLists.id}>
+                <h3>{footerLists.title}</h3>
+
+                {footerLists.list.map((list, i) => {
+                  return <li key={i}>{list}</li>;
+                })}
               </ul>
             );
           })}
