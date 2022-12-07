@@ -1,30 +1,36 @@
 .footer {
   background-color: gray;
+  // 임시 패딩
+  padding-left: 100px;
 }
 
-.footer__first-column {
+.firstColumn {
   background-color: red;
   display: flex;
+
+  & > * {
+    margin-right: 50px;
+  }
 }
-.footer__link {
+.footerLink {
   display: flex;
   flex-direction: column;
   padding-right: 8%;
 }
 
-.footer__lists {
+.footerLists {
   display: flex;
 }
 
-.footer__second-column {
+.secondColumn {
   background-color: yellow;
   height: 100px;
 }
 
-.footer__copy {
+.footerCopy {
 }
 
-.footer__third-column {
+.thirdColumn {
   background-color: orange;
   height: 100px;
 }
