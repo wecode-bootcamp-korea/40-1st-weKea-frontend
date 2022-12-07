@@ -37,7 +37,9 @@ const Login = () => {
                   name="userPassword"
                 />
               </div>
-              <button className="loginBtn" type="button" />
+              <button className="loginBtn" type="button">
+                로그인
+              </button>
               <button className="joinBtn" type="button">
                 개인 회원 가입
               </button>
