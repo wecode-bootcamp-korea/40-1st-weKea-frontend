@@ -4,6 +4,13 @@
   align-items: $align;
 }
 
+@mixin flex_direction($justify, $align, $direction) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  flex-direction: $direction;
+}
+
 @mixin flex_center {
   display: flex;
   justify-content: center;
@@ -13,4 +20,11 @@
 @mixin flex_column {
   display: flex;
   flex-direction: column;
+}
+
+@mixin position_center {
+  position: 'absolute';
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
