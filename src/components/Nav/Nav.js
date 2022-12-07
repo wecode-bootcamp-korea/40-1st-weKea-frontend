@@ -6,7 +6,7 @@ import './nav.scss';
 const Nav = () => {
   const navigate = useNavigate();
   return (
-    <>
+    <nav className="nav">
       <span className="navButton">
         <FontAwesomeIcon
           className="fontawesome"
@@ -15,66 +15,64 @@ const Nav = () => {
         />
         <span>메뉴</span>
       </span>
-      <nav className="nav">
-        <div className="navContainer">
-          <img
-            className="navContainerLogo"
-            onClick={() => {
-              navigate('/main');
-            }}
-            src="wekea"
-            alt="로고"
-          />
-          {/* 검색 */}
-          <div className="navSearch">
-            <div className="navSearchIconLeft">
-              <FontAwesomeIcon
-                className="fontawesome"
-                icon="fa-solid fa-magnifying-glass"
-                size="lg"
-              />
-            </div>
-            <input
-              className="navSearchInput"
-              type="text"
-              placeholder="검색어 입력"
+      <div className="navContainer">
+        <img
+          className="navContainerLogo"
+          onClick={() => {
+            navigate('/main');
+          }}
+          src="wekea"
+          alt="로고"
+        />
+        {/* 검색 */}
+        <div className="navSearch">
+          <div className="navSearchIconLeft">
+            <FontAwesomeIcon
+              className="fontawesome"
+              icon="fa-solid fa-magnifying-glass"
+              size="lg"
             />
-            <div className="navSearchIconRight">
-              <FontAwesomeIcon
-                className="fontawesome"
-                icon="fa-solid fa-camera"
-                size="lg"
-              />
-            </div>
           </div>
-          {/* 아이콘 */}
-          <div className="navIcons">
-            <span className="navIconsLeft">
-              <FontAwesomeIcon
-                className="fontawesome"
-                icon="fa-solid fa-user"
-                size="lg"
-              />
-              <span>Hej! 로그인 또는 가입하기</span>
-            </span>
-            <span className="navIconsRight">
-              <FontAwesomeIcon
-                className="fontawesome"
-                icon="fa-solid fa-cart-shopping"
-                size="lg"
-              />
-            </span>
-            <span className="navIconsHamburger">
-              <FontAwesomeIcon
-                className="fontawesome"
-                icon="fa-solid fa-bars"
-                size="lg"
-              />
-            </span>
+          <input
+            className="navSearchInput"
+            type="text"
+            placeholder="검색어 입력"
+          />
+          <div className="navSearchIconRight">
+            <FontAwesomeIcon
+              className="fontawesome"
+              icon="fa-solid fa-camera"
+              size="lg"
+            />
           </div>
         </div>
-      </nav>
-    </>
+        {/* 아이콘 */}
+        <div className="navIcons">
+          <span className="navIconsUser">
+            <FontAwesomeIcon
+              className="fontawesome"
+              icon="fa-solid fa-user"
+              size="lg"
+            />
+            <span>Hej! 로그인 또는 가입하기</span>
+          </span>
+          <span className="navIconsCart">
+            <FontAwesomeIcon
+              className="fontawesome"
+              icon="fa-solid fa-cart-shopping"
+              size="lg"
+            />
+          </span>
+          <span className="navIconsHamburger">
+            <FontAwesomeIcon
+              className="fontawesome"
+              icon="fa-solid fa-bars"
+              size="lg"
+            />
+          </span>
+        </div>
+      </div>
+    </nav>
   );
 };
 
