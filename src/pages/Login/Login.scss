@@ -1,9 +1,9 @@
-.loginContainer {
+.login {
   display: flex;
   .titleBox {
     background-color: #0058a3;
     width: 40%;
-    .useBox {
+    .titleUseBox {
       width: 20vw;
       height: 100%;
       display: flex;
@@ -33,7 +33,7 @@
       margin-top: 90%;
       position: relative;
 
-      h1 {
+      .title {
         font-size: 2rem;
         color: #ffff00;
         line-height: 100px;
@@ -42,7 +42,7 @@
         line-height: 35px;
       }
     }
-    .footer {
+    .article {
       width: 80%;
       height: 40px;
       color: #cdcdcd;
@@ -50,90 +50,67 @@
       margin-right: auto;
     }
   }
-}
+  .loginBox {
+    height: 100vh;
+    justify-content: center;
 
-.loginRbox {
-  height: 100vh;
-  justify-content: center;
+    width: 50vw;
+    display: flex;
+    align-items: center;
 
-  width: 50vw;
-  display: flex;
-  align-items: center;
-
-  & div {
-    margin-bottom: 40px;
-  }
-
-  .loginBoard {
-    margin-bottom: 40px;
-
-    .inputId {
-      border: 1px solid #000000;
-      width: 100%;
-      height: 50px;
-      font-size: 1rem;
-      border-radius: 5px;
-      padding-left: 1rem;
-    }
-
-    .inputPassword {
-      border: 1px solid #000000;
-      width: 100%;
-      height: 50px;
-      border-radius: 5px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding-left: 1rem;
-    }
-
-    .loginBtn {
-      background-color: #0058a3;
-      font-size: 0.95rem;
-      color: #ffffff;
-      font-weight: 800;
-      width: 100%;
-      height: 60px;
-      border-radius: 70px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    & div {
       margin-bottom: 40px;
-      border: 0;
-      outline: 0;
     }
 
-    .joinBtn {
-      border: 1px solid black;
-      width: 100%;
-      height: 60px;
-      border-radius: 40px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    .loginInputBoard {
+      margin-bottom: 40px;
+
+      .inputId {
+        border: 1px solid #000000;
+        width: 100%;
+        height: 50px;
+        font-size: 1rem;
+        border-radius: 5px;
+        padding-left: 1rem;
+      }
+
+      .inputPassword {
+        border: 1px solid #000000;
+        width: 100%;
+        height: 50px;
+        border-radius: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-left: 1rem;
+      }
+
+      .loginBtn {
+        background-color: #0058a3;
+        font-size: 0.95rem;
+        color: #ffffff;
+        font-weight: 800;
+        width: 100%;
+        height: 60px;
+        border-radius: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 40px;
+        border: 0;
+        outline: 0;
+      }
+
+      .joinBtn {
+        border: 1px solid black;
+        width: 100%;
+        height: 60px;
+        border-radius: 40px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
     }
-  }
-  // }
-}
-
-@media screen and (max-width: 640px) {
-  .titleBox {
-    width: 100%;
-  }
-
-  .loginContainer {
-    flex-direction: column;
-  }
-  .textBox {
-    width: 100vw;
-    margin: 0 30px 0 30px;
-  }
-  .loginRbox {
-    width: auto;
-  }
-  .textBoxTitle {
-    margin-top: 0;
-    height: auto;
-    margin: 0;
+    // }
   }
 }
