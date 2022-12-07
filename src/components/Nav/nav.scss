@@ -5,11 +5,6 @@
   height: 90px;
   padding: 0 3%;
 
-  @media (max-width: 1200px) {
-    .navButton {
-      display: flex;
-    }
-  }
   .navButton {
     @include flex_column;
     display: flex;
@@ -22,6 +17,7 @@
       margin-bottom: 14px;
     }
   }
+
   .navContainer {
     @include flex(space-between, center);
     margin-left: 6%;
@@ -86,12 +82,6 @@
           margin-right: 10px;
         }
       }
-
-      @media (min-width: 1200px) {
-        .navIconsHamburger {
-          display: none;
-        }
-      }
     }
   }
 }
@@ -99,6 +89,7 @@
 @media (max-width: 1200px) {
   .navButton {
     display: none;
+    position: static;
   }
 
   .navContainer {
@@ -131,5 +122,11 @@
     .navButton {
       top: 14px;
     }
+  }
+}
+
+@media (min-width: 1200px) {
+  .navIconsHamburger {
+    display: none;
   }
 }
