@@ -1,0 +1,238 @@
+@media screen and (max-width: 640px) {
+  .entireArray {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 40px 40px 80px;
+
+    .headerArray {
+      margin-left: 40px;
+    }
+
+    .sideContainerWidth {
+      width: 35vw;
+
+      .titleMargin {
+        margin-left: 40px;
+
+        .titleStyle {
+          margin-bottom: 20px;
+          font-size: 28px;
+          font-weight: bold;
+        }
+      }
+
+      .mobileImgSize {
+        width: 100vw;
+        min-width: 400px;
+        max-width: 100%;
+        height: 300px;
+      }
+    }
+
+    .longImgBoxMargin {
+      margin-bottom: 100px;
+
+      .longImgStyle {
+        display: none;
+      }
+    }
+
+    .inputContainerStyle {
+      width: 80vw;
+
+      .inputItemStyle {
+        display: block;
+        width: 80vw;
+        height: 50px;
+      }
+
+      .buttonStyle {
+        width: 80vw;
+        height: 60px;
+        margin-top: 20px;
+        border-radius: 70px;
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 641px) and (max-width: 719px) {
+  .entireArray {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 40px 40px 80px;
+
+    .titleStyle {
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .mobileImgSize {
+      display: none;
+    }
+
+    .inputContainerStyle {
+      margin: 40px 80px;
+
+      .inputItemStyle {
+        display: block;
+        width: 300px;
+        height: 50px;
+      }
+      .buttonStyle {
+        width: 300px;
+        height: 60px;
+        margin-top: 20px;
+        border-radius: 70px;
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 720px) and (max-width: 899px) {
+  .entireArray {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 40px 40px 80px;
+
+    .titleStyle {
+      margin-bottom: 20px;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .mobileImgSize {
+      display: none;
+    }
+
+    .inputContainerStyle {
+      margin: 40px 80px;
+
+      .inputItemStyle {
+        display: block;
+        width: 360px;
+        height: 50px;
+      }
+
+      .buttonStyle {
+        width: 360px;
+        height: 60px;
+        margin-top: 20px;
+        border-radius: 70px;
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .entireArray {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    margin: 40px 40px 80px;
+
+    .titleStyle {
+      margin-bottom: 20px;
+      font-size: 36px;
+      font-weight: bold;
+    }
+
+    .mobileImgSize {
+      display: none;
+    }
+
+    .inputContainerStyle {
+      margin: 40px 150px;
+
+      .inputItemStyle {
+        display: block;
+        width: 420px;
+        height: 50px;
+      }
+
+      .buttonStyle {
+        width: 420px;
+        height: 60px;
+        margin-top: 20px;
+        border-radius: 70px;
+        background-color: black;
+        color: white;
+        font-size: 15px;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+.headerArray {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+
+  .arrowMargin {
+    margin-right: 10px;
+  }
+
+  .logoStyle {
+    width: 100px;
+    height: 40px;
+    background-color: rgb(0, 119, 255);
+  }
+}
+
+.titleMargin {
+  margin-bottom: 60px;
+}
+
+.imgContainerFlex {
+  display: flex;
+  justify-content: flex-start;
+
+  .longImgBoxMargin {
+    margin-right: 10px;
+
+    .longImgStyle {
+      width: 13vw;
+      height: 210px;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+  }
+
+  .shortImgBoxMargin {
+    .shortImgStyle {
+      width: 13vw;
+      height: 180px;
+      margin-bottom: 10px;
+      object-fit: cover;
+    }
+  }
+}
+
+.inputContainerStyle {
+  .inputItemStyle {
+    margin-bottom: 35px;
+    padding-left: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    font-size: 15px;
+  }
+}
