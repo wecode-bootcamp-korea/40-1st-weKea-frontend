@@ -1,25 +1,8 @@
-@mixin flex($justify, $align) {
-  display: flex;
-  justify-content: $justify;
-  align-items: $align;
-}
-
-@mixin flex_direction($justify, $align, $direction) {
+@mixin flex($justify, $align, $direction) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
   flex-direction: $direction;
-}
-
-@mixin flex_center {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-@mixin flex_column {
-  display: flex;
-  flex-direction: column;
 }
 
 @mixin position_center {
