@@ -1,6 +1,26 @@
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
 const Login = () => {
+  const [userLogin, setUserLogin] = useState({ userId: '', userPassword: '' });
+  const navi = useNavigate('/main');
+
+  const userInfo = e => {
+    const { name, value } = e.target;
+    setUserLogin({ ...userLogin, [name]: value });
+  };
+  const isUserTitle =
+    userLogin.userId.includes('@') && userLogin.userPassword.length >= 8;
+
+  //   console.log(userLogin.userId.includes('@'));
+
+  const handleClick = event => {
+    navi('/main');
+  };
+  function isvalid(e) {
+    e.preventDefault();
+  }
   return (
     <div className="loginContainer">
       <div className="titleBox">
@@ -22,30 +42,43 @@ const Login = () => {
         </div>
       </div>
       <div className="loginRbox">
-        <div className="totalFormBox">
-          <form>
-            <div className="loginBoard">
-              <div className="loginBoardEmail">
-                이메일 또는 확인된 휴대폰 번호
-                <input type="text" className="inputId" />
-              </div>
-              <div className="loginBoardPw">
-                <span className="loginBordPwtitle">비밀번호</span>
-                <input
-                  type="password"
-                  className="inputPassword"
-                  name="userPassword"
-                />
-              </div>
-              <button className="loginBtn" type="button">
-                로그인
-              </button>
-              <button className="joinBtn" type="button">
-                개인 회원 가입
-              </button>
+        {/* <div className="totalFormBox"> */}
+        <form className="inputForm" onSubmit={isvalid}>
+          <div className="loginBoard">
+            <div className="loginBoardEmail">
+              이메일 또는 확인된 휴대폰 번호
+              <input
+                type="text"
+                className="inputId"
+                value={userLogin.userId}
+                onChange={userInfo}
+                name="userId"
+              />
             </div>
-          </form>
-        </div>
+            <div className="loginBoardPw">
+              <span className="loginBordPwtitle">비밀번호</span>
+              <input
+                type="password"
+                className="inputPassword"
+                name="userPassword"
+                onChange={userInfo}
+                value={userLogin.userPassword}
+              />
+            </div>
+            <button
+              className="loginBtn"
+              // type="button"
+              disabled={!isUserTitle}
+              onClick={handleClick}
+            >
+              로그인
+            </button>
+            <button className="joinBtn" type="button" value={userLogin}>
+              개인 회원 가입
+            </button>
+          </div>
+        </form>
+        {/* </div> */}
       </div>
     </div>
   );
