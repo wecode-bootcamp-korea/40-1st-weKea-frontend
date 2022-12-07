@@ -4,14 +4,12 @@
 
 .footer__first-column {
   background-color: red;
-  height: 100px;
-  width: 30vw;
-
   display: flex;
 }
 .footer__link {
   display: flex;
   flex-direction: column;
+  padding-right: 8%;
 }
 
 .footer__lists {
@@ -23,7 +21,8 @@
   height: 100px;
 }
 
-.footer__copy
+.footer__copy {
+}
 
 .footer__third-column {
   background-color: orange;
