@@ -1,4 +1,4 @@
-Signup.scss @media screen and (max-width: 640px) {
+@media screen and (max-width: 640px) {
   .entireArray {
     display: flex;
     flex-direction: column;
@@ -31,10 +31,10 @@ Signup.scss @media screen and (max-width: 640px) {
       }
     }
 
-    .imgBox1Margin {
+    .longImgBoxMargin {
       margin-bottom: 100px;
 
-      .imgItemStyle1 {
+      .longImgStyle {
         display: none;
       }
     }
@@ -206,23 +206,23 @@ Signup.scss @media screen and (max-width: 640px) {
   display: flex;
   justify-content: flex-start;
 
-  .imgBox1Margin {
+  .longImgBoxMargin {
     margin-right: 10px;
 
-    .imgItemStyle1 {
+    .longImgStyle {
       width: 13vw;
       height: 210px;
       margin-bottom: 10px;
-      background-color: rgb(255, 231, 113);
+      object-fit: cover;
     }
   }
 
-  .imgBox2Margin {
-    .imgItemStyle2 {
+  .shortImgBoxMargin {
+    .shortImgStyle {
       width: 13vw;
       height: 180px;
       margin-bottom: 10px;
-      background-color: rgb(255, 159, 214);
+      object-fit: cover;
     }
   }
 }

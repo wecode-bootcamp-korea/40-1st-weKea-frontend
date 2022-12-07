@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './Signup.scss';
+import SignupImageList from '../../components/Signup/SignupImageList';
+import SignupInputList from '../../components/Signup/SignupInputList';
 
 const Signup = () => {
   return (
@@ -15,37 +17,19 @@ const Signup = () => {
           <div className="titleMargin">
             <h1 className="titleStyle">Sims & co 회원 가입</h1>
             <div>
-              이미 가입하셨나요? <a href="login">로그인 하기</a>
+              <span>이미 가입하셨나요?</span> <a href="login">로그인 하기</a>
             </div>
           </div>
           <img
             className="mobileImgSize"
             alt="loginImg"
-            src="../../../public/images/Signup/signup_img(2).jpg"
+            src="/images/Signup/img1.jpg"
           />
-          <div className="imgContainerFlex">
-            <span className="imgBox1Margin">
-              <img
-                alt="loginImage1"
-                className="imgItemStyle1"
-                src="../../../public/images/Signup/signup_img(5).jpg"
-              />
-            </span>
-            <span className="imgBox2Margin">
-              <img
-                alt="loginImage1"
-                className="imgItemStyle2"
-                src="../../../public/images/Signup/signup_img(5).jpg"
-              />
-            </span>
-          </div>
+          <SignupImageList />
         </span>
       </div>
       <div className="inputContainerStyle">
-        <div>
-          <input type="text" className="inputItemStyle" />
-        </div>
-
+        <SignupInputList />
         <button className="buttonStyle">가입 하기</button>
       </div>
     </div>
@@ -53,39 +37,3 @@ const Signup = () => {
 };
 
 export default Signup;
-
-const SIGNUP_INPUT_BOX = {
-  id: 1,
-  title:
-    '성, 이름, 생일, 휴대폰, 성별(남성, 여성), 상세 주소, 이메일, 비밀번호',
-  type: 'text',
-  className: 'inputItemStyle',
-};
-
-const SIGNUP_IMAGE = [
-  {
-    id: 1,
-    alt: 'image1',
-    src: '../../../public/images/Signup/signup_img(1)',
-  },
-  {
-    id: 2,
-    alt: 'image2',
-    src: '../../../public/images/Signup/signup_img(2)',
-  },
-  {
-    id: 3,
-    alt: 'image3',
-    src: '../../../public/images/Signup/signup_img(3)',
-  },
-  {
-    id: 4,
-    alt: 'image4',
-    src: '../../../public/images/Signup/signup_img(4)',
-  },
-  {
-    id: 5,
-    alt: 'image5',
-    src: '../../../public/images/Signup/signup_img(5)',
-  },
-];
