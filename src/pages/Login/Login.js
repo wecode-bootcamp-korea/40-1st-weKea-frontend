@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
-  const [userLogin, setUserLogin] = useState({ userId: '', userPassword: '' });
+  const [userLogin, setUserLogin] = useState({ email: '', password: '' });
   const navi = useNavigate('/main');
 
   const userInfo = e => {
@@ -12,7 +12,7 @@ const Login = () => {
     setUserLogin({ ...userLogin, [name]: value });
   };
   const isUserTitle =
-    userLogin.userId.includes('@') && userLogin.userPassword.length >= 8;
+    userLogin.email.includes('@') && userLogin.password.length >= 8;
 
   const handleClick = event => {
     navi('/main');
@@ -20,6 +20,29 @@ const Login = () => {
   function isvalid(e) {
     e.preventDefault();
   }
+  const hadleLogin = () => {
+    fetch('http://10.58.52.109:3000/', {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json;charset=utf-8' },
+      body: JSON.stringify(userLogin),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        throw new Error('네트워크가 불안정합니다. 다시 시도 해 주세요');
+      })
+      // .catch(error => console.log(error))
+      .then(data => {
+        if (data.message === 'login success') {
+          localStorage.setItem('TOKEN', data.accessToken);
+          alert('로그인에 성공했습니다');
+          navi('/main');
+        } else {
+          alert('아이디와 비밀번호를 확인 해 주세요');
+        }
+      });
+  };
   return (
     <div className="login">
       <div className="titleBox">
@@ -48,8 +71,8 @@ const Login = () => {
               <input
                 type="text"
                 className="inputId"
-                name="userId"
-                value={userLogin.userId}
+                name="email"
+                value={userLogin.email}
                 onChange={userInfo}
               />
             </div>
@@ -58,15 +81,15 @@ const Login = () => {
               <input
                 type="password"
                 className="inputPassword"
-                name="userPassword"
+                name="password"
                 onChange={userInfo}
-                value={userLogin.userPassword}
+                value={userLogin.password}
               />
             </div>
             <button
               className="loginBtn"
               disabled={!isUserTitle}
-              onClick={handleClick}
+              onClick={hadleLogin}
             >
               로그인
             </button>
