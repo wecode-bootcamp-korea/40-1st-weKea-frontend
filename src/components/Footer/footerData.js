@@ -20,9 +20,9 @@ const FOOTER_DATA = [
     list: [
       '쇼핑하기',
       '헤이오더',
-      'IKEA for Business',
+      'SIMS for Business',
       '셀프 플래닝',
-      'IKEA 모바일 앱',
+      'SIMS 모바일 앱',
       '제품 사용 팁/가이드',
       '제품 구매 가이드',
       '브로슈어',
@@ -34,7 +34,7 @@ const FOOTER_DATA = [
     id: 3,
     title: '서비스',
     list: [
-      'IKEA 서비스',
+      'SIMS 서비스',
       '배송 서비스',
       '조립 서비스',
       '설치 서비스',
@@ -46,7 +46,7 @@ const FOOTER_DATA = [
   },
   {
     id: 4,
-    title: 'IKEA 이야기',
+    title: 'SIMS 이야기',
     list: [
       '브랜드 소개',
       '집에서의 삶',
