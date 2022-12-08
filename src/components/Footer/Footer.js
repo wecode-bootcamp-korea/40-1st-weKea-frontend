@@ -20,15 +20,16 @@ const Footer = () => {
             </Link>
           </p>
           <Link className="footerLinkButton" to="/signup">
-            <span>SIMS Family 가입하기</span>
+            SIMS Family 가입하기
           </Link>
         </div>
-        {FOOTER_DATA.map(footerLists => {
-          return (
-            <ul className="footerColumnList" key={footerLists.id}>
-              <h3 className="listTitle">{footerLists.title}</h3>
 
-              {footerLists.list.map((list, i) => {
+        {FOOTER_DATA.map(footerData => {
+          return (
+            <ul className="footerColumnList" key={footerData.id}>
+              <h3 className="listTitle">{footerData.title}</h3>
+
+              {footerData.list.map((list, i) => {
                 return (
                   <li key={i} className="listContent">
                     {list}
