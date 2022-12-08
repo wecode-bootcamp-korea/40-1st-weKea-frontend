@@ -4,7 +4,9 @@ import './cart.scss';
 const cart = () => {
   return (
     <div className="cart">
-      <div className="cartMain">123</div>
+      <div className="cartShop">
+        <div className="shopMainBox"></div>
+      </div>
     </div>
   );
 };
