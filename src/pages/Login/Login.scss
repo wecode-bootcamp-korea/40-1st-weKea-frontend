@@ -107,6 +107,27 @@
     // }
   }
 }
+@media screen and (max-width: 640px) {
+  .titleBox {
+    width: 100%;
+  }
+
+  .login {
+    flex-direction: column;
+  }
+  .textBox {
+    width: 100vw;
+    margin: 0 30px 0 30px;
+  }
+  .loginRbox {
+    width: auto;
+  }
+  .textBoxTitle {
+    margin-top: 0;
+    height: auto;
+    margin: 0;
+  }
+}
 
 // display: flex;
 // justify-content: center;

@@ -1,7 +1,25 @@
 import React from 'react';
 import './Login.scss';
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
+  const [userLogin, setUserLogin] = useState({ userId: '', userPassword: '' });
+  const navi = useNavigate('/main');
+
+  const userInfo = e => {
+    const { name, value } = e.target;
+    setUserLogin({ ...userLogin, [name]: value });
+  };
+  const isUserTitle =
+    userLogin.userId.includes('@') && userLogin.userPassword.length >= 8;
+
+  const handleClick = event => {
+    navi('/main');
+  };
+  function isvalid(e) {
+    e.preventDefault();
+  }
   return (
     <div className="login">
       <div className="titleBox">
@@ -23,11 +41,17 @@ const Login = () => {
         </div>
       </div>
       <div className="loginBox">
-        <form>
+        <form className="inputForm" onSubmit={isvalid}>
           <div className="loginInputBoard">
             <div className="loginBoardEmail">
               이메일 또는 확인된 휴대폰 번호
-              <input type="text" className="inputId" name="userId" />
+              <input
+                type="text"
+                className="inputId"
+                name="userId"
+                value={userLogin.userId}
+                onChange={userInfo}
+              />
             </div>
             <div className="loginBoardPw">
               <span className="loginBordPwtitle">비밀번호</span>
@@ -35,10 +59,18 @@ const Login = () => {
                 type="password"
                 className="inputPassword"
                 name="userPassword"
+                onChange={userInfo}
+                value={userLogin.userPassword}
               />
             </div>
-            <button className="loginBtn">로그인</button>
-            <button className="joinBtn" type="button">
+            <button
+              className="loginBtn"
+              disabled={!isUserTitle}
+              onClick={handleClick}
+            >
+              로그인
+            </button>
+            <button className="joinBtn" type="submit">
               개인 회원 가입
             </button>
           </div>
