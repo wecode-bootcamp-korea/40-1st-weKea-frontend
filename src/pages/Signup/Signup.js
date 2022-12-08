@@ -1,18 +1,34 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Signup.scss';
+import SignupImageList from '../../components/Signup/SignupImageList';
 
 const Signup = () => {
-  const [signupInfo, setSignupInfo] = useState({
-    key: '',
-    last_name: '',
-    first_name: '',
-    date_of_birth: '',
-    phone_number: '',
+  const navigate = useNavigate();
+
+  const [signupValue, setSignupValue] = useState({
+    fullName: '',
+    dateOfBirth: '',
+    phoneNumber: '',
     gender: '',
     address: '',
     email: '',
     password: '',
   });
+
+  const getSignupValue = e => {
+    const { name, value } = e.target;
+    setSignupValue({ ...signupValue, [name]: value });
+  };
+
+  const isValid =
+    signupValue.email.includes('@') &&
+    signupValue.password.length >= 8 &&
+    signupValue.fullName &&
+    signupValue.dateOfBirth &&
+    signupValue.phoneNumber &&
+    signupValue.gender &&
+    signupValue.address;
 
   return (
     <div className="entireArray">
@@ -27,77 +43,118 @@ const Signup = () => {
           <div className="titleMargin">
             <h1 className="titleStyle">Sims & co 회원 가입</h1>
             <div>
-              이미 가입하셨나요? <a href="login">로그인 하기</a>
+              <span>이미 가입하셨나요?</span> <a href="login">로그인 하기</a>
             </div>
           </div>
           <img
             className="mobileImgSize"
             alt="loginImg"
-            src="../../../public/images/Signup/signup_img(2).jpg"
+            src="/images/Signup/img1.jpg"
           />
-          <div className="imgContainerFlex">
-            <span className="imgBox1Margin">
-              <img
-                alt="loginImage1"
-                className="imgItemStyle1"
-                src="../../../public/images/Signup/signup_img(5).jpg"
-              />
-            </span>
-            <span className="imgBox2Margin">
-              <img
-                alt="loginImage1"
-                className="imgItemStyle2"
-                src="../../../public/images/Signup/signup_img(5).jpg"
-              />
-            </span>
-          </div>
+          <SignupImageList />
         </span>
       </div>
       <div className="inputContainerStyle">
-        <div>
-          <input type="text" className="inputItemStyle" />
-        </div>
-
-        <button className="buttonStyle">가입 하기</button>
+        {SIGNUP_INPUT_LIST.map(input => {
+          return (
+            <div key={input.id}>
+              {input.title}
+              <input
+                type={input.type}
+                className="inputItemStyle"
+                name={input.name}
+                value={signupValue.name}
+                onChange={getSignupValue}
+              />
+            </div>
+          );
+        })}
+        <button
+          className="buttonStyle"
+          disabled={!isValid}
+          onClick={() => {
+            isValid
+              ? fetch('http://1/signup', {
+                  method: 'POST',
+                  headers: { 'content-Type': 'application/json;charset-stf-8' },
+                  body: JSON.stringify({
+                    fullName: signupValue.fullName,
+                    dateOfBirth: signupValue.dateOfBirth,
+                    phoneNumber: signupValue.phoneNumber,
+                    gender: signupValue.gender,
+                    address: signupValue.address,
+                    email: signupValue.email,
+                    password: signupValue.password,
+                  }),
+                })
+                  .then(response => {
+                    if (response.ok === true) {
+                      return response.json;
+                    }
+                    throw new Error('잘못된 접근입니다');
+                  })
+                  .catch(error => console.log(error))
+                  .then(data => {
+                    if (data.message === 'signup success') {
+                      localStorage.setItem('TOKEN', data.token);
+                      alert('Sims&co 가입을 축하합니다');
+                    } else {
+                      alert('이미 가입한 회원입니다');
+                      navigate('/main');
+                    }
+                  })
+              : console.log('입력되지 않은 정보가 있습니다');
+          }}
+        >
+          가입 하기
+        </button>
       </div>
     </div>
   );
 };
 
 export default Signup;
-
-const SIGNUP_INPUT_BOX = {
-  id: 1,
-  title:
-    '성, 이름, 생일, 휴대폰, 성별(남성, 여성), 상세 주소, 이메일, 비밀번호',
-  type: 'text',
-  className: 'inputItemStyle',
-};
-
-const SIGNUP_IMAGE = [
+const SIGNUP_INPUT_LIST = [
   {
     id: 1,
-    alt: 'image1',
-    src: '../../../public/images/Signup/signup_img(1)',
+    title: '이름',
+    type: 'text',
+    name: 'fullName',
   },
   {
     id: 2,
-    alt: 'image2',
-    src: '../../../public/images/Signup/signup_img(2)',
+    title: '생일',
+    type: 'date',
+    name: 'dateOfBirth',
   },
   {
     id: 3,
-    alt: 'image3',
-    src: '../../../public/images/Signup/signup_img(3)',
+    title: '휴대폰',
+    type: 'text',
+    name: 'phoneNumber',
   },
   {
     id: 4,
-    alt: 'image4',
-    src: '../../../public/images/Signup/signup_img(4)',
+    title: '성별(남성, 여성)',
+    type: 'text',
+    name: 'gender',
   },
   {
     id: 5,
-    alt: 'image5',
-    src: '../../../public/images/Signup/signup_img(5)',
+    title: '주소',
+    type: 'text',
+    name: 'address',
+  },
+  {
+    id: 6,
+    title: '이메일',
+    type: 'text',
+    name: 'email',
+  },
+  {
+    id: 7,
+    title: '비밀번호',
+    type: 'password',
+    name: 'password',
   },
 ];
