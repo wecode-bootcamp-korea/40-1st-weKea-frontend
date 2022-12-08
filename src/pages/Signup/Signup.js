@@ -22,13 +22,9 @@ const Signup = () => {
   };
 
   const isValid =
+    Object.values(signupValue).every(value => value) &&
     signupValue.email.includes('@') &&
-    signupValue.password.length >= 8 &&
-    signupValue.fullName &&
-    signupValue.dateOfBirth &&
-    signupValue.phoneNumber &&
-    signupValue.gender &&
-    signupValue.address;
+    signupValue.password.length >= 8;
 
   return (
     <div className="entireArray">
