@@ -1,0 +1,13 @@
+.category {
+  margin: 0 3% 0 6%;
+  .categoryList {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+
+    // margin: 0 10px;
+    .categoryItems {
+      margin: 18px;
+    }
+  }
+}
