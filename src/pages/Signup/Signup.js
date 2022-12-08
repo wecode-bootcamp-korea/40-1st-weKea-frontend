@@ -70,9 +70,9 @@ const Signup = () => {
           disabled={!isValid}
           onClick={() => {
             isValid
-              ? fetch('http://1/signup', {
+              ? fetch('http://10.58.52.109:3000/signup', {
                   method: 'POST',
-                  headers: { 'content-Type': 'application/json;charset-stf-8' },
+                  headers: { 'Content-Type': 'application/json;charset=utf-8' },
                   body: JSON.stringify({
                     fullName: signupValue.fullName,
                     dateOfBirth: signupValue.dateOfBirth,
@@ -85,18 +85,16 @@ const Signup = () => {
                 })
                   .then(response => {
                     if (response.ok === true) {
-                      return response.json;
+                      return response.json();
                     }
                     throw new Error('잘못된 접근입니다');
                   })
-                  .catch(error => console.log(error))
                   .then(data => {
                     if (data.message === 'signup success') {
-                      localStorage.setItem('TOKEN', data.token);
                       alert('Sims&co 가입을 축하합니다');
+                      navigate('/main');
                     } else {
                       alert('이미 가입한 회원입니다');
-                      navigate('/main');
                     }
                   })
               : console.log('입력되지 않은 정보가 있습니다');
