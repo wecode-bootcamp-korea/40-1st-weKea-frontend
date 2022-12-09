@@ -1,4 +1,5 @@
 import React from 'react';
+import Carousel from '../../components/Carousel/Carousel';
 import './Main.scss';
 
 const Main = () => {
@@ -17,7 +18,7 @@ const Main = () => {
         <div className="mainPromoTitle">
           올 겨울, 더 따듯한 우리집을 위해 최대 70% 할인 + 멤버 5% 추가할인
         </div>
-        <div className="mainPromoTextBox">
+        <div className="mainPromoSubTextBox">
           <div className="mainPromoTextStyle">
             다가오는 연말연시를 맞아 더 낮은 가격의 홈퍼니싱 제품으로 사랑하는
             사람과 함께 따뜻한 겨울을 준비하세요. 11월 20일 부터 1월 28일까지
@@ -35,7 +36,7 @@ const Main = () => {
                 src="./images/Main/mainPromo1.jpg"
               />
             </a>
-          </div>{' '}
+          </div>
           <div className="promoImageBoxEach">
             <a href="">
               <img
@@ -59,6 +60,7 @@ const Main = () => {
           <button className="textPromoButton">크리스마스 마켓 구경가기</button>
         </div>
       </div>
+      <Carousel />
     </div>
   );
 };

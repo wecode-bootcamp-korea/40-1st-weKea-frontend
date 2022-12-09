@@ -1,7 +1,7 @@
 .mainArray {
   display: flex;
   flex-direction: column;
-  margin: 90px 9%;
+  margin: 90px 3% 6% 6%;
 
   .mainTitleBoxStyle {
     margin-bottom: 50px;
@@ -13,7 +13,7 @@
     }
 
     .loginLinkStyle {
-      color: blue;
+      color: rgb(17, 129, 248);
       font-weight: bold;
       text-decoration: none;
     }
@@ -23,27 +23,27 @@
 
     .mainPromoTitle {
       margin-bottom: 10px;
-      font-size: 22px;
+      font-size: 25px;
       font-weight: bold;
     }
-    .mainPromoTextBox {
+    .mainPromoSubTextBox {
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      width: 87vw;
+      width: 90vw;
       margin-bottom: 20px;
-      font-size: 15px;
+      font-size: 14px;
 
       .mainPromoTextStyle {
-        width: 58%;
-        font-size: 15px;
+        width: 53%;
+        font-size: 14px;
         line-height: 130%;
       }
 
       .promoButtonStyle {
         width: 200px;
-        height: 45px;
+        height: 40px;
         border: 1px solid #000000;
         border-radius: 70px;
         background-color: #ffffff;
@@ -53,31 +53,44 @@
     .promoImageBox {
       display: flex;
       justify-content: space-between;
-      width: 87vw;
-      .promoImage {
-        width: 100%;
+      width: 90vw;
+      height: 80vh;
+      margin-bottom: 60px;
+
+      .promoImageBoxEach {
+        width: 49%;
         height: 100%;
-        object-fit: cover;
+
+        .promoImage {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
     }
   }
 
   .textPromoBox {
     width: 90vw;
-    background-color: #006e3b;
+    padding: 5%;
+    padding-right: 40%;
+    background-color: #007b41;
 
     .textPromoMainText {
+      margin-bottom: 10px;
       color: white;
-      font-size: 20px;
+      font-size: 23px;
       font-weight: bold;
     }
     .textPromoSubText {
+      margin-bottom: 40px;
       color: white;
-      font-size: 15px;
+      font-size: 14px;
+      line-height: 160%;
     }
     .textPromoButton {
       width: 200px;
-      height: 45px;
+      height: 40px;
       border: none;
       border-radius: 70px;
       background-color: #ffffff;
