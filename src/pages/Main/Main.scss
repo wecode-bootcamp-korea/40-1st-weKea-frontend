@@ -1,0 +1,87 @@
+.mainArray {
+  display: flex;
+  flex-direction: column;
+  margin: 90px 9%;
+
+  .mainTitleBoxStyle {
+    margin-bottom: 50px;
+
+    .welcomeMessageStyle {
+      margin-bottom: 10px;
+      font-size: 35px;
+      font-weight: bold;
+    }
+
+    .loginLinkStyle {
+      color: blue;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+  .mainPromoStyle {
+    margin-bottom: 50px;
+
+    .mainPromoTitle {
+      margin-bottom: 10px;
+      font-size: 22px;
+      font-weight: bold;
+    }
+    .mainPromoTextBox {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 87vw;
+      margin-bottom: 20px;
+      font-size: 15px;
+
+      .mainPromoTextStyle {
+        width: 58%;
+        font-size: 15px;
+        line-height: 130%;
+      }
+
+      .promoButtonStyle {
+        width: 200px;
+        height: 45px;
+        border: 1px solid #000000;
+        border-radius: 70px;
+        background-color: #ffffff;
+        font-weight: bold;
+      }
+    }
+    .promoImageBox {
+      display: flex;
+      justify-content: space-between;
+      width: 87vw;
+      .promoImage {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .textPromoBox {
+    width: 90vw;
+    background-color: #006e3b;
+
+    .textPromoMainText {
+      color: white;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    .textPromoSubText {
+      color: white;
+      font-size: 15px;
+    }
+    .textPromoButton {
+      width: 200px;
+      height: 45px;
+      border: none;
+      border-radius: 70px;
+      background-color: #ffffff;
+      font-weight: bold;
+    }
+  }
+}
