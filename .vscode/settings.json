@@ -13,6 +13,6 @@
   "stylelint.enable": true,
   "javascript.format.enable": false,
   "eslint.alwaysShowStatus": true,
-  "files.autoSave": "afterDelay",
+  "files.autoSave": "onFocusChange",
   "prettier.printWidth": 120
 }
