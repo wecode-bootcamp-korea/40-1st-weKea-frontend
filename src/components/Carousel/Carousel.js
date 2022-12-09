@@ -1,28 +1,30 @@
-import React from 'react';
+import React, { useState, useRef } from 'react';
 import './Carousel.scss';
 
 const Carousel = () => {
-  const prevButton = document.querySelector('prevButton');
-  const nextButton = document.querySelector('nextButton');
-
+  const nextImage = useRef(CAROUSEL_LIST.id);
+  const moveToNext = () => {};
   return (
     <section className="carousel">
       <div className="titleStyle">공간별 제품 쇼핑하기</div>
-      <button className="prevButton">&#60;</button>
-      <button className="nextButton">&#62;</button>
-      <div className="imageContainer">
-        {CAROUSEL_LIST.map(data => {
-          return (
-            <div key={data.id} className="imageBoxEach">
-              <button className="imageLinkButton">{data.btnText}</button>
-              <img
-                className="carouselImageStyle"
-                src={data.src}
-                alt={data.alt}
-              />
-            </div>
-          );
-        })}
+
+      <div className="carouselContainer">
+        <button className="prevButton">&#60;</button>
+        <button className="nextButton">&#62;</button>
+        <div className="imageContainer">
+          {CAROUSEL_LIST.map(data => {
+            return (
+              <div key={data.id} className="imageBoxEach">
+                <button className="imageLinkButton">{data.btnText}</button>
+                <img
+                  className="carouselImageStyle"
+                  src={data.src}
+                  alt={data.alt}
+                />
+              </div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );
