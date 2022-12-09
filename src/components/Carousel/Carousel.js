@@ -2,36 +2,87 @@ import React from 'react';
 import './Carousel.scss';
 
 const Carousel = () => {
+  const prevButton = document.querySelector('prevButton');
+  const nextButton = document.querySelector('nextButton');
+
   return (
     <section className="carousel">
       <div className="titleStyle">공간별 제품 쇼핑하기</div>
-      <div className="imageBox">
-        {CAROUSEL_IMG_LIST.map(image => {
+      <button className="prevButton">&#60;</button>
+      <button className="nextButton">&#62;</button>
+      <div className="imageContainer">
+        {CAROUSEL_LIST.map(data => {
           return (
-            <img
-              key={image.id}
-              className="carouselImageStyle"
-              src={image.src}
-              alt={image.alt}
-            />
+            <div key={data.id} className="imageBoxEach">
+              <button className="imageLinkButton">{data.btnText}</button>
+              <img
+                className="carouselImageStyle"
+                src={data.src}
+                alt={data.alt}
+              />
+            </div>
           );
         })}
       </div>
-      <button />
     </section>
   );
 };
 
 export default Carousel;
 
-const CAROUSEL_IMG_LIST = [
-  { id: 1, src: './images/carousel1.jpg', alt: 'carouselImage' },
-  { id: 2, src: './images/carousel2.jpg', alt: 'carouselImage' },
-  { id: 3, src: './images/carousel3.jpg', alt: 'carouselImage' },
-  { id: 4, src: './images/carousel4.jpg', alt: 'carouselImage' },
-  { id: 5, src: './images/carousel5.jpg', alt: 'carouselImage' },
-  { id: 6, src: './images/carousel6.jpg', alt: 'carouselImage' },
-  { id: 7, src: './images/carousel7.jpg', alt: 'carouselImage' },
-  { id: 8, src: './images/carousel9.jpg', alt: 'carouselImage' },
-  { id: 9, src: './images/carousel1.jpg', alt: 'carouselImage' },
+const CAROUSEL_LIST = [
+  {
+    id: 1,
+    src: '/images/Carousel/carousel1.jpg',
+    alt: 'carouselImage',
+    btnText: '침실',
+  },
+  {
+    id: 2,
+    src: '/images/Carousel/carousel2.jpg',
+    alt: 'carouselImage',
+    btnText: '홈오피스',
+  },
+  {
+    id: 3,
+    src: '/images/Carousel/carousel3.jpg',
+    alt: 'carouselImage',
+    btnText: '다이닝',
+  },
+  {
+    id: 4,
+    src: '/images/Carousel/carousel4.jpg',
+    alt: 'carouselImage',
+    btnText: '거실',
+  },
+  {
+    id: 5,
+    src: '/images/Carousel/carousel5.jpg',
+    alt: 'carouselImage',
+    btnText: '주방',
+  },
+  {
+    id: 6,
+    src: '/images/Carousel/carousel6.jpg',
+    alt: 'carouselImage',
+    btnText: '홈데코/장식품',
+  },
+  {
+    id: 7,
+    src: '/images/Carousel/carousel7.jpg',
+    alt: 'carouselImage',
+    btnText: '이동하기',
+  },
+  {
+    id: 8,
+    src: '/images/Carousel/carousel9.jpg',
+    alt: 'carouselImage',
+    btnText: 'gotoBtn',
+  },
+  {
+    id: 9,
+    src: '/images/Carousel/carousel1.jpg',
+    alt: 'carouselImage',
+    btnText: 'pet',
+  },
 ];
