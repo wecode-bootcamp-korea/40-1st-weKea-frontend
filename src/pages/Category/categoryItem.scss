@@ -1,41 +1,44 @@
 @import '../../styles/variables.scss';
 .categoryItems {
-  max-width: 400px;
-  // 다시 확인
-  display: inline-block;
-
   .categoryImg {
   }
+  .itemInformationWrapper {
+    padding-bottom: 40px;
 
-  .itemInformation {
-    display: flex;
-    flex-direction: column;
-
-    .itemTitle {
+    .itemInformation {
       display: flex;
       flex-direction: column;
-      line-height: 1.5;
-      margin-top: 20px;
 
-      .itemName {
-        font-size: 14px;
-        font-weight: 700;
+      &:hover .itemName {
+        text-decoration: underline;
       }
 
-      .itemDescription {
-        color: #484848;
+      .itemTitle {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.5;
+        margin-top: 20px;
+
+        .itemName {
+          font-size: 14px;
+          font-weight: 700;
+        }
+
+        .itemDescription {
+          color: #484848;
+          margin-bottom: 20px;
+        }
+      }
+
+      .itemPrice {
+        font-size: 22px;
+        font-weight: 700;
         margin-bottom: 20px;
       }
-    }
 
-    .itemPrice {
-      font-size: 22px;
-      font-weight: 700;
-      margin-bottom: 20px;
-    }
-
-    .itemStar {
-      margin-bottom: 20px;
+      .itemStar {
+        margin-bottom: 20px;
+      }
     }
   }
 
@@ -48,6 +51,10 @@
     background-color: $mainBrandBlue;
     color: white;
     cursor: pointer;
+
+    &:hover {
+      background-color: #004f93;
+    }
   }
 
   .iconHeart {
