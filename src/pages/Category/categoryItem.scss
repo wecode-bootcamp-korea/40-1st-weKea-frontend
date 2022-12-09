@@ -1,6 +1,11 @@
-@import '../../styles/variables.scss';
+@import '../../styles/variables';
 .categoryItems {
+  width: 100%;
   .categoryImg {
+    & img {
+      width: 100%;
+      height: auto;
+    }
   }
   .itemInformationWrapper {
     padding-bottom: 40px;
@@ -16,8 +21,8 @@
       .itemTitle {
         display: flex;
         flex-direction: column;
-        line-height: 1.5;
         margin-top: 20px;
+        line-height: 1.5;
 
         .itemName {
           font-size: 14px;
@@ -25,15 +30,15 @@
         }
 
         .itemDescription {
-          color: #484848;
           margin-bottom: 20px;
+          color: #484848;
         }
       }
 
       .itemPrice {
+        margin-bottom: 20px;
         font-size: 22px;
         font-weight: 700;
-        margin-bottom: 20px;
       }
 
       .itemStar {
@@ -43,11 +48,11 @@
   }
 
   .iconCart {
-    margin: 0;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    margin: 0;
     border: transparent;
+    border-radius: 50%;
     background-color: $mainBrandBlue;
     color: white;
     cursor: pointer;
@@ -58,11 +63,11 @@
   }
 
   .iconHeart {
-    margin: 0;
     width: 40px;
     height: 40px;
-    border-radius: 50%;
+    margin: 0;
     border: transparent;
+    border-radius: 50%;
     background-color: white;
     cursor: pointer;
 

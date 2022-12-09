@@ -10,8 +10,6 @@ const CategoryItems = ({ price }) => {
         <img
           src="https://www.ikea.com/kr/ko/images/products/barnasinne-spice-mill-black-white__1114947_pe871876_s5.jpg?f=m"
           alt="상품이미지"
-          width="350px"
-          height="350px"
         />
       </div>
 

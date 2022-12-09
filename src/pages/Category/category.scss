@@ -75,13 +75,13 @@
   }
 
   .categoryList {
-    display: flex;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 20px;
 
     .categoryItems {
       border-bottom: 1px solid #dfdfdf;
+      // width: 350px;
       padding: 60px 0 40px 0;
     }
   }
