@@ -26,8 +26,32 @@ const Signup = () => {
     signupValue.email.includes('@') &&
     signupValue.password.length >= 8;
 
+  const gotoMain = () => {
+    isValid
+      ? fetch('http://10.58.52.109:3000/signup', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json;charset=utf-8' },
+          body: JSON.stringify({ signupValue }),
+        })
+          .then(response => {
+            if (response.ok === true) {
+              return response.json();
+            }
+            throw new Error('잘못된 접근입니다');
+          })
+          .then(data => {
+            if (data.message === 'signup success') {
+              alert('Sims&co 가입을 축하합니다');
+              navigate('/main');
+            } else {
+              alert('이미 가입한 회원입니다');
+            }
+          })
+      : console.log('입력되지 않은 정보가 있습니다');
+  };
+
   return (
-    <div className="entireArray">
+    <div className="signup">
       <div>
         <header className="headerArray">
           <a className="arrowMargin" href="/Main">
@@ -51,55 +75,23 @@ const Signup = () => {
         </span>
       </div>
       <div className="inputContainerStyle">
-        {SIGNUP_INPUT_LIST.map(input => {
-          return (
-            <div key={input.id}>
-              {input.title}
-              <input
-                type={input.type}
-                className="inputItemStyle"
-                name={input.name}
-                value={signupValue.name}
-                onChange={getSignupValue}
-              />
-            </div>
-          );
-        })}
-        <button
-          className="buttonStyle"
-          disabled={!isValid}
-          onClick={() => {
-            isValid
-              ? fetch('http://10.58.52.109:3000/signup', {
-                  method: 'POST',
-                  headers: { 'Content-Type': 'application/json;charset=utf-8' },
-                  body: JSON.stringify({
-                    fullName: signupValue.fullName,
-                    dateOfBirth: signupValue.dateOfBirth,
-                    phoneNumber: signupValue.phoneNumber,
-                    gender: signupValue.gender,
-                    address: signupValue.address,
-                    email: signupValue.email,
-                    password: signupValue.password,
-                  }),
-                })
-                  .then(response => {
-                    if (response.ok === true) {
-                      return response.json();
-                    }
-                    throw new Error('잘못된 접근입니다');
-                  })
-                  .then(data => {
-                    if (data.message === 'signup success') {
-                      alert('Sims&co 가입을 축하합니다');
-                      navigate('/main');
-                    } else {
-                      alert('이미 가입한 회원입니다');
-                    }
-                  })
-              : console.log('입력되지 않은 정보가 있습니다');
-          }}
-        >
+        <form>
+          {SIGNUP_INPUT_LIST.map(input => {
+            return (
+              <div key={input.id}>
+                {input.title}
+                <input
+                  type={input.type}
+                  className="inputItemStyle"
+                  name={input.name}
+                  value={signupValue.name}
+                  onChange={getSignupValue}
+                />
+              </div>
+            );
+          })}
+        </form>
+        <button className="buttonStyle" disabled={!isValid} onClick={gotoMain}>
           가입 하기
         </button>
       </div>

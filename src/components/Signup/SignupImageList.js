@@ -3,7 +3,7 @@ import React from 'react';
 const SignupImageList = () => {
   return IMAGE_LIST.map(img => {
     return (
-      <div key={img.id} className="imgContainerFlex">
+      <div key={img.id} className="signupImageList">
         <span className="longImgBoxMargin">
           <img alt={img.alt} className="longImgStyle" src={img.src} />
         </span>
