@@ -2,8 +2,11 @@ import React, { useState, useRef } from 'react';
 import './Carousel.scss';
 
 const Carousel = () => {
-  const nextImage = useRef(CAROUSEL_LIST.id);
-  const moveToNext = () => {};
+  const nextImage = useRef(0);
+  const moveToNext = () => {
+    nextImage.current += 80;
+  };
+
   return (
     <section className="carousel">
       <div className="titleStyle">공간별 제품 쇼핑하기</div>
