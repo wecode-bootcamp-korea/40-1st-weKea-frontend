@@ -1,23 +1,30 @@
 @import '../../styles/mixin.scss';
-
+@import '../../styles/variables.scss';
 .category {
-  margin: 0 3% 0 6%;
-  margin-top: 90px;
+  margin: 0 3% 0 9%;
+  // margin-top: 0px;
 
   .categoryTitle {
     font-size: 36px;
     font-weight: 700;
-    margin: 50px 0;
+    margin: 10px 0 50px 0;
   }
 
   .buttonCountWrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex(flex-start, center, null);
+    flex-direction: row-reverse;
     padding: 16px 0;
+    gap: 20px;
+
+    @media (max-width: $breakpoint-tablet) {
+      & {
+        @include flex(space-between, center, null);
+        flex-direction: row;
+      }
+    }
 
     .categoryButton {
-      & button {
+      .categoryFilterButton {
         background: transparent;
         color: #111;
         font-weight: 700;
@@ -49,11 +56,12 @@
     position: sticky;
     display: flex;
     top: 0;
-    background-color: white;
+    background-color: #fff;
     border-bottom: 1px solid #dfdfdf;
     padding: 16px 0;
+    z-index: 1;
 
-    & button {
+    .categoryFilterButton {
       @include flex(space-between, normal, normal);
       gap: 10px;
       background-color: #f5f5f5;
@@ -75,14 +83,33 @@
   }
 
   .categoryList {
+    position: relative;
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
 
     .categoryItems {
-      border-bottom: 1px solid #dfdfdf;
-      // width: 350px;
       padding: 60px 0 40px 0;
+
+      &::after {
+        position: absolute;
+        content: '';
+        left: 0;
+        right: 0;
+        border-bottom: 1px solid #dfdfdf;
+      }
+    }
+
+    @media (max-width: $breakpoint-desktop) {
+      & {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      & {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
   }
 }

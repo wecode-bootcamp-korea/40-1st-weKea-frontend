@@ -1,0 +1,122 @@
+[
+  {
+    "id": 1,
+    "name": "상품이름",
+    "price": 1000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/arch/sepia",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 2,
+    "name": "상품이름",
+    "price": 2000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/animals/grayscale",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 3,
+    "name": "상품이름",
+    "price": 3000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/nature/sepia",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 4,
+    "name": "상품이름",
+    "price": 4000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/arch/grayscale",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 5,
+    "name": "상품이름",
+    "price": 5000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/animals/sepia",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 6,
+    "name": "상품이름",
+    "price": 6000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/arch/grayscale",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 7,
+    "name": "상품이름",
+    "price": 7000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/nature/sepia",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 8,
+    "name": "상품이름",
+    "price": 8000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/arch/grayscale",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 9,
+    "name": "상품이름",
+    "price": 9000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/animals/sepia",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  },
+  {
+    "id": 10,
+    "name": "상품이름",
+    "price": 10000,
+    "product_code": true,
+    "thumbnail_url": "http://placeimg.com/400/400/arch/grayscale",
+    "example_image_url": "url",
+    "rating": "⭐️⭐️⭐️⭐️⭐️",
+    "description": "DESCRIPTION 상품설명",
+    "stock": 1,
+    "category_id": "카테고리"
+  }
+]
