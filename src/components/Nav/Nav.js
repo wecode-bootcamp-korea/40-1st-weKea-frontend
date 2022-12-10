@@ -1,10 +1,20 @@
-import React from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import NavSearchList from './NavSearchList';
 import './nav.scss';
 
 const Nav = () => {
   const navigate = useNavigate();
+  const ref = useRef();
+  const [isFocus, setIsFocus] = useState(false);
+  // const [isVisible, setIsVisible] = useState(false);
+
+  const onFocusHandler = () => {
+    setIsFocus(true);
+  };
+
+  useOnOutSideClick(ref, () => setIsFocus(false));
   return (
     <nav className="nav">
       <span className="navButton">
@@ -34,6 +44,7 @@ const Nav = () => {
           </div>
           <input
             className="navSearchInput"
+            onClick={onFocusHandler}
             type="text"
             placeholder="검색어 입력"
           />
@@ -44,7 +55,13 @@ const Nav = () => {
               size="lg"
             />
           </div>
+          {isFocus && (
+            <div className="navDropDown" ref={ref}>
+              <NavSearchList />
+            </div>
+          )}
         </div>
+
         <div className="navIcons">
           <span className="navIconsUser">
             <FontAwesomeIcon
@@ -72,6 +89,25 @@ const Nav = () => {
       </div>
     </nav>
   );
+};
+
+const useOnOutSideClick = (ref, handler) => {
+  useEffect(() => {
+    const close = e => {
+      // console.log(ref);
+      if (!ref.current || ref.current.contains(e.target)) {
+        return;
+      }
+      handler(e);
+      console.log('current', ref.current);
+      // console.log(e.target);
+    };
+    document.addEventListener('mousedown', close);
+
+    return () => {
+      document.removeEventListener('mousedown', close);
+    };
+  }, [ref, handler]);
 };
 
 export default Nav;

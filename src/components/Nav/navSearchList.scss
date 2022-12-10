@@ -1,0 +1,26 @@
+.navDropDown {
+  background-color: #fff;
+  position: absolute;
+  width: calc(100% + 24px);
+  // 임시 높이
+  height: 200px;
+  left: -12px;
+  padding: 16px 32px 24px 32px;
+  border-radius: 0 0 10px 10px;
+
+  .navSearchResult {
+    display: flex;
+    align-items: center;
+    margin-left: 4%;
+
+    .searchResultText {
+      margin-left: 20px;
+      font-weight: 700;
+      font-size: 14px;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
