@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './categoryItem.scss';
@@ -6,8 +6,8 @@ import './categoryItem.scss';
 const CategoryItems = ({ name, price, image, description, rating }) => {
   return (
     <div className="categoryItems">
-      <div className="categoryImg">
-        <img src={image} alt="상품이미지" />
+      <div>
+        <img className="categoryImg" src={image} alt="상품이미지" />
       </div>
 
       <div className="itemInformationWrapper">

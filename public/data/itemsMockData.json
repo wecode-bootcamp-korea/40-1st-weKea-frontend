@@ -2,7 +2,7 @@
   {
     "id": 1,
     "name": "상품이름",
-    "price": 1000,
+    "price": "₩100,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/arch/sepia",
     "example_image_url": "url",
@@ -14,7 +14,7 @@
   {
     "id": 2,
     "name": "상품이름",
-    "price": 2000,
+    "price": "₩200,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/animals/grayscale",
     "example_image_url": "url",
@@ -26,7 +26,7 @@
   {
     "id": 3,
     "name": "상품이름",
-    "price": 3000,
+    "price": "₩300,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/nature/sepia",
     "example_image_url": "url",
@@ -38,7 +38,7 @@
   {
     "id": 4,
     "name": "상품이름",
-    "price": 4000,
+    "price": "₩400,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/arch/grayscale",
     "example_image_url": "url",
@@ -50,7 +50,7 @@
   {
     "id": 5,
     "name": "상품이름",
-    "price": 5000,
+    "price": "₩500,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/animals/sepia",
     "example_image_url": "url",
@@ -62,7 +62,7 @@
   {
     "id": 6,
     "name": "상품이름",
-    "price": 6000,
+    "price": "₩600,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/arch/grayscale",
     "example_image_url": "url",
@@ -74,7 +74,7 @@
   {
     "id": 7,
     "name": "상품이름",
-    "price": 7000,
+    "price": "₩700,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/nature/sepia",
     "example_image_url": "url",
@@ -86,7 +86,7 @@
   {
     "id": 8,
     "name": "상품이름",
-    "price": 8000,
+    "price": "₩800,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/arch/grayscale",
     "example_image_url": "url",
@@ -98,7 +98,7 @@
   {
     "id": 9,
     "name": "상품이름",
-    "price": 9000,
+    "price": "₩900,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/animals/sepia",
     "example_image_url": "url",
@@ -110,7 +110,7 @@
   {
     "id": 10,
     "name": "상품이름",
-    "price": 10000,
+    "price": "₩1,000,000",
     "product_code": true,
     "thumbnail_url": "http://placeimg.com/400/400/arch/grayscale",
     "example_image_url": "url",

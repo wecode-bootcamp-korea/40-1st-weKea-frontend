@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './category.scss';
 const Category = () => {
   const [itemData, setItemData] = useState([]);
+
   useEffect(() => {
     fetch('/data/itemsMockData.json', {
       method: 'GET',
@@ -13,6 +14,7 @@ const Category = () => {
         setItemData(data);
       });
   }, []);
+
   return (
     <div className="category">
       <div className="categoryTitle">
@@ -40,18 +42,20 @@ const Category = () => {
         </div>
 
         <div className="categoryList">
-          {itemData.map((item, i) => {
-            return (
-              <CategoryItem
-                key={item.id}
-                name={item.name}
-                price={item.price}
-                description={item.description}
-                image={item.thumbnail_url}
-                rating={item.rating}
-              />
-            );
-          })}
+          {itemData.map(
+            ({ id, name, price, description, thumbnail_url, rating }) => {
+              return (
+                <CategoryItem
+                  key={id}
+                  name={name}
+                  price={price}
+                  description={description}
+                  image={thumbnail_url}
+                  rating={rating}
+                />
+              );
+            }
+          )}
         </div>
       </div>
     </div>
