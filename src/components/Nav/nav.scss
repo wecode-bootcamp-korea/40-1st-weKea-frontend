@@ -83,30 +83,32 @@
 }
 
 @media (max-width: 1200px) {
-  .navButton {
-    display: none;
-    position: static;
-  }
-
-  .navContainer {
-    margin-left: 0;
-
-    .navIcons .fontawesome {
-      margin-right: 20px;
-      display: flex;
-    }
-
-    & .fontawesome {
-      margin-right: 0;
-    }
-
-    .navIconsUser > span {
+  .nav {
+    .navButton {
       display: none;
+      position: static;
     }
 
-    .navIconsHamburger {
-      display: block;
-      margin-right: 0;
+    .navContainer {
+      margin-left: 0;
+
+      .navIcons .fontawesome {
+        margin-right: 20px;
+        display: flex;
+      }
+
+      & .fontawesome {
+        margin-right: 0;
+      }
+
+      .navIconsUser > span {
+        display: none;
+      }
+
+      .navIconsHamburger {
+        display: block;
+        margin-right: 0;
+      }
     }
   }
 }
