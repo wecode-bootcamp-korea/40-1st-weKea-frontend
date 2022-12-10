@@ -1,0 +1,128 @@
+@import '../../styles/mixin.scss';
+
+.nav {
+  position: relative;
+  height: 90px;
+  padding: 0 3%;
+
+  .navButton {
+    @include flex_column;
+    position: fixed;
+    top: 25px;
+    left: 3%;
+
+    & .fontawesome {
+      margin-bottom: 14px;
+    }
+  }
+
+  .navContainer {
+    @include flex(space-between, center);
+    margin-left: 6%;
+    height: 100%;
+
+    .navContainerLogo {
+      width: 90px;
+      height: 36px;
+      background-color: yellow;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    .navSearch {
+      position: relative;
+      width: 70%;
+
+      .navSearchIconLeft {
+        position: absolute;
+        top: 50%;
+        left: 3%;
+        transform: translate(-50%, -50%);
+      }
+
+      .navSearchInput {
+        width: 100%;
+        padding: 16px 5%;
+        border-radius: 50rem;
+        background-color: #f5f5f5;
+        border: 2px solid transparent;
+        font-size: 16px;
+
+        &:hover {
+          background-color: #dfdfdf;
+        }
+
+        &:focus {
+          background-color: #fff;
+          border-color: #0058a3;
+        }
+      }
+
+      .navSearchIconRight {
+        position: absolute;
+        top: 50%;
+        right: 2%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    .navIcons {
+      display: flex;
+
+      .navIconsUser {
+        margin-right: 10px;
+
+        & .fontawesome {
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1200px) {
+  .navButton {
+    display: none;
+    position: static;
+  }
+
+  .navContainer {
+    margin-left: 0;
+
+    .navIcons .fontawesome {
+      margin-right: 20px;
+      display: flex;
+    }
+
+    & .fontawesome {
+      margin-right: 0;
+    }
+
+    .navIconsUser > span {
+      display: none;
+    }
+
+    .navIconsHamburger {
+      display: block;
+      margin-right: 0;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .nav {
+    height: 60px;
+
+    .navButton {
+      top: 14px;
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .navIconsHamburger {
+    display: none;
+  }
+}

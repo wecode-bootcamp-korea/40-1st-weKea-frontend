@@ -8,6 +8,7 @@ import Signup from './pages/Signup/Signup';
 const Router = () => {
   return (
     <BrowserRouter>
+      <Nav />
       <Routes>
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<Main />} />
