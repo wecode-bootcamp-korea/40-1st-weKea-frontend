@@ -8,12 +8,13 @@
   width: 480px;
   height: 100%;
   padding: 0 30px;
-  z-index: 999;
+  z-index: 0;
   background-color: #fff;
   overflow-y: scroll;
   transform: translateX(0);
   transition: transform 200ms 0s;
   transition-property: transform, visibility;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.2);
 
   .sideModalTitle {
     display: flex;

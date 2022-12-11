@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideModal from '../../components/SideModal/SideModal';
@@ -7,10 +7,14 @@ import './nav.scss';
 const Nav = () => {
   const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
-  const onClickHandler = e => {
-    console.log(e.target);
+  const ref = useRef();
+
+  const onClickHandler = () => {
     setIsClicked(!isClicked);
   };
+
+  useOnOutSideClick(ref, () => setIsClicked(!isClicked));
+
   return (
     <nav className="nav">
       <span className="navButton">
@@ -77,13 +81,35 @@ const Nav = () => {
           </span>
         </div>
       </div>
-      {isClicked ? (
-        <SideModal className="sideModal" />
-      ) : (
-        <SideModal className="sideModalHidden" />
-      )}
+      <div className="sideModalWrapper" ref={ref}>
+        {isClicked ? (
+          <SideModal className="sideModal" />
+        ) : (
+          <SideModal className="sideModalHidden" />
+        )}
+      </div>
     </nav>
   );
+};
+
+const useOnOutSideClick = (ref, handler) => {
+  // console.log('ref : ', ref.current);
+  useEffect(() => {
+    const close = e => {
+      console.log('e.target : ', e.target);
+      console.log('ref.current : ', ref.current);
+      if (!ref.current || ref.current.contains(e.target)) {
+        return;
+      }
+      handler(e);
+      // console.log('current : ', ref.current);
+    };
+    document.addEventListener('mousedown', close);
+
+    return () => {
+      document.removeEventListener('mousedown', close);
+    };
+  }, [ref, handler]);
 };
 
 export default Nav;
