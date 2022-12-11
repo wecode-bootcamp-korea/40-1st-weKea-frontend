@@ -41,13 +41,13 @@
         right: -12px;
         bottom: -12px;
         left: -12px;
-        display: block;
+        // display: block;
         width: calc(100% + 24px);
         height: calc(100% + 24px);
         content: '';
         background-color: #fff;
         border-radius: 8px;
-        box-shadow: rgba(0, 0, 0, 0.1) 0 0 0 1111px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1111px;
       }
 
       .navSearchIconLeft {

@@ -11,7 +11,7 @@ const Nav = () => {
   // const [isVisible, setIsVisible] = useState(false);
 
   const onFocusHandler = () => {
-    setIsFocus(true);
+    setIsFocus(!isFocus);
   };
 
   useOnOutSideClick(ref, () => setIsFocus(false));
@@ -44,7 +44,7 @@ const Nav = () => {
           </div>
           <input
             className="navSearchInput"
-            onClick={onFocusHandler}
+            onFocus={onFocusHandler}
             type="text"
             placeholder="검색어 입력"
           />
@@ -94,7 +94,7 @@ const Nav = () => {
 const useOnOutSideClick = (ref, handler) => {
   useEffect(() => {
     const close = e => {
-      // console.log(ref);
+      console.log(e.target);
       if (!ref.current || ref.current.contains(e.target)) {
         return;
       }
