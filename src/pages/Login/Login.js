@@ -1,11 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Login.scss';
-import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
   const [userLogin, setUserLogin] = useState({ email: '', password: '' });
-  const navi = useNavigate('/main');
+  const navigate = useNavigate();
 
   const userInfo = e => {
     const { name, value } = e.target;
@@ -15,7 +14,7 @@ const Login = () => {
     userLogin.email.includes('@') && userLogin.password.length >= 8;
 
   const handleClick = event => {
-    navi('/main');
+    navigate('/main');
   };
   function isvalid(e) {
     e.preventDefault();
@@ -32,12 +31,11 @@ const Login = () => {
         }
         throw new Error('네트워크가 불안정합니다. 다시 시도 해 주세요');
       })
-      // .catch(error => console.log(error))
       .then(data => {
         if (data.message === 'login success') {
           localStorage.setItem('TOKEN', data.accessToken);
           alert('로그인에 성공했습니다');
-          navi('/main');
+          navigate('/main');
         } else {
           alert('아이디와 비밀번호를 확인 해 주세요');
         }
