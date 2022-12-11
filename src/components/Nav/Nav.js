@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SideModal from '../../components/SideModal/SideModal';
 import './nav.scss';
 
 const Nav = () => {
+  const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
+  const onClickHandler = e => {
+    console.log(e.target);
+    setIsClicked(!isClicked);
+  };
   return (
     <nav className="nav">
       <span className="navButton">
@@ -12,6 +18,7 @@ const Nav = () => {
           className="fontawesome"
           icon="fa-solid fa-bars"
           size="lg"
+          onClick={onClickHandler}
         />
         <span>메뉴</span>
       </span>
@@ -70,6 +77,11 @@ const Nav = () => {
           </span>
         </div>
       </div>
+      {isClicked ? (
+        <SideModal className="sideModal" />
+      ) : (
+        <SideModal className="sideModalHidden" />
+      )}
     </nav>
   );
 };
