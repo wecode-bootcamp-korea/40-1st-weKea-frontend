@@ -29,7 +29,7 @@ const Main = () => {
         </div>
         <div className="promoImageBox">
           <div className="promoImageBoxEach">
-            <a href="">
+            <a href="/promotion">
               <img
                 className="promoImage"
                 alt="promoImage"
@@ -38,7 +38,7 @@ const Main = () => {
             </a>
           </div>
           <div className="promoImageBoxEach">
-            <a href="">
+            <a href="/promotion">
               <img
                 className="promoImage"
                 alt="promoImage"

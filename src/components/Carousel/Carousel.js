@@ -1,32 +1,56 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import './Carousel.scss';
 
 const Carousel = () => {
-  const nextImage = useRef(0);
-  const moveToNext = () => {
-    nextImage.current += 80;
+  const [slideRange, setSlideRange] = useState(0);
+  const carouselRef = useRef(null);
+
+  const goToNext = () => {
+    setSlideRange(slideRange - 267);
   };
+
+  const goToPrev = () => {
+    setSlideRange(slideRange + 267);
+  };
+  useEffect(() => {
+    carouselRef.current.style.transform = `translateX(${slideRange}px)`;
+    carouselRef.current.style.transition = '500ms';
+  }, [slideRange]);
 
   return (
     <section className="carousel">
       <div className="titleStyle">공간별 제품 쇼핑하기</div>
 
       <div className="carouselContainer">
-        <button className="prevButton">&#60;</button>
-        <button className="nextButton">&#62;</button>
-        <div className="imageContainer">
-          {CAROUSEL_LIST.map(data => {
-            return (
-              <div key={data.id} className="imageBoxEach">
-                <button className="imageLinkButton">{data.btnText}</button>
-                <img
-                  className="carouselImageStyle"
-                  src={data.src}
-                  alt={data.alt}
-                />
-              </div>
-            );
-          })}
+        <button
+          className="prevButton"
+          onClick={goToPrev}
+          style={{ display: slideRange === 0 ? 'none' : '' }}
+        >
+          &#60;
+        </button>
+        <button
+          className="nextButton"
+          onClick={goToNext}
+          style={{ display: slideRange === -267 * 4 ? 'none' : '' }}
+        >
+          &#62;
+        </button>
+        <div className="aaa">
+          <div className="imageContainer" ref={carouselRef}>
+            {CAROUSEL_LIST.map(data => {
+              return (
+                <div key={data.id} className="imageBoxEach">
+                  <img
+                    className="carouselImageStyle"
+                    src={data.src}
+                    alt={data.alt}
+                  />
+                  <button className="imageLinkButton">{data.btnText}</button>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>
@@ -76,13 +100,13 @@ const CAROUSEL_LIST = [
     id: 7,
     src: '/images/Carousel/carousel7.jpg',
     alt: 'carouselImage',
-    btnText: '이동하기',
+    btnText: '키즈',
   },
   {
     id: 8,
     src: '/images/Carousel/carousel9.jpg',
     alt: 'carouselImage',
-    btnText: 'gotoBtn',
+    btnText: '펫',
   },
   {
     id: 9,

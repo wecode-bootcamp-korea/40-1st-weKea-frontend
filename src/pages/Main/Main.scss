@@ -1,7 +1,7 @@
 .mainArray {
   display: flex;
   flex-direction: column;
-  margin: 90px 3% 6% 6%;
+  margin: 90px 3% 6% 9%;
 
   .mainTitleBoxStyle {
     margin-bottom: 50px;
@@ -31,7 +31,7 @@
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
-      width: 90vw;
+      width: 87vw;
       margin-bottom: 20px;
       font-size: 14px;
 
@@ -53,7 +53,7 @@
     .promoImageBox {
       display: flex;
       justify-content: space-between;
-      width: 90vw;
+      width: 87vw;
       height: 80vh;
       margin-bottom: 60px;
 
@@ -71,7 +71,7 @@
   }
 
   .textPromoBox {
-    width: 90vw;
+    width: 87vw;
     padding: 5%;
     padding-right: 40%;
     background-color: #007b41;
