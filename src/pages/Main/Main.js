@@ -1,5 +1,6 @@
 import React from 'react';
 import Carousel from '../../components/Carousel/Carousel';
+import EventCarousel from '../../components/Carousel/EventCarousel';
 import './Main.scss';
 
 const Main = () => {
@@ -61,6 +62,7 @@ const Main = () => {
         </div>
       </div>
       <Carousel />
+      <EventCarousel />
     </div>
   );
 };

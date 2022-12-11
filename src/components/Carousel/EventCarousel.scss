@@ -1,4 +1,4 @@
-.carousel {
+.eventCarousel {
   .titleStyle {
     margin-bottom: 20px;
     font-size: 23px;
@@ -8,7 +8,7 @@
   .carouselContainer {
     position: relative;
     width: 87vw;
-    height: 400px;
+    height: 750px;
 
     &:hover .prevButton,
     &:hover .nextButton {
@@ -40,6 +40,7 @@
     }
     .aaa {
       overflow: scroll;
+
       &::-webkit-scrollbar {
         width: 0px;
         height: 2px;
@@ -58,30 +59,36 @@
         flex-wrap: nowrap;
         justify-content: flex-start;
         width: 87vw;
-        height: 360px;
+        height: 730px;
         gap: 20px;
 
         .imageBoxEach {
           position: relative;
 
           .carouselImageStyle {
-            width: 247px;
-            height: 320px;
+            width: 450px;
+            height: 390px;
             object-fit: cover;
           }
 
-          .imageLinkButton {
-            position: absolute;
-            top: 73%;
-            left: 50%;
-            width: 100px;
-            height: 40px;
-            transform: translate(-50%, -50%);
-            border: none;
-            border-radius: 70px;
-            background-color: #ffffff;
+          .carouselTextBox {
+            width: 450px;
+            height: 300px;
+            padding: 10%;
+            background-color: bisque;
+            font-size: 25px;
             font-weight: bold;
-            cursor: pointer;
+
+            .imageLinkButton {
+              position: absolute;
+              width: 50px;
+              height: 50px;
+              border: none;
+              border-radius: 70px;
+              background-color: #000000;
+              font-weight: bold;
+              cursor: pointer;
+            }
           }
         }
       }
