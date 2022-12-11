@@ -1,13 +1,22 @@
 import React from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SideModal.scss';
 
 const Modal = () => {
+  const navigate = useNavigate();
   return (
     <aside className="sideModal">
       <div className="sideModalTitle">
         <button className="sideModalCloseButton">❌</button>
-        <span className="modalLogo">로고</span>
+        <img
+          className="modalLogo"
+          onClick={() => {
+            navigate('/main');
+          }}
+          src="wekea"
+          alt="로고"
+        />
       </div>
 
       <div className="sideModalListWrapper">
@@ -38,17 +47,16 @@ const Modal = () => {
             );
           })}
         </ul>
-
-        <div className="sideModalButtonWrapper">
-          <button className="sideModalButton">
-            <span>한국어</span>
-            <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
-          </button>
-          <button className="sideModalButton">
-            <FontAwesomeIcon icon="fa-solid fa-globe" />
-            <span>국가 변경</span>
-          </button>
-        </div>
+      </div>
+      <div className="sideModalButtonWrapper">
+        <button className="sideModalButton">
+          <span>한국어</span>
+          <FontAwesomeIcon icon="fa-solid fa-chevron-down" />
+        </button>
+        <button className="sideModalButton">
+          <FontAwesomeIcon icon="fa-solid fa-globe" />
+          <span>국가 변경</span>
+        </button>
       </div>
     </aside>
   );

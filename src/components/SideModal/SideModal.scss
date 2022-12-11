@@ -6,7 +6,7 @@
   bottom: 0;
   left: 0;
   width: 480px;
-  height: 100vh;
+  height: 100%;
   padding: 0 30px;
   z-index: 999;
   background-color: white;
@@ -15,27 +15,33 @@
 
   .sideModalTitle {
     display: flex;
+    position: sticky;
+    top: 0;
+    background-color: #fff;
     margin-left: 30px;
     padding: 30px 0;
 
     .sideModalCloseButton {
       background-color: transparent;
-      border: 1px solid transparent;
+      border: none;
       width: 40px;
       height: 40px;
       border-radius: 50%;
 
       &:hover {
         background-color: #f5f5f5;
+        cursor: pointer;
       }
     }
 
     .modalLogo {
-      // padding: 28px 0 28px 120px;
       margin-left: 60px;
       width: 90px;
       height: 36px;
       background-color: yellow;
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 
@@ -51,45 +57,77 @@
         font-size: 36px;
 
         &:hover {
+          cursor: pointer;
           text-decoration: underline;
         }
       }
       .mainSemiBoldMenuList {
         font-size: 14px;
-        line-height: 3;
+        line-height: 2.5;
+
         &:hover {
+          cursor: pointer;
           text-decoration: underline;
         }
       }
     }
 
     .sideModalInfo {
-      line-height: 3;
+      line-height: 2.5;
       font-size: 14px;
       margin: 10px 0;
 
       .mainMenuInfo {
         &:hover {
+          cursor: pointer;
           text-decoration: underline;
         }
       }
     }
+  }
+  .sideModalButtonWrapper {
+    display: flex;
+    font-size: 12px;
+    margin: 30px 0;
+    padding: 20px 0px 12px 100px;
 
-    .sideModalButtonWrapper {
-      display: flex;
+    .sideModalButton {
+      @include flex(space-between, null, null);
       gap: 10px;
-      font-size: 12px;
-      margin: 30px 0;
+      background-color: transparent;
+      margin-right: 10px;
+      padding: 10px 22px;
+      border-radius: 20px;
+      border: 1px solid #dfdfdf;
+      font-weight: 700;
 
-      .sideModalButton {
-        display: flex;
-        gap: 10px;
-        font-weight: 700;
-        padding: 8px 36px 8px 20px;
-        border-radius: 64px;
-        border: 1px solid #dfdfdf;
-        background: transparent;
+      &:hover {
+        cursor: pointer;
+        border-color: #929292;
+      }
+
+      &:active {
+        border-color: #000;
       }
     }
+  }
+}
+.categoryFilterButton {
+  @include flex(space-between, normal, normal);
+  gap: 10px;
+  background-color: #f5f5f5;
+  margin-right: 10px;
+  padding: 10px 22px;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  font-weight: 700;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #dfdfdf;
+  }
+
+  &:active {
+    background-color: #cccccc;
   }
 }
