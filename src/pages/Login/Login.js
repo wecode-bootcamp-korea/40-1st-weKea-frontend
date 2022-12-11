@@ -1,9 +1,10 @@
 import React from 'react';
+import SideModal from '../../components/SideModal/SideModal';
 
 const Login = () => {
   return (
     <div>
-      <span>123</span>
+      <SideModal />
     </div>
   );
 };
