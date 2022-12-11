@@ -94,13 +94,10 @@ const Nav = () => {
 const useOnOutSideClick = (ref, handler) => {
   useEffect(() => {
     const close = e => {
-      console.log(e.target);
       if (!ref.current || ref.current.contains(e.target)) {
         return;
       }
       handler(e);
-      console.log('current', ref.current);
-      // console.log(e.target);
     };
     document.addEventListener('mousedown', close);
 
