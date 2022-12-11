@@ -74,9 +74,6 @@ const Cart = () => {
               </div>
               <div className="payBackTitle">
                 <span>반품 정책 365일 이내에 제품 환불 가능</span>
-                {/* <span className="dataTitle">
-                  SSL 데이터 암호화로 안전한 쇼핑
-                </span> */}
               </div>
             </div>
           </div>
