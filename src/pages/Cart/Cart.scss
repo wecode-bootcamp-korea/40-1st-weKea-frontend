@@ -1,0 +1,145 @@
+.cart {
+  display: flex;
+  // width: 100vw;
+  // height: 100vh;
+  margin-top: 20px;
+  margin-right: 6%;
+  margin-left: 4%;
+  .shopCart {
+    // width: 75vw;
+    // height: 100vw;
+    .titleBox {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 75vw;
+      height: 5vw;
+      font-size: 30px;
+      .cartTitleIcon {
+        margin-right: 15%;
+      }
+    }
+    .detailTitleBox {
+      top: 5px;
+      width: 75vw;
+      height: 3vw;
+    }
+    .titleBoxWish {
+      display: flex;
+      top: auto;
+      width: 74vw;
+      height: 7vw;
+      margin-left: 8px;
+      gap: 30px;
+      .shipping {
+        width: 28vw;
+        height: 6vw;
+        border: 0;
+        border: 1px solid #000000;
+        background-color: transparent;
+        text-align: start;
+        cursor: pointer;
+      }
+      .pickup {
+        width: 28vw;
+        height: 6vw;
+        border: 1px solid #000000;
+        background-color: transparent;
+        text-align: start;
+        cursor: pointer;
+      }
+    }
+    .favoriteProducBox {
+      width: 65vw;
+      height: 30vw;
+      // border: 1px solid black;
+    }
+    .productBoxCommentBox {
+      width: 65vw;
+      height: 30vw;
+      border: 1px solid black;
+      .serviceBox {
+        width: 65vw;
+        height: 4vw;
+        border: 1px solid #000000;
+      }
+      .serviceDetailBox {
+        width: 74vw;
+        height: 10vw;
+        margin-left: 10px;
+        font-size: 16px;
+        line-height: 2;
+      }
+      .serviceButton {
+        width: 20vw;
+        height: 5vw;
+        margin-left: 10px;
+        border-radius: 20px;
+        background-color: black;
+        color: aliceblue;
+        font-size: 20px;
+      }
+    }
+  }
+  .payBox {
+    display: flex;
+    align-items: center;
+    // width: 30vw;
+    height: 100vw;
+
+    .payDetailBox {
+      position: sticky;
+      top: 10%;
+      bottom: 30%;
+      width: 90%;
+      height: 400px;
+      margin-top: 10px;
+      .priceBox {
+        width: 100%;
+        height: 40%;
+        .priceDetailBox {
+          width: 100%;
+          height: 40%;
+          font-size: 20px;
+        }
+        .orderHistoryBox {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 40%;
+          font-size: 20px;
+        }
+        .textShipping {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 40%;
+          border-bottom: 2px solid black;
+          font-size: 13px;
+        }
+        .totalPrice {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          height: 40%;
+        }
+        .payButton {
+          width: 20vw;
+          height: 7vw;
+          background-color: #3b3bc2;
+          color: #f0f8ff;
+        }
+        .payBackTitle {
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          padding-top: 5px;
+          border-bottom: 1px solid black;
+          font-size: 15px;
+          .dataTitle {
+          }
+        }
+      }
+    }
+  }
+}
