@@ -4,7 +4,7 @@ import './navSearchList.scss';
 
 const NavDropDown = () => {
   return (
-    <div>
+    <div className="navDropDown">
       <div className="navSearchResult">
         <FontAwesomeIcon
           className="fontawesome"

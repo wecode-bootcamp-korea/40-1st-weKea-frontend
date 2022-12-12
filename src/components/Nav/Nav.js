@@ -2,13 +2,13 @@ import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import NavSearchList from './NavSearchList';
+import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import './nav.scss';
 
 const Nav = () => {
   const navigate = useNavigate();
   const ref = useRef();
   const [isFocus, setIsFocus] = useState(false);
-  // const [isVisible, setIsVisible] = useState(false);
 
   const onFocusHandler = () => {
     setIsFocus(!isFocus);
@@ -56,7 +56,7 @@ const Nav = () => {
             />
           </div>
           {isFocus && (
-            <div className="navDropDown" ref={ref}>
+            <div ref={ref}>
               <NavSearchList />
             </div>
           )}
@@ -89,22 +89,6 @@ const Nav = () => {
       </div>
     </nav>
   );
-};
-
-const useOnOutSideClick = (ref, handler) => {
-  useEffect(() => {
-    const close = e => {
-      if (!ref.current || ref.current.contains(e.target)) {
-        return;
-      }
-      handler(e);
-    };
-    document.addEventListener('mousedown', close);
-
-    return () => {
-      document.removeEventListener('mousedown', close);
-    };
-  }, [ref, handler]);
 };
 
 export default Nav;
