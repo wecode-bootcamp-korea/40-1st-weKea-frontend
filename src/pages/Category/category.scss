@@ -1,5 +1,6 @@
 @import '../../styles/mixin.scss';
 @import '../../styles/variables.scss';
+
 .category {
   margin: 0 3% 0 9%;
 
@@ -61,7 +62,7 @@
     z-index: 1;
 
     .categoryFilterButton {
-      @include flex(space-between, normal, normal);
+      @include flex(space-between, null, null);
       gap: 10px;
       background-color: #f5f5f5;
       margin-right: 10px;
