@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SideModal.scss';
 
-const Modal = ({ className }) => {
+const SideModal = ({ className }) => {
   const navigate = useNavigate();
   return (
     <aside className={className}>
@@ -64,7 +64,7 @@ const Modal = ({ className }) => {
   );
 };
 
-export default Modal;
+export default SideModal;
 
 const SIDEMENU_LIST_BOLD = [
   { id: 1, list: '모든 제품' },
