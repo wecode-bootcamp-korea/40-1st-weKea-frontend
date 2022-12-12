@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import './Login.scss';
 import { useNavigate } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Login.scss';
 
 const Login = () => {
   const [userLogin, setUserLogin] = useState({ email: '', password: '' });
@@ -13,12 +14,6 @@ const Login = () => {
   const isUserTitle =
     userLogin.email.includes('@') && userLogin.password.length >= 8;
 
-  const handleClick = event => {
-    navigate('/main');
-  };
-  function isvalid(e) {
-    e.preventDefault();
-  }
   const hadleLogin = () => {
     fetch('http://10.58.52.109:3000/', {
       method: 'POST',
@@ -46,13 +41,22 @@ const Login = () => {
       <div className="titleBox">
         <div className="titleUseBox">
           <div className="textBox">
-            <div className="logoIcon">icon</div>
             <span>Sims & co</span>
+          </div>
+          <div
+            className="logoIcon"
+            onClick={() => {
+              navigate('/main');
+            }}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
           </div>
           <div className="textBoxTitle">
             <h1 className="title">로그인</h1>
             <span>외워야 할 비밀번호가 많아 불편하셨죠?</span>
-            <p>이제 일회용 코드를 이용하여 간편하게 로그인하세요.</p>
+            <p className="titleText">
+              이제 일회용 코드를 이용하여 간편하게 로그인하세요.
+            </p>
 
             <p>*이메일 또는 전화번호 최초 인증 후 사용 가능</p>
           </div>
@@ -62,39 +66,42 @@ const Login = () => {
         </div>
       </div>
       <div className="loginBox">
-        <form className="inputForm" onSubmit={isvalid}>
-          <div className="loginInputBoard">
-            <div className="loginBoardEmail">
-              이메일 또는 확인된 휴대폰 번호
-              <input
-                type="text"
-                className="inputId"
-                name="email"
-                value={userLogin.email}
-                onChange={userInfo}
-              />
-            </div>
-            <div className="loginBoardPw">
-              <span className="loginBordPwtitle">비밀번호</span>
-              <input
-                type="password"
-                className="inputPassword"
-                name="password"
-                onChange={userInfo}
-                value={userLogin.password}
-              />
-            </div>
-            <button
-              className="loginBtn"
-              disabled={!isUserTitle}
-              onClick={hadleLogin}
-            >
-              로그인
-            </button>
-            <button className="joinBtn" type="submit">
-              개인 회원 가입
-            </button>
+        <form className="inputForm">
+          <div className="loginBoardEmail">
+            <span>이메일 또는 확인된 휴대폰 번호</span>
+            <input
+              type="text"
+              className="inputId"
+              name="email"
+              value={userLogin.email}
+              onChange={userInfo}
+            />
           </div>
+          <div className="loginBoardPw">
+            <span className="loginBordPwtitle">비밀번호</span>
+            <input
+              type="password"
+              className="inputPassword"
+              name="password"
+              onChange={userInfo}
+              value={userLogin.password}
+            />
+          </div>
+          <button
+            className="loginBtn"
+            disabled={!isUserTitle}
+            onClick={hadleLogin}
+          >
+            로그인
+          </button>
+          <button
+            className="joinBtn"
+            onClick={() => {
+              navigate('/signup');
+            }}
+          >
+            개인 회원 가입
+          </button>
         </form>
       </div>
     </div>
