@@ -5,8 +5,12 @@ const CartItem = props => {
   return (
     <div className="cartItem">
       <div className="cartItemBox">
-        <img src={props.value} alt="img" />
-        <span>봉쥬르 웨딩 의자 </span>
+        <img src={props.img} alt="src" />
+        <div className="itemBox">
+          <span className="itemName">{props.name}</span>
+          <span className="itemPrice">{props.price}</span>
+          <span className="itemCode">{props.product_code}</span>
+        </div>
       </div>
     </div>
   );

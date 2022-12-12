@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './Cart.scss';
 import CartItem from './CartItem';
-import { CARTITEM_INFO_LIST } from './data';
 
 const Cart = () => {
+  const [cartData, setCartData] = useState([]);
+
+  useEffect(() => {
+    fetch('/data/cartItem.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setCartData(data);
+      });
+  }, []);
+
   return (
     <div className="cart">
       <div className="shopCart">
@@ -26,9 +37,26 @@ const Cart = () => {
             </div>
           </div>
           <div className="favoriteProducBox">
-            {CARTITEM_INFO_LIST.map(cartItem => {
-              return <CartItem key={cartItem.id} value={cartItem.src} />;
+            {cartData.map(data => {
+              return (
+                <CartItem
+                  key={data.id}
+                  name={data.name}
+                  price={data.price}
+                  product_code={data.product_code}
+                  img={data.img}
+                  amount={data.amount}
+                  // data={data}
+                />
+              );
             })}
+            <form className="selectOption">
+              <select>
+                {cartData.map(data => {
+                  return <option key={data.id}>{data.amount.id}</option>;
+                })}
+              </select>
+            </form>
           </div>
           <div className="productBoxCommentBox">
             <div className="serviceBox">조립서비스를 추가하시겠습니까?</div>

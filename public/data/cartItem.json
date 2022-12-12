@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "name": "고급의자",
+    "price": 120000,
+    "product_code": 378.148,
+    "img": "https://w.namu.la/s/a03e526eddd3ee8fce326d37b906205351f42fbe80032096f6b697edbbed82307274167e92269c10ff3219c71823c9bc67ddac2d0b80476adb2d2e67c90c3c97d2c0b8845438d1c42f12b78a068ed26a21af3271641a0d4f2768689d496751af8ad81b2c83545c04165d6de5f5998402",
+    "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
+  },
+  {
+    "id": 2,
+    "name": "고급의자",
+    "price": 120000,
+    "product_code": 378.148,
+    "img": "https://w.namu.la/s/a03e526eddd3ee8fce326d37b906205351f42fbe80032096f6b697edbbed82307274167e92269c10ff3219c71823c9bc67ddac2d0b80476adb2d2e67c90c3c97d2c0b8845438d1c42f12b78a068ed26a21af3271641a0d4f2768689d496751af8ad81b2c83545c04165d6de5f5998402",
+    "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
+  },
+  {
+    "id": 3,
+    "name": "고급의자",
+    "price": 120000,
+    "product_code": 378.148,
+    "img": "https://w.namu.la/s/a03e526eddd3ee8fce326d37b906205351f42fbe80032096f6b697edbbed82307274167e92269c10ff3219c71823c9bc67ddac2d0b80476adb2d2e67c90c3c97d2c0b8845438d1c42f12b78a068ed26a21af3271641a0d4f2768689d496751af8ad81b2c83545c04165d6de5f5998402",
+    "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
+  },
+  {
+    "id": 4,
+    "name": "고급의자",
+    "price": 120000,
+    "product_code": 378.148,
+    "img": "https://w.namu.la/s/a03e526eddd3ee8fce326d37b906205351f42fbe80032096f6b697edbbed82307274167e92269c10ff3219c71823c9bc67ddac2d0b80476adb2d2e67c90c3c97d2c0b8845438d1c42f12b78a068ed26a21af3271641a0d4f2768689d496751af8ad81b2c83545c04165d6de5f5998402",
+    "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
+  },
+  {
+    "id": 5,
+    "name": "고급의자",
+    "price": 120000,
+    "product_code": 378.148,
+    "img": "https://w.namu.la/s/a03e526eddd3ee8fce326d37b906205351f42fbe80032096f6b697edbbed82307274167e92269c10ff3219c71823c9bc67ddac2d0b80476adb2d2e67c90c3c97d2c0b8845438d1c42f12b78a068ed26a21af3271641a0d4f2768689d496751af8ad81b2c83545c04165d6de5f5998402",
+    "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
+  },
+  {
+    "id": 6,
+    "name": "고급의자",
+    "price": 120000,
+    "product_code": 378.148,
+    "img": "https://w.namu.la/s/a03e526eddd3ee8fce326d37b906205351f42fbe80032096f6b697edbbed82307274167e92269c10ff3219c71823c9bc67ddac2d0b80476adb2d2e67c90c3c97d2c0b8845438d1c42f12b78a068ed26a21af3271641a0d4f2768689d496751af8ad81b2c83545c04165d6de5f5998402",
+    "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
+  },
+  {
+    "id": 7,
+    "name": "고급의자",
+    "price": 120000,
+    "product_code": 378.148,
+    "img": "https://w.namu.la/s/a03e526eddd3ee8fce326d37b906205351f42fbe80032096f6b697edbbed82307274167e92269c10ff3219c71823c9bc67ddac2d0b80476adb2d2e67c90c3c97d2c0b8845438d1c42f12b78a068ed26a21af3271641a0d4f2768689d496751af8ad81b2c83545c04165d6de5f5998402",
+    "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
+  }
+]

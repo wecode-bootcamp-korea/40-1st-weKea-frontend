@@ -1,7 +1,31 @@
 .cartItem {
-  width: 30vw;
-  .cartItemBox img {
-    width: 100px;
-    height: 100px;
+  width: 57vw;
+  height: 20vw;
+  border: 1px solid black;
+  .cartItemBox {
   }
+  .cartItemBox img {
+    width: 10px;
+    height: 10px;
+  }
+  .itemBox {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 57vw;
+    height: 40px;
+    border: 1px solid black;
+  }
+
+  // .itemName {
+  //   font-weight: 700;
+  //   line-height: 10px;
+  //   text-align: center;
+  // }
+  // .itemPrice {
+  //   text-align: center;
+  // }
+  // .itemCode {
+  //   text-align: center;
+  // }
 }
