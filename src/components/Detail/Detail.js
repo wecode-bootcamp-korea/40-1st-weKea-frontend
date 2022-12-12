@@ -3,12 +3,27 @@ import './Detail.scss';
 
 const Detail = () => {
   const [detailImageList, setDetailImagelist] = useState([]);
+  const [productList, setProductList] = useState([]);
 
   useEffect(() => {
-    fetch('/data/productDetailImageList.json', { method: 'GET' })
-      .then(res => res.jons())
+    fetch('/data/productDetailImageList.json', {
+      method: 'GET',
+      headers: { Accept: 'application/json' },
+    })
+      .then(res => res.json())
       .then(data => {
         setDetailImagelist(data);
+      });
+  }, []);
+
+  useEffect(() => {
+    fetch('/data/productList.json', {
+      method: 'GET',
+      headers: { Accept: 'application/json' },
+    })
+      .then(res => res.json())
+      .then(data => {
+        setProductList(data);
       });
   }, []);
 
@@ -28,7 +43,9 @@ const Detail = () => {
             );
           })}
         </ul>
-        <div className="detailDescription" />
+        <ul>
+          <li className="detailList" />
+        </ul>
       </main>
     </div>
   );

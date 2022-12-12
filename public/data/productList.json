@@ -15,7 +15,7 @@
   {
     "id": 2,
     "name": "Etoil",
-    "price": 1000000,
+    "price": 2000000,
     "product_code": "110.530.87",
     "thumnail_url": "./images/Detail/detail.jpg",
     "example_img_url": "./images/Detail/detail.jpg",
@@ -28,7 +28,7 @@
   {
     "id": 3,
     "name": "Etoil",
-    "price": 1000000,
+    "price": 3000000,
     "product_code": "110.530.87",
     "thumnail_url": "./images/Detail/detail.jpg",
     "example_img_url": "./images/Detail/detail.jpg",
