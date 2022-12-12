@@ -9,7 +9,6 @@ const CategoryItems = ({ name, price, image, description, rating }) => {
       <div>
         <img className="categoryImg" src={image} alt="상품이미지" />
       </div>
-
       <div className="itemInformationWrapper">
         <Link className="itemInformation" to="#">
           <h3 className="itemTitle">

@@ -1,13 +1,13 @@
-@import '../../styles/mixin.scss';
-@import '../../styles/variables.scss';
+@import '../../styles/mixin';
+@import '../../styles/variables';
 
 .category {
-  margin: 0 3% 0 9%;
+  margin: 0 3% 6% 9%;
 
   .categoryTitle {
+    margin: 10px 0 50px 0;
     font-size: 36px;
     font-weight: 700;
-    margin: 10px 0 50px 0;
   }
 
   .buttonCountWrapper {
@@ -25,11 +25,11 @@
 
     .categoryButton {
       .categoryFilterButton {
+        padding: 6px 12px;
+        border: 1px solid #dfdfdf;
         background: transparent;
         color: #111;
         font-weight: 700;
-        padding: 6px 12px;
-        border: 1px solid #dfdfdf;
         cursor: pointer;
 
         &:first-child {
@@ -47,33 +47,33 @@
     }
 
     .categoryCount {
-      font-size: 12px;
       color: #929292;
+      font-size: 12px;
     }
   }
 
   .categoryFilter {
-    position: sticky;
     display: flex;
-    top: 0;
-    background-color: #fff;
-    border-bottom: 1px solid #dfdfdf;
-    padding: 16px 0;
+    position: sticky;
     z-index: 1;
+    top: 0;
+    padding: 16px 0;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #fff;
 
     .categoryFilterButton {
       @include flex(space-between, null, null);
-      gap: 10px;
-      background-color: #f5f5f5;
       margin-right: 10px;
       padding: 10px 22px;
-      border-radius: 20px;
       border: 1px solid transparent;
+      border-radius: 20px;
+      background-color: #f5f5f5;
       font-weight: 700;
+      gap: 10px;
 
       &:hover {
-        cursor: pointer;
         background-color: #dfdfdf;
+        cursor: pointer;
       }
 
       &:active {
@@ -83,8 +83,8 @@
   }
 
   .categoryList {
-    position: relative;
     display: grid;
+    position: relative;
     grid-template-columns: repeat(4, 1fr);
     column-gap: 20px;
 
@@ -92,10 +92,10 @@
       padding: 60px 0 40px 0;
 
       &::after {
-        position: absolute;
         content: '';
-        left: 0;
+        position: absolute;
         right: 0;
+        left: 0;
         border-bottom: 1px solid #dfdfdf;
       }
     }

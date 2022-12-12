@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import CategoryItem from './CategoryItem';
+import FilterDropDown from './FilterDropDown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './category.scss';
 const Category = () => {
@@ -14,6 +15,10 @@ const Category = () => {
         setItemData(data);
       });
   }, []);
+
+  const onFilterClick = e => {
+    console.log(e.target);
+  };
 
   return (
     <div className="category">
@@ -33,7 +38,11 @@ const Category = () => {
         <div className="categoryFilter">
           {CATEGORY_FILTER.map(filterList => {
             return (
-              <button className="categoryFilterButton" key={filterList.id}>
+              <button
+                onClick={onFilterClick}
+                className="categoryFilterButton"
+                key={filterList.id}
+              >
                 <span>{filterList.title}</span>
                 <FontAwesomeIcon icon={filterList.icon} />
               </button>
@@ -58,6 +67,7 @@ const Category = () => {
           )}
         </div>
       </div>
+      <FilterDropDown />
     </div>
   );
 };
