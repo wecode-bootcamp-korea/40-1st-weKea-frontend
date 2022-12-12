@@ -1,36 +1,36 @@
-@import '../../styles/mixin.scss';
+@import '../../styles/mixin';
 
 .sideModal {
   position: fixed;
+  z-index: 0;
   top: 0;
   bottom: 0;
   left: 0;
   width: 480px;
   height: 100%;
   padding: 0 30px;
-  z-index: 0;
-  background-color: #fff;
   overflow-y: scroll;
   transform: translateX(0);
   transition: transform 200ms 0s;
   transition-property: transform, visibility;
+  background-color: #fff;
   box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.2);
 
   .sideModalTitle {
     display: flex;
-    align-items: center;
     position: sticky;
     top: 0;
-    background-color: #fff;
+    align-items: center;
     margin-left: 30px;
     padding: 30px 0;
+    background-color: #fff;
 
     .sideModalCloseButton {
-      background-color: transparent;
-      border: none;
       width: 40px;
       height: 40px;
+      border: none;
       border-radius: 50%;
+      background-color: transparent;
 
       &:hover {
         background-color: #f5f5f5;
@@ -39,9 +39,9 @@
     }
 
     .modalLogo {
-      margin-left: 60px;
       width: 90px;
       height: 36px;
+      margin-left: 60px;
       background-color: yellow;
 
       &:hover {
@@ -62,8 +62,8 @@
         font-size: 36px;
 
         &:hover {
-          cursor: pointer;
           text-decoration: underline;
+          cursor: pointer;
         }
       }
       .mainSemiBoldMenuList {
@@ -71,21 +71,21 @@
         line-height: 2.5;
 
         &:hover {
-          cursor: pointer;
           text-decoration: underline;
+          cursor: pointer;
         }
       }
     }
 
     .sideModalInfo {
-      line-height: 2.5;
-      font-size: 14px;
       margin: 10px 0;
+      font-size: 14px;
+      line-height: 2.5;
 
       .mainMenuInfo {
         &:hover {
-          cursor: pointer;
           text-decoration: underline;
+          cursor: pointer;
         }
       }
     }
@@ -93,23 +93,23 @@
 
   .sideModalButtonWrapper {
     display: flex;
-    font-size: 12px;
     margin: 30px 0;
     padding: 20px 0px 12px 100px;
+    font-size: 12px;
 
     .sideModalButton {
       @include flex(space-between, null, null);
-      gap: 10px;
-      background-color: transparent;
       margin-right: 10px;
       padding: 10px 22px;
-      border-radius: 20px;
       border: 1px solid #dfdfdf;
+      border-radius: 20px;
+      background-color: transparent;
       font-weight: 700;
+      gap: 10px;
 
       &:hover {
-        cursor: pointer;
         border-color: #929292;
+        cursor: pointer;
       }
 
       &:active {
@@ -120,6 +120,8 @@
 }
 
 .sideModalHidden {
-  transform: translateX(-470px);
   visibility: hidden;
+  transform: translateX(-470px);
+  transition: transform 200ms 0s;
+  transition-property: transform, visibility;
 }

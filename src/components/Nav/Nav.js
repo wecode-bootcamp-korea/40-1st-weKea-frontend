@@ -10,10 +10,10 @@ const Nav = () => {
   const ref = useRef();
 
   const onClickHandler = () => {
-    setIsClicked(!isClicked);
+    setIsClicked(true);
   };
 
-  useOnOutSideClick(ref, () => setIsClicked(!isClicked));
+  useOnOutSideClick(ref, () => setIsClicked(false));
 
   return (
     <nav className="nav">
@@ -85,7 +85,7 @@ const Nav = () => {
         {isClicked ? (
           <SideModal className="sideModal" />
         ) : (
-          <SideModal className="sideModalHidden" />
+          <SideModal className="sideModal sideModalHidden" />
         )}
       </div>
     </nav>
