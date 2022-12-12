@@ -22,6 +22,7 @@ const Category = () => {
 
   return (
     <div className="category">
+      <FilterDropDown />
       <div className="categoryTitle">
         <h1>카테고리 이름</h1>
       </div>
@@ -67,7 +68,6 @@ const Category = () => {
           )}
         </div>
       </div>
-      <FilterDropDown />
     </div>
   );
 };
