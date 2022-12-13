@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './Login.scss';
+import { API } from '../../config/config';
 
 const Login = () => {
   const [userLogin, setUserLogin] = useState({ email: '', password: '' });
@@ -15,11 +16,11 @@ const Login = () => {
     userLogin.email.includes('@') && userLogin.password.length >= 8;
 
   const hadleLogin = () => {
-    fetch('http://10.58.52.109:3000/', {
+    fetch(`${API}/5`).then(...API).then(...API) {
       method: 'POST',
       headers: { 'Content-type': 'application/json;charset=utf-8' },
       body: JSON.stringify(userLogin),
-    })
+    }
       .then(response => {
         if (response.ok === true) {
           return response.json();
