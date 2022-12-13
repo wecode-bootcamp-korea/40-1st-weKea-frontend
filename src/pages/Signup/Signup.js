@@ -31,7 +31,7 @@ const Signup = () => {
   const gotoMain = () => {
     !isValid
       ? alert('입력되지 않은 정보가 있습니다')
-      : fetch(`{$config.api}/signup`, {
+      : fetch(`{$BASE_URL}/signup`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json;charset=utf-8' },
           body: JSON.stringify({ signupValue }),

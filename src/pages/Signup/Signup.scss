@@ -2,11 +2,11 @@
 @import '../../styles/variables';
 
 .signup {
-  @include flex(row, normal, flex-start);
+  @include flex(row, null, flex-start);
   margin: 20px 6% 6% 9%;
 
   .headerArray {
-    @include flex(normal, center, flex-start);
+    @include flex(null, center, flex-start);
     margin-bottom: 20px;
 
     .arrowMargin {
