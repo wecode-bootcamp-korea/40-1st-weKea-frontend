@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SideModal.scss';
 
@@ -23,10 +23,10 @@ const SideModal = ({ className }) => {
 
       <div className="sideModalListWrapper">
         <ul className="sideModalList">
-          {SIDEMENU_LIST_BOLD.map(({ id, list }) => {
+          {SIDEMENU_LIST_BOLD.map(({ id, list, endPoint }) => {
             return (
               <li className="mainBoldMenuList" key={id}>
-                {list}
+                <Link to={`category/${endPoint}`}>{list}</Link>
               </li>
             );
           })}
@@ -67,11 +67,12 @@ const SideModal = ({ className }) => {
 export default SideModal;
 
 const SIDEMENU_LIST_BOLD = [
-  { id: 1, list: '모든 제품' },
-  { id: 2, list: '온라인 쇼룸' },
-  { id: 3, list: '크리스마스 마켓' },
-  { id: 4, list: '홈 액세서리' },
-  { id: 5, list: '서비스' },
+  { id: 1, list: '모든 제품', endPoint: 'all' },
+  { id: 2, list: '소파', endPoint: 'sofas' },
+  { id: 3, list: '의자', endPoint: 'chairs' },
+  { id: 4, list: '주방용품', endPoint: 'kitchenware' },
+  { id: 5, list: '식탁/책상', endPoint: 'tables-desks' },
+  { id: 6, list: '침대/매트리스', endPoint: 'beds-mattresses' },
 ];
 
 const SIDEMENU_LIST_SEMIBOLD = [
