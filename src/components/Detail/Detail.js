@@ -73,33 +73,36 @@ const Detail = () => {
           </li>
         </ul>
       </main>
+
       <aside className="productBuyModule">
-        <div className="productNameBox">
-          <span className="productName">{productDetail.french_name}</span>
-          <span className="productName">{productDetail.korean_name}</span>
-        </div>
-        <div className="subDescription">
-          {productDetail.category}, {productDetail.material},{' '}
-          {productDetail.size}
-        </div>
-        <div className="price">&#8361;{productDetail.price}</div>
-        <div className="subRating">{productDetail.rating}</div>
-        <div className="buyMethodContainer">
-          <div className="buyMethodMsg">어떻게 구매하시겠어요?</div>
-          <div className="buyMethodBox">
-            <div className="deliveryBox">
-              <div className="deliveryText">배송</div>
-              <button className="deliveryLink">구매 가능 여부 확인</button>
-            </div>
-            <div className="pickupBox">
-              <div className="pickupText">매장구매</div>
-              <button className="pickupLink">
-                매장 재고 및 재입고 날짜 확인
-              </button>
+        <div className="stickyContainer">
+          <div className="productNameBox">
+            <span className="productName">{productDetail.french_name}</span>
+            <span className="productName">{productDetail.korean_name}</span>
+          </div>
+          <div className="subDescription">
+            {productDetail.category}, {productDetail.material},{' '}
+            {productDetail.size}
+          </div>
+          <div className="price">&#8361;{productDetail.price}</div>
+          <div className="subRating">{productDetail.rating}</div>
+          <div className="buyMethodContainer">
+            <div className="buyMethodMsg">어떻게 구매하시겠어요?</div>
+            <div className="buyMethodBox">
+              <div className="deliveryBox">
+                <div className="deliveryText">배송</div>
+                <button className="deliveryLink">구매 가능 여부 확인</button>
+              </div>
+              <div className="pickupBox">
+                <div className="pickupText">매장구매</div>
+                <button className="pickupLink">
+                  매장 재고 및 재입고 날짜 확인
+                </button>
+              </div>
             </div>
           </div>
+          <button className="buyButton">구매하기</button>
         </div>
-        <button className="buyButton">구매하기</button>
       </aside>
     </div>
   );

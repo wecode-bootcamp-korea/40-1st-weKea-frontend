@@ -72,82 +72,89 @@
   }
 
   .productBuyModule {
+    top: 200px;
     width: 25%;
+    height: auto;
 
-    .productNameBox {
-      margin-bottom: 5px;
+    .stickyContainer {
+      position: sticky;
+      top: 10%;
 
-      .productName {
-        margin-right: 5px;
-        font-size: 20px;
-        font-weight: bold;
+      .productNameBox {
+        margin-bottom: 5px;
+
+        .productName {
+          margin-right: 5px;
+          font-size: 20px;
+          font-weight: bold;
+        }
       }
-    }
 
-    .subDescription {
-      margin-bottom: 10px;
-    }
-    .price {
-      margin-bottom: 20px;
-      font-size: 30px;
-      font-weight: bold;
-    }
-    .subRating {
-      margin-bottom: 20px;
-      padding-bottom: 10px;
-    }
-    .buyMethodContainer {
-      margin-bottom: 35px;
-
-      .buyMethodMsg {
+      .subDescription {
         margin-bottom: 10px;
+      }
+      .price {
+        margin-bottom: 20px;
+        font-size: 30px;
         font-weight: bold;
       }
-      .buyMethodBox {
-        width: 100%;
-        border: 1px solid #cfcfcf;
-        border-radius: 5px;
+      .subRating {
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+      }
+      .buyMethodContainer {
+        margin-bottom: 35px;
 
-        .deliveryBox {
-          margin: 20px;
-          padding-bottom: 15px;
-          border-bottom: 1px solid #cfcfcf;
-
-          .deliveryText {
-            margin-bottom: 10px;
-            font-weight: bold;
-          }
-          .deliveryLink {
-            padding: 0;
-            border: none;
-            background-color: #ffffff;
-            text-decoration: underline;
-          }
+        .buyMethodMsg {
+          margin-bottom: 10px;
+          font-weight: bold;
         }
-        .pickupBox {
-          margin: 20px;
+        .buyMethodBox {
+          width: 100%;
+          border: 1px solid #cfcfcf;
+          border-radius: 5px;
 
-          .pickupText {
-            margin-bottom: 10px;
-            font-weight: bold;
+          .deliveryBox {
+            margin: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #cfcfcf;
+
+            .deliveryText {
+              margin-bottom: 10px;
+              font-weight: bold;
+            }
+            .deliveryLink {
+              padding: 0;
+              border: none;
+              background-color: #ffffff;
+              text-decoration: underline;
+            }
           }
-          .pickupLink {
-            padding: 0;
-            border: none;
-            background-color: #ffffff;
-            text-decoration: underline;
+          .pickupBox {
+            margin: 20px;
+
+            .pickupText {
+              margin-bottom: 10px;
+              font-weight: bold;
+            }
+            .pickupLink {
+              padding: 0;
+              border: none;
+              background-color: #ffffff;
+              text-decoration: underline;
+            }
           }
         }
       }
-    }
-    .buyButton {
-      width: 100%;
-      height: 55px;
-      border: none;
-      border-radius: 70px;
-      background-color: #205fb1;
-      color: #ffffff;
-      font-weight: bold;
+      .buyButton {
+        width: 100%;
+        height: 55px;
+        border: none;
+        border-radius: 70px;
+        background-color: #205fb1;
+        color: #ffffff;
+        font-weight: bold;
+      }
     }
   }
 }
