@@ -1,4 +1,7 @@
-.mainArray {
+@import '../../styles/variables';
+@import '../../styles/mixin';
+
+.main {
   display: flex;
   flex-direction: column;
   margin: 3% 3% 6% 9%;
@@ -13,7 +16,7 @@
     }
 
     .loginLinkStyle {
-      color: rgb(17, 129, 248);
+      color: $mainBrandBlue;
       font-weight: bold;
       text-decoration: none;
     }
@@ -27,10 +30,7 @@
       font-weight: bold;
     }
     .mainPromoSubTextBox {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
+      @include flex(row, center, space-between);
       width: 87vw;
       margin-bottom: 20px;
       font-size: 14px;

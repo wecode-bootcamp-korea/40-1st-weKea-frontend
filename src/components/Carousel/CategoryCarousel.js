@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
-import './Carousel.scss';
+import './CategoryCarousel.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-const Carousel = () => {
+const CategoryCarousel = () => {
   const [slideRange, setSlideRange] = useState(0);
   const carouselRef = useRef(null);
 
+  const categoryCarouselWidth = 267;
+
   const goToNext = () => {
-    setSlideRange(slideRange - 267);
+    setSlideRange(slideRange - categoryCarouselWidth);
   };
 
   const goToPrev = () => {
-    setSlideRange(slideRange + 267);
+    setSlideRange(slideRange + categoryCarouselWidth);
   };
   useEffect(() => {
     carouselRef.current.style.transform = `translateX(${slideRange}px)`;
@@ -18,25 +21,26 @@ const Carousel = () => {
   }, [slideRange]);
 
   return (
-    <section className="carousel">
+    <section className="categoryCarousel">
       <div className="titleStyle">공간별 제품 쇼핑하기</div>
-
       <div className="carouselContainer">
         <button
           className="prevButton"
           onClick={goToPrev}
           style={{ display: slideRange === 0 ? 'none' : '' }}
         >
-          &#60;
+          <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
         </button>
         <button
           className="nextButton"
           onClick={goToNext}
-          style={{ display: slideRange === -267 * 4 ? 'none' : '' }}
+          style={{
+            display: slideRange === -categoryCarouselWidth * 4 ? 'none' : '',
+          }}
         >
-          &#62;
+          <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
         </button>
-        <div className="aaa">
+        <div className="categoryCarouselContainer">
           <div className="imageContainer" ref={carouselRef}>
             {CAROUSEL_LIST.map(data => {
               return (
@@ -57,7 +61,7 @@ const Carousel = () => {
   );
 };
 
-export default Carousel;
+export default CategoryCarousel;
 
 const CAROUSEL_LIST = [
   {

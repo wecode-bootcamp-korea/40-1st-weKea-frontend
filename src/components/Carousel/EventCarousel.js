@@ -1,16 +1,19 @@
 import React, { useState, useRef, useEffect } from 'react';
 import './EventCarousel.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const EventCarousel = () => {
   const [slideRange, setSlideRange] = useState(0);
   const carouselRef = useRef(null);
 
+  const eventCarouselWidth = 470;
+
   const goToNext = () => {
-    setSlideRange(slideRange - 470);
+    setSlideRange(slideRange - eventCarouselWidth);
   };
 
   const goToPrev = () => {
-    setSlideRange(slideRange + 470);
+    setSlideRange(slideRange + eventCarouselWidth);
   };
   useEffect(() => {
     carouselRef.current.style.transform = `translateX(${slideRange}px)`;
@@ -27,16 +30,18 @@ const EventCarousel = () => {
           onClick={goToPrev}
           style={{ display: slideRange === 0 ? 'none' : '' }}
         >
-          &#60;
+          <FontAwesomeIcon icon="fa-solid fa-chevron-left" />
         </button>
         <button
           className="nextButton"
           onClick={goToNext}
-          style={{ display: slideRange === -470 * 3 ? 'none' : '' }}
+          style={{
+            display: slideRange === -eventCarouselWidth * 3 ? 'none' : '',
+          }}
         >
-          &#62;
+          <FontAwesomeIcon icon="fa-solid fa-chevron-right" />
         </button>
-        <div className="aaa">
+        <div className="promotionCarouselContainer">
           <div className="imageContainer" ref={carouselRef}>
             {CAROUSEL_LIST.map(data => {
               return (
@@ -48,7 +53,9 @@ const EventCarousel = () => {
                   />
                   <div className="carouselTextBox">
                     Sims & co Family 멤버십을 만나보세요.
-                    <button className="imageLinkButton">{data.btnText}</button>
+                  </div>
+                  <div className="imageLinkButton">
+                    <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
                   </div>
                 </div>
               );

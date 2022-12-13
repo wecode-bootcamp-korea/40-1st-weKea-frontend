@@ -1,17 +1,18 @@
 import React from 'react';
-import Carousel from '../../components/Carousel/Carousel';
+import { Link } from 'react-router-dom';
+import CategoryCarousel from '../../components/Carousel/CategoryCarousel';
 import EventCarousel from '../../components/Carousel/EventCarousel';
 import './Main.scss';
 
 const Main = () => {
   return (
-    <div className="mainArray">
+    <div className="main">
       <div className="mainTitleBoxStyle">
         <h1 className="welcomeMessageStyle">Bonjour! 돌아오신 걸 환영해요!</h1>
         <div>
-          <a className="loginLinkStyle" href="/login">
+          <Link to="/login" className="loginLinkStyle">
             Sims & co Family
-          </a>
+          </Link>
           에 가입하여 다양한 홈퍼니싱 영감과 할인 혜택, 리워드를 받아보세요.
         </div>
       </div>
@@ -30,22 +31,22 @@ const Main = () => {
         </div>
         <div className="promoImageBox">
           <div className="promoImageBoxEach">
-            <a href="/promotion">
+            <Link to="/promotion">
               <img
                 className="promoImage"
                 alt="promoImage"
                 src="./images/Main/mainPromo1.jpg"
               />
-            </a>
+            </Link>
           </div>
           <div className="promoImageBoxEach">
-            <a href="/promotion">
+            <Link to="/promotion">
               <img
                 className="promoImage"
                 alt="promoImage"
                 src="./images/Main/mainPromo2.jpg"
               />
-            </a>
+            </Link>
           </div>
         </div>
         <div className="textPromoBox">
@@ -61,7 +62,7 @@ const Main = () => {
           <button className="textPromoButton">크리스마스 마켓 구경가기</button>
         </div>
       </div>
-      <Carousel />
+      <CategoryCarousel />
       <EventCarousel />
     </div>
   );
