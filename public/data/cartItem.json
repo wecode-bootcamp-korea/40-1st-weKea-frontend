@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "img": "view.php?cate=1&idx=329",
     "name": "고급의자",
     "price": 120000,
     "product_code": "803.339.53",

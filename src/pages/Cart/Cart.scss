@@ -17,6 +17,12 @@
       font-size: 30px;
       .cartTitleIcon {
         margin-right: 15%;
+        font-size: 20px;
+
+        &:hover {
+          border-radius: 100%;
+          background-color: #d8d3d3;
+        }
       }
     }
     .detailTitleBox {
@@ -31,22 +37,19 @@
       height: 7vw;
       margin-left: 20px;
       gap: 30px;
-      .shipping {
-        width: 28vw;
-        height: 6vw;
-        border: 0;
-        border: 1px solid #dfdfdf;
-        background-color: transparent;
-        text-align: start;
-        cursor: pointer;
-      }
-      .pickup {
+
+      .shippingText {
         width: 28vw;
         height: 6vw;
         border: 1px solid #dfdfdf;
+        border-radius: 5px;
         background-color: transparent;
         text-align: start;
         cursor: pointer;
+
+        &:hover {
+          border-color: #000;
+        }
       }
     }
     .favoriteProducBox {
@@ -65,6 +68,7 @@
         justify-content: flex-start;
         width: 65vw;
         height: 4vw;
+        margin-left: 10px;
         border-bottom: 1px solid #dfdfdf;
       }
       .serviceDetailBox {
@@ -78,17 +82,21 @@
         width: 15vw;
         height: 3vw;
         margin-left: 10px;
+        border: none;
         border-radius: 20px;
-        background-color: black;
+        background-color: #2b2a2a;
         color: aliceblue;
-        font-size: 20px;
+        font-size: 15px;
+
+        &:hover {
+          border-color: #f4f1f1;
+        }
       }
     }
   }
   .payBox {
     display: flex;
     align-items: center;
-    // width: 30vw;
     height: 100vw;
 
     .payDetailBox {
@@ -98,22 +106,26 @@
       width: 90%;
       height: 400px;
       margin-top: 10px;
+
       .priceBox {
         width: 100%;
         height: 40%;
         margin-top: 20px;
         border-bottom: 1px solid #dfdfdf;
+
         .priceDetailBox {
           width: 100%;
           height: 40%;
           font-size: 20px;
         }
+
         .orderHistoryBox {
           display: flex;
           justify-content: space-between;
           width: 100%;
           height: 40%;
           font-size: 20px;
+
           .boxPrice {
             border: none;
             background-color: white;
@@ -126,36 +138,46 @@
           height: 40%;
           font-size: 13px;
         }
+
         .totalPrice {
           display: flex;
           justify-content: space-between;
           width: 100%;
           height: 40%;
           margin-bottom: 10px;
+
           .wonBox {
             border: none;
             background-color: white;
           }
         }
+
         .payButton {
           display: flex;
           align-items: center;
           justify-content: space-between;
           width: 20vw;
           height: 7vw;
-          outline: #0058a3;
+          margin-bottom: 20px;
+          padding: 40px 20px;
+          border: none;
+          border-radius: 5px;
           background-color: #0058a3;
           color: #f0f8ff;
           font-size: 16px;
+
+          &:hover {
+            background-color: #064885;
+          }
         }
+
         .payBackTitle {
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          padding-top: 5px;
-          border-bottom: 1px solid #dfdfdf;
           font-size: 15px;
-          .dataTitle {
+          line-height: 2;
+          text-decoration: underline;
+
+          &:hover {
+            border-color: #000;
           }
         }
       }

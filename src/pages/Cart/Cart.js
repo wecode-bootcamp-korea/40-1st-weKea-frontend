@@ -31,17 +31,19 @@ const Cart = () => {
         <div className="shopBox">
           <div className="titleBox">
             <h1 className="cartTitle">장바구니</h1>
-            <span className="cartTitleIcon">아이콘</span>
+            <span className="cartTitleIcon">
+              <FontAwesomeIcon icon="fa-solid fa-ellipsis" />
+            </span>
           </div>
           <div className="detailTitleBox">주문을 어떻게 받고 싶으세요?</div>
           <div className="titleBoxWish">
             <div className="shippingBox">
-              <button className="shipping" type="button">
+              <button className="shippingText" type="button">
                 배송
               </button>
             </div>
             <div className="pickupBox">
-              <button className="pickup" type="button">
+              <button className="shippingText" type="button">
                 픽업
               </button>
             </div>
@@ -104,9 +106,9 @@ const Cart = () => {
                   <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="lg" />
                 </button>
               </div>
-              <div className="payBackTitle">
-                <span>반품 정책 365일 이내에 제품 환불 가능</span>
-              </div>
+              <span className="payBackTitle">
+                반품 정책 365일 이내에 제품 환불 가능
+              </span>
             </div>
           </div>
         </div>

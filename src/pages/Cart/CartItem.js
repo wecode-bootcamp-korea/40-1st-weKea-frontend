@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './CartItem.scss';
 const CartItem = ({ key, name, price, product_code, src }) => {
   return (
