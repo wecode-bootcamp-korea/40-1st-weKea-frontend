@@ -67,12 +67,11 @@ const SideModal = ({ className }) => {
 export default SideModal;
 
 const SIDEMENU_LIST_BOLD = [
-  { id: 1, list: '모든 제품', endPoint: 'all' },
-  { id: 2, list: '소파', endPoint: 'sofas' },
-  { id: 3, list: '의자', endPoint: 'chairs' },
-  { id: 4, list: '주방용품', endPoint: 'kitchenware' },
-  { id: 5, list: '식탁/책상', endPoint: 'tables-desks' },
-  { id: 6, list: '침대/매트리스', endPoint: 'beds-mattresses' },
+  { id: 1, list: '침대/매트리스', endPoint: 'beds-mattresses' },
+  { id: 2, list: '식탁/책상', endPoint: 'tables-desks' },
+  { id: 3, list: '주방용품', endPoint: 'kitchenware' },
+  { id: 4, list: '수납/정리', endPoint: 'storage-organisation' },
+  { id: 5, list: '의자', endPoint: 'chairs' },
 ];
 
 const SIDEMENU_LIST_SEMIBOLD = [
