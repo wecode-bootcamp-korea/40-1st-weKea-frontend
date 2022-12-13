@@ -14,7 +14,7 @@ const SignupImageList = () => {
         })}
       </ul>
       <ul className="shortSignupImageList">
-        {IMAGE_LIST.reverse().map(img => {
+        {IMAGE_LIST.map(img => {
           return (
             <li key={img.id} className="shortImageBoxMargin">
               <img alt={img.alt} className="shortImageStyle" src={img.src} />

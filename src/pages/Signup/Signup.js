@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import SignupImageList from '../../components/Signup/SignupImageList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import '../../../src/config.js';
+import { endpoint } from '../../../src/config.js';
+
 import './Signup.scss';
 
 const Signup = () => {
@@ -31,7 +32,7 @@ const Signup = () => {
   const gotoMain = () => {
     !isValid
       ? alert('입력되지 않은 정보가 있습니다')
-      : fetch(`{$BASE_URL}/signup`, {
+      : fetch(endpoint.signup, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json;charset=utf-8' },
           body: JSON.stringify({ signupValue }),
