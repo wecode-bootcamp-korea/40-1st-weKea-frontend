@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import './Login.scss';
 import { API } from '../../config/config';
+import './Login.scss';
 
 const Login = () => {
   const [userLogin, setUserLogin] = useState({ email: '', password: '' });
@@ -12,15 +12,16 @@ const Login = () => {
     const { name, value } = e.target;
     setUserLogin({ ...userLogin, [name]: value });
   };
+
   const isUserTitle =
     userLogin.email.includes('@') && userLogin.password.length >= 8;
 
   const hadleLogin = () => {
-    fetch(`${API}/5`).then(...API).then(...API) {
+    fetch(`${API}/5`, {
       method: 'POST',
       headers: { 'Content-type': 'application/json;charset=utf-8' },
       body: JSON.stringify(userLogin),
-    }
+    })
       .then(response => {
         if (response.ok === true) {
           return response.json();
@@ -37,6 +38,7 @@ const Login = () => {
         }
       });
   };
+
   return (
     <div className="login">
       <div className="titleBox">
