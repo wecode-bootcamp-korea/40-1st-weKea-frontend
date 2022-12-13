@@ -6,7 +6,7 @@
   padding: 0 3%;
 
   .navButton {
-    @include flex(null, center, column);
+    @include flex(column, center, null);
     position: fixed;
     top: 25px;
     left: 3%;
@@ -17,7 +17,7 @@
   }
 
   .navContainer {
-    @include flex(space-between, center, null);
+    @include flex(null, center, space-between);
     height: 100%;
     margin-left: 6%;
 
