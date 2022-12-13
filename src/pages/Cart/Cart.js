@@ -5,18 +5,7 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
-  const [cartDelect, setCartDelect] = useState('');
 
-  const handleSelectValue = e => {
-    setCartData(e.target.value);
-  };
-  const remove = id => {
-    setCartDelect(
-      itemValue.filter(cartDelect => {
-        return data.id !== id;
-      })
-    );
-  };
   // const [selectValue, setSeletValue] = useState('');
 
   // const total = selectValue
@@ -24,13 +13,6 @@ const Cart = () => {
   //         .toString()
   //         .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
-  // const onChange = (id , amout) => {
-  //   setSeletValue(
-  //     selectValue.map( data => {
-  //       if (data.id === id) {
-  //           data.amount = amount ;
-  //       }
-  //       return data;
   //     })
   //   )
   // }

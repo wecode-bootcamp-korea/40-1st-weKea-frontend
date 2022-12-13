@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './CartItem.scss';
 const CartItem = ({ key, name, price, product_code, src }) => {
-  const cart = {};
   return (
     <div className="cartItem">
       <div className="cartItemImageWrapper">
