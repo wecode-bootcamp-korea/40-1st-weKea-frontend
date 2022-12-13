@@ -1,7 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideModal from '../../components/SideModal/SideModal';
+import NavSearchList from './NavSearchList';
+import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import './nav.scss';
 
 const Nav = () => {
@@ -15,6 +17,13 @@ const Nav = () => {
 
   useOnOutSideClick(ref, () => setIsClicked(false));
 
+  const [isFocus, setIsFocus] = useState(false);
+
+  const onFocusHandler = () => {
+    setIsFocus(!isFocus);
+  };
+
+  useOnOutSideClick(ref, () => setIsFocus(false));
   return (
     <nav className="nav">
       <span className="navButton">
@@ -45,6 +54,7 @@ const Nav = () => {
           </div>
           <input
             className="navSearchInput"
+            onFocus={onFocusHandler}
             type="text"
             placeholder="검색어 입력"
           />
@@ -55,7 +65,13 @@ const Nav = () => {
               size="lg"
             />
           </div>
+          {isFocus && (
+            <div ref={ref}>
+              <NavSearchList />
+            </div>
+          )}
         </div>
+
         <div className="navIcons">
           <span className="navIconsUser">
             <FontAwesomeIcon
@@ -90,22 +106,6 @@ const Nav = () => {
       </div>
     </nav>
   );
-};
-
-const useOnOutSideClick = (ref, handler) => {
-  useEffect(() => {
-    const close = e => {
-      if (!ref.current || ref.current.contains(e.target)) {
-        return;
-      }
-      handler(e);
-    };
-    document.addEventListener('mousedown', close);
-
-    return () => {
-      document.removeEventListener('mousedown', close);
-    };
-  }, [ref, handler]);
 };
 
 export default Nav;
