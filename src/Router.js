@@ -4,6 +4,7 @@ import Login from './pages/Login/Login';
 import Main from './pages/Main/Main';
 import Nav from './components/Nav/Nav';
 import Cart from './pages/Cart/Cart';
+import Category from './pages/Category/Category';
 import Footer from './components/Footer/Footer';
 
 const Router = () => {
@@ -14,6 +15,7 @@ const Router = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/main" element={<Main />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/category" element={<Category />} />
       </Routes>
       <Footer />
     </BrowserRouter>
