@@ -1,14 +1,42 @@
 import React, { useState, useEffect } from 'react';
-import './Cart.scss';
 import CartItem from './CartItem';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
+  const [cartDelect, setCartDelect] = useState('');
+
+  const handleSelectValue = e => {
+    setCartData(e.target.value);
+  };
+  const remove = id => {
+    setCartDelect(
+      itemValue.filter(cartDelect => {
+        return data.id !== id;
+      })
+    );
+  };
+  // const [selectValue, setSeletValue] = useState('');
+
+  // const total = selectValue
+  //         .reduce((a.b) => a + b. price * b.amount, 0 )
+  //         .toString()
+  //         .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+
+  // const onChange = (id , amout) => {
+  //   setSeletValue(
+  //     selectValue.map( data => {
+  //       if (data.id === id) {
+  //           data.amount = amount ;
+  //       }
+  //       return data;
+  //     })
+  //   )
+  // }
 
   useEffect(() => {
-    fetch('/data/cartItem.json', {
-      method: 'GET',
-    })
+    fetch('/data/cartItem.json')
       .then(res => res.json())
       .then(data => {
         setCartData(data);
@@ -44,19 +72,12 @@ const Cart = () => {
                   name={data.name}
                   price={data.price}
                   product_code={data.product_code}
-                  img={data.img}
+                  // img={data.img}
                   amount={data.amount}
                   // data={data}
                 />
               );
             })}
-            <form className="selectOption">
-              <select>
-                {cartData.map(data => {
-                  return <option key={data.id}>{data.amount.id}</option>;
-                })}
-              </select>
-            </form>
           </div>
           <div className="productBoxCommentBox">
             <div className="serviceBox">조립서비스를 추가하시겠습니까?</div>
@@ -82,7 +103,7 @@ const Cart = () => {
             <div className="priceDetailBox">주문 내역</div>
             <div className="orderHistoryBox">
               <span>제품 가격</span>
-              <span className="boxPrice">가격</span>
+              <button className="boxPrice">가격</button>
             </div>
             <div className="textShipping">
               <span>배송</span>
@@ -92,12 +113,13 @@ const Cart = () => {
             </div>
             <div className="totalPrice">
               <span>총 주문금액</span>
-              <span className="wonBox">가격</span>
+              <button className="wonBox">가격</button>
             </div>
             <div className="giftBox">
               <div className="giftPayBox">
                 <button type="button" className="payButton">
                   결제하기
+                  <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="lg" />
                 </button>
               </div>
               <div className="payBackTitle">
