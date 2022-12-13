@@ -1,0 +1,131 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.category {
+  margin: 0 3% 6% 9%;
+
+  .categoryTitle {
+    margin: 10px 0 50px 0;
+    font-size: 36px;
+    font-weight: 700;
+  }
+
+  .buttonCountWrapper {
+    @include flex(flex-start, center, null);
+    flex-direction: row-reverse;
+    padding: 16px 0;
+    gap: 20px;
+
+    @media (max-width: $breakpoint-tablet) {
+      @include flex(space-between, center, null);
+      flex-direction: row;
+    }
+
+    .categoryButton {
+      .categoryFilterButton {
+        padding: 6px 12px;
+        border: 1px solid #dfdfdf;
+        background: transparent;
+        color: #111;
+        font-weight: 700;
+        cursor: pointer;
+
+        &:first-child {
+          border-radius: 4px 0 0 4px;
+        }
+
+        &:last-child {
+          border-radius: 0 4px 4px 0;
+        }
+
+        &:hover {
+          border-color: #929292;
+        }
+      }
+    }
+
+    .categoryCount {
+      color: #929292;
+      font-size: 12px;
+    }
+  }
+
+  .categoryFilter {
+    display: flex;
+    position: sticky;
+    z-index: 1;
+    top: 0;
+    padding: 16px 0;
+    border-bottom: 1px solid #dfdfdf;
+    background-color: #fff;
+
+    .categoryFilterButton {
+      @include flex(space-between, null, null);
+      margin-right: 10px;
+      padding: 10px 22px;
+      border: 1px solid transparent;
+      border-radius: 20px;
+      background-color: #f5f5f5;
+      font-weight: 700;
+      gap: 10px;
+
+      &:hover {
+        background-color: #dfdfdf;
+        cursor: pointer;
+      }
+
+      &:active {
+        background-color: #cccccc;
+      }
+
+      @media (max-width: $breakpoint-desktop) {
+        padding: 10px 16px;
+      }
+
+      .categoryFilterButtonText {
+        font-size: 16px;
+
+        @media (max-width: $breakpoint-desktop) {
+          font-size: 14px;
+        }
+
+        @media (max-width: $breakpoint-tablet) {
+          font-size: 14px;
+        }
+      }
+
+      .categoryFilterButtonIcon {
+        @media (max-width: $breakpoint-tablet) {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .categoryList {
+    display: grid;
+    position: relative;
+    grid-template-columns: repeat(4, 1fr);
+    column-gap: 20px;
+
+    .categoryItems {
+      padding: 60px 0 40px 0;
+
+      &::after {
+        content: '';
+        position: absolute;
+        right: 0;
+        left: 0;
+        border-bottom: 1px solid #dfdfdf;
+      }
+    }
+
+    @media (max-width: $breakpoint-desktop) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: $breakpoint-tablet) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
