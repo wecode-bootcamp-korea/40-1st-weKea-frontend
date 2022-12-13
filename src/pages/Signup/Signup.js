@@ -1,7 +1,9 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import './Signup.scss';
+import React, { useState } from 'react';
+import { useNavigate, Link } from 'react-router-dom';
 import SignupImageList from '../../components/Signup/SignupImageList';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import '../../../src/config.js';
+import './Signup.scss';
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -27,8 +29,9 @@ const Signup = () => {
     signupValue.password.length >= 8;
 
   const gotoMain = () => {
-    isValid
-      ? fetch('http://10.58.52.109:3000/signup', {
+    !isValid
+      ? alert('입력되지 않은 정보가 있습니다')
+      : fetch(`{$config.api}/signup`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json;charset=utf-8' },
           body: JSON.stringify({ signupValue }),
@@ -46,24 +49,24 @@ const Signup = () => {
             } else {
               alert('이미 가입한 회원입니다');
             }
-          })
-      : console.log('입력되지 않은 정보가 있습니다');
+          });
   };
 
   return (
     <div className="signup">
       <div>
         <header className="headerArray">
-          <a className="arrowMargin" href="/Main">
-            -화살표-
-          </a>
+          <Link to="/Main" className="arrowMargin">
+            <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
+          </Link>
           <span className="logoStyle">로고</span>
         </header>
         <span className="sideContainerWidth">
           <div className="titleMargin">
             <h1 className="titleStyle">Sims & co 회원 가입</h1>
             <div>
-              <span>이미 가입하셨나요?</span> <a href="login">로그인 하기</a>
+              <span>이미 가입하셨나요?</span>{' '}
+              <Link to="/login">로그인 하기</Link>
             </div>
           </div>
           <img
@@ -91,7 +94,7 @@ const Signup = () => {
             );
           })}
         </form>
-        <button className="buttonStyle" disabled={!isValid} onClick={gotoMain}>
+        <button className="buttonStyle" disabled={isValid} onClick={gotoMain}>
           가입 하기
         </button>
       </div>
