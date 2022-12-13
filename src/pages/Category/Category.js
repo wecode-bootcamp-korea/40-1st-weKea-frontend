@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import CategoryItem from './CategoryItem';
-import FilterDropDown from './FilterDropDown';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './category.scss';
 const Category = () => {
@@ -16,13 +15,8 @@ const Category = () => {
       });
   }, []);
 
-  const onFilterClick = e => {
-    console.log(e.target);
-  };
-
   return (
     <div className="category">
-      <FilterDropDown />
       <div className="categoryTitle">
         <h1>카테고리 이름</h1>
       </div>
@@ -39,13 +33,14 @@ const Category = () => {
         <div className="categoryFilter">
           {CATEGORY_FILTER.map(filterList => {
             return (
-              <button
-                onClick={onFilterClick}
-                className="categoryFilterButton"
-                key={filterList.id}
-              >
-                <span>{filterList.title}</span>
-                <FontAwesomeIcon icon={filterList.icon} />
+              <button className="categoryFilterButton" key={filterList.id}>
+                <span className="categoryFilterButtonText">
+                  {filterList.title}
+                </span>
+                <FontAwesomeIcon
+                  className="categoryFilterButtonIcon"
+                  icon={filterList.icon}
+                />
               </button>
             );
           })}
@@ -75,8 +70,35 @@ const Category = () => {
 export default Category;
 
 const CATEGORY_FILTER = [
-  { id: 1, title: '정렬', icon: 'fa-solid fa-chevron-down' },
-  { id: 2, title: '가격', icon: 'fa-solid fa-chevron-down' },
-  { id: 3, title: '색상', icon: 'fa-solid fa-chevron-down' },
-  { id: 4, title: '모든 필터', icon: 'fa-solid fa-list-ul' },
+  {
+    id: 1,
+    title: '높은 가격 순',
+    icon: 'fa-solid fa-arrow-up-wide-short',
+  },
+  {
+    id: 2,
+    title: '낮은 가격 순',
+    icon: 'fa-solid fa-arrow-down-short-wide',
+  },
+
+  {
+    id: 3,
+    title: '높은 평점 순',
+    icon: 'fa-solid fa-arrow-up-wide-short',
+  },
+  {
+    id: 4,
+    title: '낮은 평점 순',
+    icon: 'fa-solid fa-arrow-down-short-wide',
+  },
+  {
+    id: 5,
+    title: '알파벳 순',
+    icon: 'fa-solid fa-arrow-up-a-z',
+  },
+  {
+    id: 6,
+    title: '최신순',
+    icon: 'fa-solid fa-arrow-up-short-wide',
+  },
 ];
