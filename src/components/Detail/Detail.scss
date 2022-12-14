@@ -25,7 +25,6 @@
           width: 100%;
           height: 100%;
           object-fit: cover;
-          object-position: 0px -100px;
         }
       }
     }
@@ -48,7 +47,7 @@
       .productCode {
         padding: 5px 10px;
         background-color: #000000;
-        color: white;
+        color: #ffffff;
         font-size: 13px;
         font-weight: bold;
       }
@@ -94,9 +93,15 @@
         margin-bottom: 10px;
       }
       .price {
+        display: flex;
+        flex-direction: row;
         margin-bottom: 20px;
         font-size: 30px;
         font-weight: bold;
+
+        .currencyStyle {
+          font-size: 18px;
+        }
       }
       .subRating {
         margin-bottom: 20px;

@@ -4,11 +4,9 @@
     "french_name": "CHOUCHOU",
     "korean_name": "슈슈",
     "category": "식탁",
-    "material": "호두나무",
     "price": 590000,
     "rating": "★★★★★(15)",
     "description_summary": "원목으로 만든 기본 원형 테이블과 의자는 공간을 따뜻하고 포근하게 만들어 줍니다. 프랑스 가정집의 감성을 멋지게 표현했죠.",
-    "product_code": "110.530.87",
-    "description_detail": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut in ligula nibh. Aenean fringilla sem vel tellus hendrerit, in varius lectus blandit. Maecenas nec iaculis odio. Quisque eget orci mollis, faucibus nulla vitae, interdum nulla. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin tincidunt condimentum odio, sit amet ultricies quam tincidunt at. Ut nec ultrices diam. Quisque molestie maximus turpis ac dignissim. Suspendisse vel risus sed nibh iaculis auctor nec sit amet justo."
+    "product_code": "110.530.87"
   }
 ]
