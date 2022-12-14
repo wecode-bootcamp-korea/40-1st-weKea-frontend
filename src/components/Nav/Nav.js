@@ -9,12 +9,46 @@ const Nav = () => {
   const navigate = useNavigate();
   const ref = useRef();
   const [isFocus, setIsFocus] = useState(false);
+  const [searchInput, setSearchInput] = useState('');
+  const [searchData, setSearchData] = useState([]);
 
   const onFocusHandler = () => {
     setIsFocus(!isFocus);
   };
 
+  const onChangeInputHandler = e => {
+    setSearchInput(e.target.value);
+  };
+
+  const searchResult = searchData.map((data, i) => {
+    const { name, id } = data;
+    if (searchInput.length > 0 && name.toLowerCase().includes(searchInput)) {
+      return (
+        <li className="navSearchResult" key={id}>
+          <FontAwesomeIcon
+            className="fontawesome"
+            icon="fa-solid fa-magnifying-glass"
+          />
+          <span className="searchResultText">{name}</span>
+        </li>
+      );
+    }
+  });
+
+  console.log(searchData);
+
   useOnOutSideClick(ref, () => setIsFocus(false));
+
+  useEffect(() => {
+    fetch('/data/searchMockData.json', {
+      method: 'GET',
+    })
+      .then(res => res.json())
+      .then(data => {
+        setSearchData(data);
+      });
+  }, []);
+
   return (
     <nav className="nav">
       <span className="navButton">
@@ -45,6 +79,8 @@ const Nav = () => {
           <input
             className="navSearchInput"
             onFocus={onFocusHandler}
+            onChange={onChangeInputHandler}
+            value={searchInput}
             type="text"
             placeholder="검색어 입력"
           />
@@ -55,9 +91,10 @@ const Nav = () => {
               size="lg"
             />
           </div>
+
           {isFocus && (
             <div ref={ref}>
-              <NavSearchList />
+              <NavSearchList result={searchResult} />
             </div>
           )}
         </div>
