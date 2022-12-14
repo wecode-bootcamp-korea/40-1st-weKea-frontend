@@ -4,27 +4,21 @@ import ImageModal from '../ImageModal/ImageModal';
 import './Detail.scss';
 
 const Detail = () => {
-  const [detailImageList, setDetailImagelist] = useState([]);
-  const [detailInfoList, setDetailInfoList] = useState([]);
+  const [detailInfoList, setDetailInfoList] = useState({
+    price: 0,
+    imgUrl: '',
+  });
   const [isClicked, setIsClicked] = useState(false);
 
   const onClickHandler = () => {
     setIsClicked(true);
   };
-
-  const numberWithCommas = x => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
-  useEffect(() => {
-    fetch('/data/DetailImage.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setDetailImagelist(data);
-      });
-  }, []);
+  const productPrice = detailInfoList.price;
+  const priceWithCurrency = productPrice.toLocaleString('ko-KR');
+  const detailImageList = detailInfoList.imgUrl.split(',');
+  const detailImageObj = detailImageList.map((data, index) => {
+    return { id: { index }, src: { data } };
+  });
 
   useEffect(() => {
     fetch('/data/productDetail.json', {
@@ -41,13 +35,13 @@ const Detail = () => {
       <div className="detail">
         <main className="detailMainContainer">
           <ul className="detailImageContainer">
-            {detailImageList.map(img => {
+            {detailImageObj.map(data => {
               return (
-                <li key={img.id} className="detailImageBox">
+                <li key={data.id.index} className="detailImageBox">
                   <img
                     onClick={onClickHandler}
                     className="detailImageEach"
-                    src={img.imgUrl}
+                    src={data.src.data}
                     alt="detailImage"
                   />
                 </li>
@@ -65,7 +59,7 @@ const Detail = () => {
             {DETAIL_LIST.map(data => {
               return (
                 <li key={data.id} className="detailListItem">
-                  {data.title}{' '}
+                  {data.title}
                   <span className="detailModalArrow">
                     <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
                   </span>
@@ -83,7 +77,7 @@ const Detail = () => {
             <div className="subDescription">{detailInfoList.category}</div>
             <div className="price">
               <div className="currencyStyle">&#8361;</div>
-              {numberWithCommas(+detailInfoList.price)}
+              {priceWithCurrency}
             </div>
             <div className="subRating">{detailInfoList.rating}</div>
             <div className="buyMethodContainer">
