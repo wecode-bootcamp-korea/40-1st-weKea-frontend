@@ -1,4 +1,4 @@
-@import '../../styles/mixin.scss';
+@import '../../styles/mixin';
 
 .nav {
   position: relative;
@@ -6,7 +6,7 @@
   padding: 0 3%;
 
   .navButton {
-    @include flex(null, center, column);
+    @include flex(column, center, null);
     position: fixed;
     top: 25px;
     left: 3%;
@@ -17,9 +17,9 @@
   }
 
   .navContainer {
-    @include flex(space-between, center, null);
-    margin-left: 6%;
+    @include flex(null, center, space-between);
     height: 100%;
+    margin-left: 6%;
 
     .navContainerLogo {
       width: 90px;
@@ -35,19 +35,37 @@
       position: relative;
       width: 70%;
 
+      &:focus-within::before {
+        content: '';
+        position: absolute;
+        z-index: 5;
+        top: -12px;
+        right: -12px;
+        bottom: -12px;
+        left: -12px;
+        width: calc(100% + 24px);
+        height: calc(100% + 24px);
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.2) 0 0 0 1111px;
+      }
+
       .navSearchIconLeft {
         position: absolute;
+        z-index: 1;
         top: 50%;
         left: 3%;
         transform: translate(-50%, -50%);
       }
 
       .navSearchInput {
+        position: relative;
+        z-index: 5;
         width: 100%;
         padding: 16px 5%;
+        border: 2px solid transparent;
         border-radius: 50rem;
         background-color: #f5f5f5;
-        border: 2px solid transparent;
         font-size: 16px;
 
         &:hover {
@@ -55,8 +73,8 @@
         }
 
         &:focus {
-          background-color: #fff;
           border-color: #0058a3;
+          background-color: #fff;
         }
       }
 
@@ -92,8 +110,8 @@
     margin-left: 0;
 
     .navIcons .fontawesome {
-      margin-right: 20px;
       display: flex;
+      margin-right: 20px;
     }
 
     & .fontawesome {
