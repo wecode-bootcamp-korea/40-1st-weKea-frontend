@@ -8,6 +8,7 @@ import './nav.scss';
 
 const Nav = () => {
   const [isClicked, setIsClicked] = useState(false);
+  const [isFocus, setIsFocus] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
 
@@ -15,15 +16,12 @@ const Nav = () => {
     setIsClicked(true);
   };
 
-  useOnOutSideClick(ref, () => setIsClicked(false));
-
-  const [isFocus, setIsFocus] = useState(false);
-
   const onFocusHandler = () => {
     setIsFocus(!isFocus);
   };
 
-  useOnOutSideClick(ref, () => setIsFocus(false));
+  useOnOutSideClick(ref, () => setIsClicked(false));
+
   return (
     <nav className="nav">
       <span className="navButton">
@@ -99,9 +97,12 @@ const Nav = () => {
       </div>
       <div className="sideModalWrapper" ref={ref}>
         {isClicked ? (
-          <SideModal className="sideModal" />
+          <SideModal setIsClicked={setIsClicked} className="sideModal" />
         ) : (
-          <SideModal className="sideModal sideModalHidden" />
+          <SideModal
+            setIsClicked={setIsClicked}
+            className="sideModal sideModalHidden"
+          />
         )}
       </div>
     </nav>
