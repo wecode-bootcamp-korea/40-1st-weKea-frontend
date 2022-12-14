@@ -39,6 +39,7 @@
       &:focus-within::before {
         content: '';
         position: absolute;
+        z-index: 5;
         top: -12px;
         right: -12px;
         bottom: -12px;
@@ -60,6 +61,7 @@
 
       .navSearchInput {
         position: relative;
+        z-index: 5;
         width: 100%;
         padding: 16px 5%;
         border: 2px solid transparent;
@@ -100,32 +102,30 @@
 }
 
 @media (max-width: 1200px) {
-  .nav {
-    .navButton {
-      display: none;
-      position: static;
+  .navButton {
+    display: none;
+    position: static;
+  }
+
+  .navContainer {
+    margin-left: 0;
+
+    .navIcons .fontawesome {
+      display: flex;
+      margin-right: 20px;
     }
 
-    .navContainer {
-      margin-left: 0;
+    & .fontawesome {
+      margin-right: 0;
+    }
 
-      .navIcons .fontawesome {
-        display: flex;
-        margin-right: 20px;
-      }
+    .navIconsUser > span {
+      display: none;
+    }
 
-      & .fontawesome {
-        margin-right: 0;
-      }
-
-      .navIconsUser > span {
-        display: none;
-      }
-
-      .navIconsHamburger {
-        display: block;
-        margin-right: 0;
-      }
+    .navIconsHamburger {
+      display: block;
+      margin-right: 0;
     }
   }
 }

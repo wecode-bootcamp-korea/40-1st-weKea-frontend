@@ -1,13 +1,22 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SideModal from '../../components/SideModal/SideModal';
 import NavSearchList from './NavSearchList';
 import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import './nav.scss';
 
 const Nav = () => {
+  const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
+
+  const onClickHandler = () => {
+    setIsClicked(true);
+  };
+
+  useOnOutSideClick(ref, () => setIsClicked(false));
+
   const [isFocus, setIsFocus] = useState(false);
 
   const onFocusHandler = () => {
@@ -22,6 +31,7 @@ const Nav = () => {
           className="fontawesome"
           icon="fa-solid fa-bars"
           size="lg"
+          onClick={onClickHandler}
         />
         <span>메뉴</span>
       </span>
@@ -86,6 +96,13 @@ const Nav = () => {
             />
           </span>
         </div>
+      </div>
+      <div className="sideModalWrapper" ref={ref}>
+        {isClicked ? (
+          <SideModal className="sideModal" />
+        ) : (
+          <SideModal className="sideModal sideModalHidden" />
+        )}
       </div>
     </nav>
   );
