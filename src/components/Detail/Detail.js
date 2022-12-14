@@ -8,12 +8,12 @@ const Detail = () => {
   const [detailInfoList, setDetailInfoList] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
 
-  const numberWithCommas = x => {
-    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-  };
-
   const onClickHandler = () => {
     setIsClicked(true);
+  };
+
+  const numberWithCommas = x => {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
   };
 
   useEffect(() => {
@@ -105,17 +105,12 @@ const Detail = () => {
           </div>
         </aside>
       </div>
-      {isClicked ? (
+      {isClicked && (
         <ImageModal
+          modalImage={detailImageList[0]}
           setIsClicked={setIsClicked}
           isClicked={isClicked}
           className="imageModalContainer"
-        />
-      ) : (
-        <ImageModal
-          setIsClicked={setIsClicked}
-          isClicked={isClicked}
-          className="imageModalContainer imageModalHidden"
         />
       )}
     </>

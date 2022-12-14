@@ -1,4 +1,4 @@
-// @import '../../../';
+@import '../../styles/mixin';
 
 .imageModalContainer {
   visibility: visible;
@@ -14,11 +14,8 @@
   transition-property: transform visibility;
 
   .imageModalBox {
-    display: flex;
-    position: relative;
+    @include flex(null, center, center);
     z-index: 1;
-    align-items: center;
-    justify-content: center;
     width: 90vw;
     height: 90vh;
     border-radius: 10px;
