@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ImageModal from '../ImageModal/ImageModal';
 import './Detail.scss';
@@ -6,10 +6,14 @@ import './Detail.scss';
 const Detail = () => {
   const [detailImageList, setDetailImagelist] = useState([]);
   const [detailInfoList, setDetailInfoList] = useState([]);
-  const imageModal = useRef(null);
+  const [isClicked, setIsClicked] = useState(false);
 
   const numberWithCommas = x => {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  };
+
+  const onClickHandler = () => {
+    setIsClicked(true);
   };
 
   useEffect(() => {
@@ -34,7 +38,6 @@ const Detail = () => {
 
   return (
     <>
-      <ImageModal ref={imageModal} />
       <div className="detail">
         <main className="detailMainContainer">
           <ul className="detailImageContainer">
@@ -42,6 +45,7 @@ const Detail = () => {
               return (
                 <li key={img.id} className="detailImageBox">
                   <img
+                    onClick={onClickHandler}
                     className="detailImageEach"
                     src={img.imgUrl}
                     alt="detailImage"
@@ -101,6 +105,19 @@ const Detail = () => {
           </div>
         </aside>
       </div>
+      {isClicked ? (
+        <ImageModal
+          setIsClicked={setIsClicked}
+          isClicked={isClicked}
+          className="imageModalContainer"
+        />
+      ) : (
+        <ImageModal
+          setIsClicked={setIsClicked}
+          isClicked={isClicked}
+          className="imageModalContainer imageModalHidden"
+        />
+      )}
     </>
   );
 };

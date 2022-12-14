@@ -1,7 +1,17 @@
+// @import '../../../';
+
 .imageModalContainer {
-  display: flex;
-  display: none;
-  justify-content: center;
+  visibility: visible;
+  position: fixed;
+  z-index: 9999;
+  bottom: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
+  transform: scale(1);
+  transform: opacity(1);
+  transition: 300ms ease-in-out;
+  transition-property: transform visibility;
 
   .imageModalBox {
     display: flex;
@@ -9,8 +19,8 @@
     z-index: 1;
     align-items: center;
     justify-content: center;
-    width: 87vw;
-    height: 87vh;
+    width: 90vw;
+    height: 90vh;
     border-radius: 10px;
     background-color: #ffffff;
     box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.3);
@@ -27,6 +37,22 @@
       top: 30px;
       right: 30px;
       font-size: 20px;
+      cursor: pointer;
     }
   }
+}
+
+.imageModalHidden {
+  visibility: hidden;
+  position: absolute;
+  position: fixed;
+  z-index: 9999;
+  bottom: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
+  transform: scale(0);
+  transform: opacity(0);
+  transition: 300ms ease-in-out;
+  transition-property: transform visibility;
 }

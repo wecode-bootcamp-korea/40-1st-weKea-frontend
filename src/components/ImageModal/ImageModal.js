@@ -1,11 +1,16 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
 import './ImageModal.scss';
 
-const ImageModal = () => {
+const ImageModal = ({ className, setIsClicked, isClicked }) => {
+  const ImageModalRef = useRef(null);
+
+  const onClickHandler = e => {
+    setIsClicked(false);
+  };
+
   return (
-    <div className="imageModalContainer">
+    <div ref={ImageModalRef} className={className}>
       <div className="imageModalBox">
         <img
           className="modalImage"
@@ -13,7 +18,7 @@ const ImageModal = () => {
           alt="imageModal"
         />
         <div className="closeButton">
-          <FontAwesomeIcon icon="fa-solid fa-xmark" />
+          <FontAwesomeIcon icon="fa-solid fa-xmark" onClick={onClickHandler} />
         </div>
       </div>
     </div>
