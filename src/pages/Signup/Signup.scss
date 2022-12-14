@@ -1,0 +1,64 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.signup {
+  @include flex(row, null, flex-start);
+  margin: 20px 6% 6% 9%;
+
+  .headerArray {
+    @include flex(null, center, flex-start);
+    margin-bottom: 20px;
+
+    .arrowMargin {
+      margin-right: 10px;
+    }
+
+    .logoStyle {
+      width: 100px;
+      height: 40px;
+      background-color: $mainBrandBlue;
+    }
+  }
+
+  .sideContainerWidth {
+    .titleMargin {
+      margin-bottom: 60px;
+
+      .titleStyle {
+        margin-bottom: 20px;
+        font-size: 36px;
+        font-weight: bold;
+      }
+    }
+
+    .mobileImgSize {
+      display: none;
+    }
+  }
+
+  .inputContainerStyle {
+    margin: 40px 150px;
+
+    .inputItemStyle {
+      display: block;
+      width: 420px;
+      height: 50px;
+      margin-bottom: 35px;
+      padding-left: 10px;
+      border: 1px solid #000000;
+      border-radius: 5px;
+      font-size: 15px;
+    }
+
+    .buttonStyle {
+      width: 420px;
+      height: 60px;
+      margin-top: 20px;
+      border-radius: 70px;
+      background-color: #000000;
+      color: #ffffff;
+      font-size: 15px;
+      font-weight: bold;
+    }
+  }
+}

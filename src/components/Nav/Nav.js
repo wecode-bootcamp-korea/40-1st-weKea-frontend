@@ -1,8 +1,7 @@
-// TODO 검색값 없을경우 메세지 출력, 검색리스트 최대 갯수 제한 , 검색결과창 클릭해도 배경어두운거 안사라지게
-
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SideModal from '../../components/SideModal/SideModal';
 import NavSearchList from './NavSearchList';
 import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import './nav.scss';
@@ -12,8 +11,15 @@ const Nav = () => {
   const [searchInput, setSearchInput] = useState('');
   const [itemsData, setItemsData] = useState([]);
 
+  const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
+
+  const onClickHandler = () => {
+    setIsClicked(true);
+  };
+
+  useOnOutSideClick(ref, () => setIsClicked(false));
 
   const onFocusHandler = () => {
     setIsFocus(!isFocus);
@@ -58,6 +64,7 @@ const Nav = () => {
           className="fontawesome"
           icon="fa-solid fa-bars"
           size="lg"
+          onClick={onClickHandler}
         />
         <span>메뉴</span>
       </span>
@@ -128,6 +135,13 @@ const Nav = () => {
             />
           </span>
         </div>
+      </div>
+      <div className="sideModalWrapper" ref={ref}>
+        {isClicked ? (
+          <SideModal className="sideModal" />
+        ) : (
+          <SideModal className="sideModal sideModalHidden" />
+        )}
       </div>
     </nav>
   );
