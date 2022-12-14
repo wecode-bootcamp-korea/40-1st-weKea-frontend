@@ -58,6 +58,10 @@
       margin-bottom: 15px;
       .cartItemDelet {
         margin-left: 20px;
+        button {
+          border: none;
+          background-color: #ffff;
+        }
       }
       select {
         width: 50px;

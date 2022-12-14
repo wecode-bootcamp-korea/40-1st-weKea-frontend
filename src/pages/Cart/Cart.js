@@ -5,7 +5,14 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
+  const onDeleteClick = id => {
+    setCartData(cartData => {
+      // console.log(cartData[id]);
+      return cartData.filter((_, index) => index !== id);
+    });
+  };
 
+  // const totalPrice = id => {()};
   // const [selectValue, setSeletValue] = useState('');
 
   // const total = selectValue
@@ -16,6 +23,10 @@ const Cart = () => {
   //     })
   //   )
   // }
+
+  // useEffect(() => {
+  //   setOrderList(cartData < 30000 ? (cartData ? 30000 : 0) : 0);
+  // }, [cartData]);
 
   useEffect(() => {
     fetch('/data/cartItem.json')
@@ -37,28 +48,27 @@ const Cart = () => {
           </div>
           <div className="detailTitleBox">주문을 어떻게 받고 싶으세요?</div>
           <div className="titleBoxWish">
-            <div className="shippingBox">
-              <button className="shippingText" type="button">
-                배송
-              </button>
-            </div>
-            <div className="pickupBox">
-              <button className="shippingText" type="button">
-                픽업
-              </button>
-            </div>
+            <button className="shippingTextBox" type="button">
+              <FontAwesomeIcon icon="fa-solid fa-truck" size="lg" />
+              <span className="shippingText">배송</span>
+            </button>
+
+            <button className="shippingTextBox" type="button">
+              <FontAwesomeIcon icon="fa-solid fa-warehouse" size="lg" />
+              <span className="shippingText">픽업</span>
+            </button>
           </div>
           <div className="favoriteProducBox">
             {cartData.map(data => {
               return (
                 <CartItem
                   key={data.id}
+                  id={data.id}
                   name={data.name}
                   price={data.price}
                   product_code={data.product_code}
-                  // img={data.img}
                   amount={data.amount}
-                  // data={data}
+                  onDeleteClick={onDeleteClick}
                 />
               );
             })}
@@ -81,6 +91,7 @@ const Cart = () => {
           </div>
         </div>
       </div>
+
       <div className="payBox">
         <div className="payDetailBox">
           <div className="priceBox">
@@ -99,17 +110,16 @@ const Cart = () => {
               <span>총 주문금액</span>
               <button className="wonBox">가격</button>
             </div>
-            <div className="giftBox">
-              <div className="giftPayBox">
-                <button type="button" className="payButton">
-                  결제하기
-                  <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="lg" />
-                </button>
-              </div>
-              <span className="payBackTitle">
-                반품 정책 365일 이내에 제품 환불 가능
-              </span>
+
+            <div className="giftPayBox">
+              <button type="button" className="payButton">
+                결제하기
+                <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="lg" />
+              </button>
             </div>
+            <span className="payBackTitle">
+              반품 정책 365일 이내에 제품 환불 가능
+            </span>
           </div>
         </div>
       </div>

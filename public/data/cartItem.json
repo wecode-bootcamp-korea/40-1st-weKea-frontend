@@ -1,36 +1,35 @@
 [
   {
     "id": 1,
-    "img": "view.php?cate=1&idx=329",
-    "name": "고급의자",
+    "name": "고급의자1",
     "price": 120000,
     "product_code": "803.339.53",
     "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
   },
   {
     "id": 2,
-    "name": "고급의자",
+    "name": "고급의자2",
     "price": 120000,
     "product_code": "803.339.53",
     "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
   },
   {
     "id": 3,
-    "name": "고급의자",
+    "name": "고급의자3",
     "price": 120000,
     "product_code": "803.339.53",
     "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
   },
   {
     "id": 4,
-    "name": "고급의자",
+    "name": "고급의자4",
     "price": 120000,
     "product_code": "803.339.53",
     "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]
   },
   {
     "id": 5,
-    "name": "고급의자",
+    "name": "고급의자5",
     "price": 120000,
     "product_code": "803.339.53",
     "amount": [{ "id": 1 }, { "id": 2 }, { "id": 3 }, { "id": 4 }]

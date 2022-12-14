@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './CartItem.scss';
-const CartItem = ({ key, name, price, product_code, src }) => {
+const CartItem = ({
+  key,
+  name,
+  price,
+  product_code,
+  src,
+  id,
+  onDeleteClick,
+}) => {
   return (
     <div className="cartItem">
       <div className="cartItemImageWrapper">
-        <div className="cartItemImage">{src}</div>
+        <div className="cartItemImage">이미지임</div>
         <div className="cartItemCode">
           <span>{product_code}</span>
         </div>
@@ -19,12 +27,12 @@ const CartItem = ({ key, name, price, product_code, src }) => {
         </div>
         <div className="cartItemButton">
           <select className="cartItemSelect">
-            {CARTAMOUNT.map(data => {
-              return <option key={data.id}>{data.id}</option>;
+            {CARTAMOUNT.map(cartAmount => {
+              return <option key={cartAmount.id}>{cartAmount.id}</option>;
             })}
           </select>
           <div className="cartItemDelet">
-            <button>삭제</button>
+            <button onClick={() => onDeleteClick(id)}>삭제</button>
           </div>
         </div>
       </div>
@@ -69,3 +77,23 @@ const CARTAMOUNT = [
     id: 10,
   },
 ];
+
+// const [data.]
+// const [dataDelete, setDataDelete] = useState([]);
+
+// const onDeleteClick = (e = {});
+// const onDeleteClick = e => {
+//   console.log(e.target.parentNode.parentNode.parentNode.parentNode);
+//   e.target.parentNode.parentNode.parentNode.parentNode.remove();
+// };
+// const onDeleteClick = () => {
+//   if (window.confirm('삭제하시겠습니까 ?')) {
+//     fetch('http://localhost:3000/cart/${cart.id}', {
+//       method: 'DELETE',
+//     }).then(res => {
+//       if (res.ok) {
+//         ({ id: 0 });
+//       }
+//     });
+//   }
+// };
