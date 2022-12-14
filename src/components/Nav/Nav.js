@@ -1,3 +1,5 @@
+// TODO 검색값 없을경우 메세지 출력, 검색리스트 최대 갯수 제한 , 검색결과창 클릭해도 배경어두운거 안사라지게
+
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -6,11 +8,12 @@ import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import './nav.scss';
 
 const Nav = () => {
-  const navigate = useNavigate();
-  const ref = useRef();
   const [isFocus, setIsFocus] = useState(false);
   const [searchInput, setSearchInput] = useState('');
-  const [searchData, setSearchData] = useState([]);
+  const [itemsData, setItemsData] = useState([]);
+
+  const navigate = useNavigate();
+  const ref = useRef();
 
   const onFocusHandler = () => {
     setIsFocus(!isFocus);
@@ -20,8 +23,9 @@ const Nav = () => {
     setSearchInput(e.target.value);
   };
 
-  const searchResult = searchData.map((data, i) => {
+  const searchResult = itemsData.map(data => {
     const { name, id } = data;
+
     if (searchInput.length > 0 && name.toLowerCase().includes(searchInput)) {
       return (
         <li className="navSearchResult" key={id}>
@@ -35,8 +39,6 @@ const Nav = () => {
     }
   });
 
-  console.log(searchData);
-
   useOnOutSideClick(ref, () => setIsFocus(false));
 
   useEffect(() => {
@@ -45,7 +47,7 @@ const Nav = () => {
     })
       .then(res => res.json())
       .then(data => {
-        setSearchData(data);
+        setItemsData(data);
       });
   }, []);
 
@@ -94,7 +96,10 @@ const Nav = () => {
 
           {isFocus && (
             <div ref={ref}>
-              <NavSearchList result={searchResult} />
+              <NavSearchList
+                inputValue={searchInput}
+                searchResult={searchResult}
+              />
             </div>
           )}
         </div>
