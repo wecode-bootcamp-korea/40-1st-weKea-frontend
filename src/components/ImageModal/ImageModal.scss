@@ -1,0 +1,32 @@
+.imageModalContainer {
+  display: flex;
+  display: none;
+  justify-content: center;
+
+  .imageModalBox {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    align-items: center;
+    justify-content: center;
+    width: 87vw;
+    height: 87vh;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.3);
+
+    .modalImage {
+      position: absolute;
+      z-index: 2;
+      height: 80%;
+      object-fit: cover;
+    }
+    .closeButton {
+      position: absolute;
+      z-index: 3;
+      top: 30px;
+      right: 30px;
+      font-size: 20px;
+    }
+  }
+}
