@@ -3,9 +3,8 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './navSearchList.scss';
 
 const NavDropDown = ({ inputValue, searchResult }) => {
-  console.log(searchResult);
   return inputValue ? (
-    <ul className="navDropDown">검색결과가 없습니다</ul>
+    <ul className="navDropDown">{searchResult}</ul>
   ) : (
     <ul className="navDropDown">
       <li className="navSearchResult">

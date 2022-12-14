@@ -1,3 +1,5 @@
+// TODO : 검색 결과없을경우 메세지 출력, 검색 결과 최대갯수 제한, 검색결과 모달창 클릭해도 box-shadow 안사라지게
+
 import React, { useState, useRef, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,8 +12,8 @@ const Nav = () => {
   const [isFocus, setIsFocus] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [itemsData, setItemsData] = useState([]);
-
   const [isClicked, setIsClicked] = useState(false);
+
   const navigate = useNavigate();
   const ref = useRef();
 
@@ -29,9 +31,7 @@ const Nav = () => {
     setSearchInput(e.target.value);
   };
 
-  const searchResult = itemsData.map(data => {
-    const { name, id } = data;
-
+  const searchResult = itemsData.map(({ name, id }) => {
     if (searchInput.length > 0 && name.toLowerCase().includes(searchInput)) {
       return (
         <li className="navSearchResult" key={id}>
