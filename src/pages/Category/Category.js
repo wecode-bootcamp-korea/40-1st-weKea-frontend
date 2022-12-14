@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import CategoryItem from './CategoryItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './category.scss';
+
+import AlarmModal from '../../components/AlarmModal/AlarmModal';
 const Category = () => {
   const [itemData, setItemData] = useState([]);
 
@@ -17,6 +19,7 @@ const Category = () => {
 
   return (
     <div className="category">
+      <AlarmModal />
       <div className="categoryTitle">
         <h1>카테고리 이름</h1>
       </div>
