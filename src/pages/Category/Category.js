@@ -12,8 +12,7 @@ const Category = () => {
   const [itemData, setItemData] = useState([]);
   const [alarmOn, setAlarmOn] = useState(false);
 
-  const params = useParams();
-  const id = params.id;
+  const { id } = useParams();
 
   const ref = useRef();
 

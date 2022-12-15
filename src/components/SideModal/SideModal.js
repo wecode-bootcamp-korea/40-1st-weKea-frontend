@@ -27,7 +27,7 @@ const SideModal = ({ className, setIsClicked }) => {
 
       <div className="sideModalListWrapper">
         <ul className="sideModalList">
-          {SIDEMENU_LIST_BOLD.map(({ id, list, endPoint }) => {
+          {SIDEMENU_LIST_BOLD.map(({ id, list }) => {
             return (
               <li className="mainBoldMenuList" key={id}>
                 <Link to={`products/${id}`}>{list}</Link>
@@ -71,11 +71,11 @@ const SideModal = ({ className, setIsClicked }) => {
 export default SideModal;
 
 const SIDEMENU_LIST_BOLD = [
-  { id: 1, list: '침대/매트리스', endPoint: '1' },
-  { id: 2, list: '식탁/책상', endPoint: '2' },
-  { id: 3, list: '주방용품', endPoint: '3' },
-  { id: 4, list: '수납/정리', endPoint: '4' },
-  { id: 5, list: '의자', endPoint: '5' },
+  { id: 1, list: '침대/매트리스' },
+  { id: 2, list: '식탁/책상' },
+  { id: 3, list: '주방용품' },
+  { id: 4, list: '수납/정리' },
+  { id: 5, list: '의자' },
 ];
 
 const SIDEMENU_LIST_SEMIBOLD = [
