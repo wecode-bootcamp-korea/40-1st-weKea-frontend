@@ -1,9 +1,16 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import FOOTER_DATA from './footerData';
 import './footer.scss';
 
+const interruptedRoute = ['signup', 'login'];
+
 const Footer = () => {
+  const { pathname } = useLocation();
+  const isHideFooter = interruptedRoute.some(path => pathname.includes(path));
+
+  if (isHideFooter) return;
+
   return (
     <footer className="footer">
       <section className="footerMainRow">
