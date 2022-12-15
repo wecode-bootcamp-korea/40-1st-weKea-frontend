@@ -3,7 +3,9 @@ import './CartItem.scss';
 const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
   const { name, price, product_code, amount, id } = cart;
 
-  const total = amount * price;
+  const total = (amount * price)
+    .toString()
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
   const onSelectChange = e => {
     const value = Number(e.target.value);
@@ -25,7 +27,7 @@ const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
             <div className="cartItemName">{name}</div>
             <div>카테고리</div>
           </div>
-          <div className="cartItemPrice">{total}</div>
+          <div className="cartItemPrice">₩{total}</div>
         </div>
 
         <div className="cartItemButton">
@@ -34,10 +36,9 @@ const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
             onChange={onSelectChange}
             value={amount}
           >
-            <option value="0">0</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
+            {CART_AMOUNT.map(cartAmount => {
+              return <option key={cartAmount.id}>{cartAmount.id}</option>;
+            })}
           </select>
 
           <div className="cartItemDelet">
@@ -51,14 +52,20 @@ const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
 
 export default CartItem;
 
-// const CART_AMOUNT = [
-//   {
-//     id: 1,
-//   },
-//   {
-//     id: 2,
-//   },
-//   {
-//     id: 3,
-//   },
-// ];
+const CART_AMOUNT = [
+  {
+    id: 1,
+  },
+  {
+    id: 2,
+  },
+  {
+    id: 3,
+  },
+  {
+    id: 4,
+  },
+  {
+    id: 5,
+  },
+];
