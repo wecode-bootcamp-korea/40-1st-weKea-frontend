@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import CategoryItem from './CategoryItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import useOnOutSideClick from '../../hooks/useOnOutSideClick';
+import { useRef } from 'react';
 import './category.scss';
 
 import AlarmModal from '../../components/AlarmModal/AlarmModal';
 const Category = () => {
   const [itemData, setItemData] = useState([]);
+  const [alarmOn, setAlarmOn] = useState(false);
+
+  const ref = useRef();
+
+  const onCartAddClick = () => {
+    setAlarmOn(true);
+  };
+
+  console.log(alarmOn);
+  useOnOutSideClick(ref, () => setAlarmOn(false));
 
   useEffect(() => {
     fetch('/data/itemsMockData.json', {
@@ -16,10 +28,15 @@ const Category = () => {
         setItemData(data);
       });
   }, []);
-
   return (
     <div className="category">
-      <AlarmModal />
+      <div ref={ref} className="alarmModalWrapper">
+        {alarmOn === true ? (
+          <AlarmModal className="alarmModal" />
+        ) : (
+          <AlarmModal className="alarmModal alarmModalHidden" />
+        )}
+      </div>
       <div className="categoryTitle">
         <h1>카테고리 이름</h1>
       </div>
@@ -60,6 +77,7 @@ const Category = () => {
                   description={description}
                   image={thumbnail_url}
                   rating={rating}
+                  onCartAddClick={onCartAddClick}
                 />
               );
             }

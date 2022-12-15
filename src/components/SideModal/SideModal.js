@@ -8,6 +8,7 @@ const SideModal = ({ className, setIsClicked }) => {
   const onCloseButtonHandler = () => {
     setIsClicked(false);
   };
+
   return (
     <aside className={className}>
       <div className="sideModalTitle">

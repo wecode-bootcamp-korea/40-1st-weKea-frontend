@@ -3,10 +3,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './alarmModal.scss';
 import { Link } from 'react-router-dom';
 
-const AlarmModal = () => {
+const AlarmModal = ({ setAlarmOn, className }) => {
+  const onCloseBtnClicked = () => {
+    setAlarmOn(false);
+  };
   return (
-    <div className="alarmModal">
-      <div className="alarmModalButton">
+    <div className={className}>
+      <div onClick={onCloseBtnClicked} className="alarmModalButton">
         <FontAwesomeIcon className="fontAwesome" icon="fa-solid fa-xmark" />
       </div>
       <div className="alarmModalTextWrapper">

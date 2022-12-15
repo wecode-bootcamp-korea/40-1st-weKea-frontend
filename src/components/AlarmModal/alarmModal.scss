@@ -10,7 +10,7 @@
   width: 480px;
   height: 250px;
   padding: 30px 20px 45px;
-  transform: translateX(0);
+  transform: translateX(0px);
   transition: transform 200ms 0s;
   transition-property: transform, visibility;
   border-radius: 0 0 0 10px;
@@ -48,4 +48,11 @@
       text-decoration: underline;
     }
   }
+}
+
+.alarmModalHidden {
+  visibility: hidden;
+  transform: translateX(480px);
+  transition: transform 200ms 0s;
+  transition-property: transform, visibility;
 }
