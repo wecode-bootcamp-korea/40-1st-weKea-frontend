@@ -27,8 +27,7 @@ const Detail = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        jwtoken:
-          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjcxMDczOTE1LCJleHAiOjE2NzE2Nzg3MTV9.jG9fEJlXRuN0_jSP9En-LPIDIpPwFZvCd4OPTOWYEOY',
+        jwtoken: '',
       },
       body: JSON.stringify({
         productId: productID,
