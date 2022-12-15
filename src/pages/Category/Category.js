@@ -1,14 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import CategoryItem from './CategoryItem';
+import { API } from '../../config/config';
 import AlarmModal from '../../components/AlarmModal/AlarmModal';
 import './category.scss';
+
 const Category = () => {
   const [itemData, setItemData] = useState([]);
   const [alarmOn, setAlarmOn] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
+
+  const { id } = useParams();
 
   const ref = useRef();
 
@@ -19,12 +23,12 @@ const Category = () => {
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
   useEffect(() => {
-    fetch('/data/itemsMockData.json', {
+    fetch(`${API.products}/${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setItemData(data);
+        setItemData(data.product_Info);
       });
   }, [searchParams]);
 
