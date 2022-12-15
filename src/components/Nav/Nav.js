@@ -1,16 +1,20 @@
 import React, { useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideModal from '../../components/SideModal/SideModal';
 import NavSearchList from './NavSearchList';
 import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import './nav.scss';
 
+const interruptedRoute = ['signup', 'login'];
+
 const Nav = () => {
+  const { pathname } = useLocation();
   const [isClicked, setIsClicked] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
+  const isHideNav = interruptedRoute.some(path => pathname.includes(path));
 
   const onClickHandler = () => {
     setIsClicked(true);
@@ -21,6 +25,8 @@ const Nav = () => {
   };
 
   useOnOutSideClick(ref, () => setIsClicked(false));
+
+  if (isHideNav) return;
 
   return (
     <nav className="nav">
