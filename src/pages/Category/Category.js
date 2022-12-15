@@ -2,16 +2,18 @@ import React, { useState, useEffect } from 'react';
 import CategoryItem from './CategoryItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './category.scss';
+import { useParams } from 'react-router-dom';
 const Category = () => {
   const [itemData, setItemData] = useState([]);
-
+  const params = useParams();
+  const id = params.id;
   useEffect(() => {
-    fetch('/data/itemsMockData.json', {
+    fetch(`http://10.58.52.245:3000/products/${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setItemData(data);
+        setItemData(data.product_Info);
       });
   }, []);
 
