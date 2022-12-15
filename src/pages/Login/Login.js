@@ -42,9 +42,12 @@ const Login = () => {
     <div className="login">
       <div className="titleBox">
         <div className="titleUseBox">
-          <div className="textBox">
-            <span>Sims & co</span>
-          </div>
+          <img
+            className="textBox"
+            src="/images/Nav/Sims&co_logo.png"
+            alt="logoImage"
+          />
+
           <div
             className="logoIcon"
             onClick={() => {

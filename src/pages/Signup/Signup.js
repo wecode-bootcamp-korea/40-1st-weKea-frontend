@@ -60,7 +60,11 @@ const Signup = () => {
           <Link to="/Main" className="arrowMargin">
             <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
           </Link>
-          <span className="logoStyle">로고</span>
+          <img
+            className="logoStyle"
+            src="/images/Nav/Sims&co_logo.png"
+            alt="Sims&coLogo"
+          />
         </header>
         <span className="sideContainerWidth">
           <div className="titleMargin">
