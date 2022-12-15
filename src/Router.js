@@ -6,18 +6,20 @@ import Signup from './pages/Signup/Signup';
 import Nav from './components/Nav/Nav';
 import Category from './pages/Category/Category';
 import Footer from './components/Footer/Footer';
+import Detail from './components/Detail/Detail';
 
 const Router = () => {
   return (
     <BrowserRouter>
       <Nav />
       <Routes>
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
+        <Route element={<Nav />} />
         <Route path="/main" element={<Main />} />
-        <Route path="/nav" element={<Nav />} />
-        <Route path="/signup" element={<Signup />} />
         <Route path="/category" element={<Category />} />
+        <Route path="/detail" element={<Detail />} />
+
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       <Footer />
     </BrowserRouter>
