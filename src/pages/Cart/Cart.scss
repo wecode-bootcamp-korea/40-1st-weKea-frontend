@@ -67,10 +67,13 @@
       }
     }
 
-    .favoriteProducBox {
+    .favoriteProductBox {
       // width: 65vw;
       // height: 30vw;
       // border: 1px solid black;
+      .cartItem:last-child {
+        border: none;
+      }
     }
 
     .productBoxCommentBox {
@@ -115,7 +118,7 @@
   .payBox {
     // @include flex(null, null, center);
     width: 35%;
-    height: 100vw;
+    // height: 100vw;
     margin-top: 50px;
 
     .payDetailBox {
@@ -170,6 +173,7 @@
             background-color: white;
           }
         }
+
         .giftPayBox {
           display: flex;
           align-items: center;

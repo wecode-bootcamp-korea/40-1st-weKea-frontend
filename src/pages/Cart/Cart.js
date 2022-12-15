@@ -5,28 +5,24 @@ import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
+
   const onDeleteClick = id => {
-    setCartData(cartData => {
-      // console.log(cartData[id]);
-      return cartData.filter((_, index) => index !== id);
-    });
+    setCartData(cartData => cartData.filter(cart => cart.id !== id));
   };
 
-  // const totalPrice = id => {()};
-  // const [selectValue, setSeletValue] = useState('');
+  const onAmountChange = (id, amount) => {
+    setCartData(cartData =>
+      cartData.map(cart => {
+        if (cart.id === id) cart.amount = amount;
+        return cart;
+      })
+    );
+  };
 
-  // const total = selectValue
-  //         .reduce((a.b) => a + b. price * b.amount, 0 )
-  //         .toString()
-  //         .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
-
-  //     })
-  //   )
-  // }
-
-  // useEffect(() => {
-  //   setOrderList(cartData < 30000 ? (cartData ? 30000 : 0) : 0);
-  // }, [cartData]);
+  const total = cartData
+    .reduce((prev, current) => prev + current.price * current.amount, 0)
+    .toString()
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
   useEffect(() => {
     fetch('/data/cartItem.json')
@@ -39,56 +35,53 @@ const Cart = () => {
   return (
     <div className="cart">
       <div className="shopCart">
-        <div className="shopBox">
-          <div className="titleBox">
-            <h1 className="cartTitle">장바구니</h1>
-            <span className="cartTitleIcon">
-              <FontAwesomeIcon icon="fa-solid fa-ellipsis" />
-            </span>
-          </div>
-          <div className="detailTitleBox">주문을 어떻게 받고 싶으세요?</div>
-          <div className="titleBoxWish">
-            <button className="shippingTextBox" type="button">
-              <FontAwesomeIcon icon="fa-solid fa-truck" size="lg" />
-              <span className="shippingText">배송</span>
-            </button>
+        <div className="titleBox">
+          <h1 className="cartTitle">장바구니</h1>
+          <span className="cartTitleIcon">
+            <FontAwesomeIcon icon="fa-solid fa-ellipsis" />
+          </span>
+        </div>
+        <div className="detailTitleBox">주문을 어떻게 받고 싶으세요?</div>
+        <div className="titleBoxWish">
+          <button className="shippingTextBox" type="button">
+            <FontAwesomeIcon icon="fa-solid fa-truck" size="lg" />
+            <span className="shippingText">배송</span>
+          </button>
 
-            <button className="shippingTextBox" type="button">
-              <FontAwesomeIcon icon="fa-solid fa-warehouse" size="lg" />
-              <span className="shippingText">픽업</span>
-            </button>
-          </div>
-          <div className="favoriteProducBox">
-            {cartData.map(data => {
-              return (
-                <CartItem
-                  key={data.id}
-                  id={data.id}
-                  name={data.name}
-                  price={data.price}
-                  product_code={data.product_code}
-                  amount={data.amount}
-                  onDeleteClick={onDeleteClick}
-                />
-              );
-            })}
-          </div>
-          <div className="productBoxCommentBox">
-            <div className="serviceBox">조립서비스를 추가하시겠습니까?</div>
-            <div className="serviceDetailBox">
-              <h1 className="serviceTitle">조립 서비스</h1>
-              <p>
-                sims &co에게 조립을 맡기고 소중한 시간을 아끼세요.공식
-                협역업체가 제공하는 조립 서비스는 ₩30,000부터 시작합니다.
-              </p>
-              <span>우편 번호를 추가하여 예약 가능 여부 및 가격 확인</span>
+          <button className="shippingTextBox" type="button">
+            <FontAwesomeIcon icon="fa-solid fa-warehouse" size="lg" />
+            <span className="shippingText">픽업</span>
+          </button>
+        </div>
 
-              <p>추가정보 링크</p>
-            </div>
-            <button className="serviceButton" type="button">
-              조립 서비스 선택하기
-            </button>
+        <div className="favoriteProductBox">
+          {cartData.map(data => {
+            return (
+              <CartItem
+                key={data.id}
+                cart={data}
+                onDeleteClick={onDeleteClick}
+                onAmountChange={onAmountChange}
+              />
+            );
+          })}
+        </div>
+
+        <div className="productBoxCommentBox">
+          <div className="serviceBox">조립서비스를 추가하시겠습니까?</div>
+          <div className="serviceDetailBox">
+            <h1 className="serviceTitle">조립 서비스</h1>
+            <p>
+              sims &co에게 조립을 맡기고 소중한 시간을 아끼세요.공식 협역업체가
+              제공하는 조립 서비스는 ₩30,000부터 시작합니다.
+            </p>
+            <span>우편 번호를 추가하여 예약 가능 여부 및 가격 확인</span>
+
+            <p>추가정보 링크</p>
           </div>
+          <button className="serviceButton" type="button">
+            조립 서비스 선택하기
+          </button>
         </div>
       </div>
 
@@ -98,7 +91,7 @@ const Cart = () => {
             <div className="priceDetailBox">주문 내역</div>
             <div className="orderHistoryBox">
               <span>제품 가격</span>
-              <button className="boxPrice">가격</button>
+              <div className="boxPrice">₩{total}</div>
             </div>
             <div className="textShipping">
               <span>배송</span>
@@ -108,7 +101,7 @@ const Cart = () => {
             </div>
             <div className="totalPrice">
               <span>총 주문금액</span>
-              <button className="wonBox">가격</button>
+              <div className="wonBox">₩{total}</div>
             </div>
 
             <div className="giftPayBox">
