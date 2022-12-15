@@ -42,19 +42,19 @@ const Login = () => {
     <div className="login">
       <div className="titleBox">
         <div className="titleUseBox">
-          <div className="titleNav">
-            <div
-              className="logoIcon"
-              onClick={() => {
-                navigate('/main');
-              }}
-            >
-              <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
-            </div>
+          <img
+            className="textBox"
+            src="/images/Nav/Sims&co_logo.png"
+            alt="logoImage"
+          />
 
-            <div className="textBox">
-              <span>Sims & co</span>
-            </div>
+          <div
+            className="logoIcon"
+            onClick={() => {
+              navigate('/main');
+            }}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
           </div>
 
           <div className="textBoxTitle">
@@ -80,7 +80,7 @@ const Login = () => {
       <div className="loginBox">
         <form className="inputForm">
           <div className="loginBoardEmail">
-            <span>이메일 또는 확인된 휴대폰 번호</span>
+            <span className="lineInput">이메일 또는 확인된 휴대폰 번호</span>
             <input
               type="text"
               className="inputId"
@@ -90,7 +90,7 @@ const Login = () => {
             />
           </div>
           <div className="loginBoardPw">
-            <span className="loginBordPwtitle">비밀번호</span>
+            <span className="nonePassWord">비밀번호</span>
             <input
               type="password"
               className="inputPassword"

@@ -11,7 +11,6 @@ const Category = () => {
   const [itemData, setItemData] = useState([]);
   const [alarmOn, setAlarmOn] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-
   const { id } = useParams();
 
   const ref = useRef();
@@ -22,15 +21,24 @@ const Category = () => {
 
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
+  // useEffect(() => {
+  //   fetch(`${API.products}/${id}`, {
+  //     method: 'GET',
+  //   })
+  //     .then(res => res.json())
+  //     .then(data => {
+  //       setItemData(data.product_Info);
+  //     });
+  // }, [id]);
   useEffect(() => {
-    fetch(`${API.products}/${id}`, {
+    fetch('/data/itemsMockData.json', {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setItemData(data.product_Info);
+        setItemData(data);
       });
-  }, [searchParams]);
+  }, []);
 
   return (
     <div className="category">
@@ -80,7 +88,15 @@ const Category = () => {
 
         <div className="categoryList">
           {itemData.map(
-            ({ id, name, price, description, thumbnail_url, rating }) => {
+            ({
+              id,
+              name,
+              price,
+              description,
+              thumbnail_url,
+              thumbnail_url2,
+              rating,
+            }) => {
               return (
                 <CategoryItem
                   key={id}
@@ -88,6 +104,7 @@ const Category = () => {
                   price={price}
                   description={description}
                   image={thumbnail_url}
+                  image2={thumbnail_url2}
                   rating={rating}
                   onCartAddClick={onCartAddClick}
                 />

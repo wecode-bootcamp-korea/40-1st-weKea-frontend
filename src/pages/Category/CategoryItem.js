@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './categoryItem.scss';
@@ -7,14 +7,23 @@ const CategoryItems = ({
   name,
   price,
   image,
+  image2,
   description,
   rating,
   onCartAddClick,
 }) => {
+  const [isMouseOver, setIsMouseOver] = useState(false);
+
   return (
     <div className="categoryItems">
       <div>
-        <img className="categoryImg" src={image} alt="상품이미지" />
+        <img
+          className="categoryImg"
+          src={isMouseOver ? image : image2}
+          onMouseOver={() => setIsMouseOver(true)}
+          onMouseOut={() => setIsMouseOver(false)}
+          alt="상품이미지"
+        />
       </div>
       <div className="itemInformationWrapper">
         <Link className="itemInformation" to="">

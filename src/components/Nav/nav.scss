@@ -35,7 +35,7 @@
     .navContainerLogo {
       width: 90px;
       height: 36px;
-      background-color: yellow;
+      object-fit: cover;
 
       &:hover {
         cursor: pointer;

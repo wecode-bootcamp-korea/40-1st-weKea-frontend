@@ -12,9 +12,19 @@
     .titleUseBox {
       @include flex(column, null, space-between);
       height: 100%;
-      margin-left: 40px;
-      .titleNav {
-        display: flex;
+      margin: 0 auto;
+      @include flex(column, center, space-between);
+
+      .textBox {
+        width: 90px;
+        height: 36px;
+        object-fit: cover;
+        margin-top: 20px;
+        margin-right: 70px;
+        color: #cdcdcd;
+        font-size: 25px;
+      }
+      .logoIcon {
         position: relative;
         align-items: center;
         justify-content: flex-start;
@@ -84,6 +94,10 @@
         flex-direction: column;
       }
 
+      .lineInput {
+        margin-bottom: 10px;
+      }
+
       .inputId {
         height: 50px;
         padding-left: 1rem;
@@ -95,6 +109,7 @@
       .inputPassword {
         width: 100%;
         height: 50px;
+        margin-bottom: 5px;
         padding-left: 1rem;
         border: 1px solid #000000;
         border-radius: 5px;
@@ -110,13 +125,12 @@
         font-size: 0.95rem;
         font-weight: 800;
       }
-    }
-
-    .joinBtn {
-      width: 100%;
-      height: 60px;
-      border: 1px solid #000000;
-      border-radius: 40px;
+      .joinBtn {
+        width: 100%;
+        height: 60px;
+        border: 1px solid #000000;
+        border-radius: 40px;
+      }
     }
   }
 }
