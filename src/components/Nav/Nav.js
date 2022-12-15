@@ -1,7 +1,7 @@
 // TODO : 검색 결과없을경우 메세지 출력, 검색 결과 최대갯수 제한, 검색결과 모달창 클릭해도 box-shadow 안사라지게
 
 import React, { useState, useRef, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideModal from '../../components/SideModal/SideModal';
 import NavSearchList from './NavSearchList';
@@ -120,14 +120,17 @@ const Nav = () => {
             <span>Hej! 로그인 또는 가입하기</span>
           </span>
           <span className="navIconsCart">
-            <FontAwesomeIcon
-              className="fontawesome"
-              icon="fa-solid fa-cart-shopping"
-              size="lg"
-            />
+            <Link to="/cart">
+              <FontAwesomeIcon
+                className="fontawesome"
+                icon="fa-solid fa-cart-shopping"
+                size="lg"
+              />
+            </Link>
           </span>
           <span className="navIconsHamburger">
             <FontAwesomeIcon
+              onClick={onClickHandler}
               className="fontawesome"
               icon="fa-solid fa-bars"
               size="lg"
