@@ -27,7 +27,7 @@ const Detail = () => {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        jwtoken: '',
+        jwtoken: window.localStorage.getItem('jwtoken'),
       },
       body: JSON.stringify({
         productId: productID,
