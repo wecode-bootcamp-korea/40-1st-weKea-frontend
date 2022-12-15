@@ -11,7 +11,7 @@ const Category = () => {
   const [itemData, setItemData] = useState([]);
   const [alarmOn, setAlarmOn] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-  const { id } = useParams();
+  const paramsId = useParams();
 
   const ref = useRef();
 
@@ -21,20 +21,14 @@ const Category = () => {
 
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
-  console.log('data : ', itemData);
+  // console.log('data : ', itemData);
   useEffect(() => {
-    fetch(`${API.products}/${id}`, {
+    fetch(`${API.products}/${paramsId.id}`, {
       method: 'GET',
     })
-      .then(response => {
-        console.log('response : ', response);
-        return response.json();
-      })
-      .then(data => {
-        console.log('data : ', data);
-        setItemData(data.productInfo);
-      });
-  }, [id]);
+      .then(response => response.json())
+      .then(result => setItemData(result.productInfo));
+  }, [paramsId]);
 
   // useEffect(() => {
   //   fetch('/data/itemsMockData.json', {
@@ -45,6 +39,8 @@ const Category = () => {
   //       setItemData(data);
   //     });
   // }, []);
+
+  console.log(itemData);
 
   return (
     <div className="category">
@@ -99,8 +95,8 @@ const Category = () => {
               name,
               price,
               description,
-              thumbnail_url,
-              thumbnail_url2,
+              exampleImageUrl,
+              thumbnailUrl,
               rating,
             }) => {
               return (
@@ -109,8 +105,8 @@ const Category = () => {
                   name={name}
                   price={price}
                   description={description}
-                  image={thumbnail_url}
-                  image2={thumbnail_url2}
+                  image={exampleImageUrl}
+                  image2={thumbnailUrl}
                   rating={rating}
                   onCartAddClick={onCartAddClick}
                 />
