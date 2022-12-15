@@ -6,6 +6,7 @@
   padding: 0 3%;
 
   .navButton {
+    // @include flex_column;
     @include flex(column, center, null);
     position: fixed;
     top: 25px;

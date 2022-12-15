@@ -1,20 +1,24 @@
 // TODO : 검색 결과없을경우 메세지 출력, 검색 결과 최대갯수 제한, 검색결과 모달창 클릭해도 box-shadow 안사라지게
 
 import React, { useState, useRef, useEffect } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import SideModal from '../../components/SideModal/SideModal';
 import NavSearchList from './NavSearchList';
 import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import './nav.scss';
 
+const interruptedRoute = ['signup', 'login'];
+
 const Nav = () => {
+  const { pathname } = useLocation();
   const [isFocus, setIsFocus] = useState(false);
   const [searchInput, setSearchInput] = useState('');
   const [itemsData, setItemsData] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
   const navigate = useNavigate();
   const ref = useRef();
+  const isHideNav = interruptedRoute.some(path => pathname.includes(path));
 
   const onClickHandler = () => {
     setIsClicked(true);
@@ -55,6 +59,8 @@ const Nav = () => {
         setItemsData(data);
       });
   }, []);
+
+  if (isHideNav) return;
 
   return (
     <nav className="nav">
