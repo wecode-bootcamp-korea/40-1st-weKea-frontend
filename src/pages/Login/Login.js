@@ -42,19 +42,19 @@ const Login = () => {
     <div className="login">
       <div className="titleBox">
         <div className="titleUseBox">
-          <div className="titleNav">
-            <div
-              className="logoIcon"
-              onClick={() => {
-                navigate('/main');
-              }}
-            >
-              <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
-            </div>
+          <img
+            className="textBox"
+            src="/images/Nav/Sims&co_logo.png"
+            alt="logoImage"
+          />
 
-            <div className="textBox">
-              <span>Sims & co</span>
-            </div>
+          <div
+            className="logoIcon"
+            onClick={() => {
+              navigate('/main');
+            }}
+          >
+            <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
           </div>
 
           <div className="textBoxTitle">

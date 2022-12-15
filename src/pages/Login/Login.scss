@@ -12,9 +12,19 @@
     .titleUseBox {
       @include flex(column, null, space-between);
       height: 100%;
-      margin-left: 40px;
-      .titleNav {
-        display: flex;
+      margin: 0 auto;
+      @include flex(column, center, space-between);
+
+      .textBox {
+        width: 90px;
+        height: 36px;
+        object-fit: cover;
+        margin-top: 20px;
+        margin-right: 70px;
+        color: #cdcdcd;
+        font-size: 25px;
+      }
+      .logoIcon {
         position: relative;
         align-items: center;
         justify-content: flex-start;

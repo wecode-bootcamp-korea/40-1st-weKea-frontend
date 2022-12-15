@@ -20,7 +20,7 @@ const SideModal = ({ className, setIsClicked }) => {
           onClick={() => {
             navigate('/main');
           }}
-          src="wekea"
+          src="/images/Nav/Sims&co_logo.png"
           alt="로고"
         />
       </div>
