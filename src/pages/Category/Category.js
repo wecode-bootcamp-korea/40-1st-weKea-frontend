@@ -16,7 +16,6 @@ const Category = () => {
     setAlarmOn(true);
   };
 
-  console.log(alarmOn);
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
   useEffect(() => {
@@ -28,6 +27,7 @@ const Category = () => {
         setItemData(data);
       });
   }, []);
+
   return (
     <div className="category">
       <div ref={ref} className="alarmModalWrapper">
