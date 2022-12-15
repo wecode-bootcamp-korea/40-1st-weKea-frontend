@@ -1,13 +1,12 @@
-.entireArray {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  margin: 40px 40px 80px;
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.signup {
+  @include flex(row, null, flex-start);
+  margin: 20px 6% 6% 9%;
 
   .headerArray {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    @include flex(null, center, flex-start);
     margin-bottom: 20px;
 
     .arrowMargin {
@@ -17,7 +16,7 @@
     .logoStyle {
       width: 100px;
       height: 40px;
-      background-color: rgb(0, 119, 255);
+      background-color: $mainBrandBlue;
     }
   }
 
@@ -35,31 +34,6 @@
     .mobileImgSize {
       display: none;
     }
-
-    .imgContainerFlex {
-      display: flex;
-      justify-content: flex-start;
-
-      .longImgBoxMargin {
-        margin-right: 10px;
-
-        .longImgStyle {
-          width: 13vw;
-          height: 210px;
-          margin-bottom: 10px;
-          object-fit: cover;
-        }
-      }
-
-      .shortImgBoxMargin {
-        .shortImgStyle {
-          width: 13vw;
-          height: 180px;
-          margin-bottom: 10px;
-          object-fit: cover;
-        }
-      }
-    }
   }
 
   .inputContainerStyle {
@@ -69,10 +43,9 @@
       display: block;
       width: 420px;
       height: 50px;
-
       margin-bottom: 35px;
       padding-left: 10px;
-      border: 1px solid black;
+      border: 1px solid #000000;
       border-radius: 5px;
       font-size: 15px;
     }
@@ -82,8 +55,8 @@
       height: 60px;
       margin-top: 20px;
       border-radius: 70px;
-      background-color: black;
-      color: white;
+      background-color: #000000;
+      color: #ffffff;
       font-size: 15px;
       font-weight: bold;
     }

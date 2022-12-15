@@ -1,0 +1,39 @@
+.signupImageList {
+  display: flex;
+
+  .longSignupImageList {
+    display: flex;
+    flex-direction: column;
+
+    .longImageBoxMargin {
+      width: 13vw;
+      height: 18vw;
+      margin-right: 10px;
+      margin-bottom: 10px;
+
+      .longImageStyle {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+
+  .shortSignupImageList {
+    display: flex;
+    flex-direction: column;
+
+    .shortImageBoxMargin {
+      width: 13vw;
+      height: 15vw;
+      margin-right: 10px;
+      margin-bottom: 10px;
+
+      .shortImageStyle {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}

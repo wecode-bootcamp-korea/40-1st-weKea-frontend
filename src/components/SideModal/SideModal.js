@@ -3,12 +3,16 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SideModal.scss';
 
-const SideModal = ({ className }) => {
+const SideModal = ({ className, setIsClicked }) => {
   const navigate = useNavigate();
+  const onCloseButtonHandler = () => {
+    setIsClicked(false);
+  };
+
   return (
     <aside className={className}>
       <div className="sideModalTitle">
-        <button className="sideModalCloseButton">
+        <button className="sideModalCloseButton" onClick={onCloseButtonHandler}>
           <FontAwesomeIcon icon="fa-solid fa-xmark" size="lg" />
         </button>
         <img
