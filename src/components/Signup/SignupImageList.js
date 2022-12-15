@@ -1,23 +1,34 @@
 import React from 'react';
+import './SignupImageList.scss';
 
 const SignupImageList = () => {
-  return ImageList.map(img => {
-    return (
-      <div key={img.id} className="imgContainerFlex">
-        <span className="longImgBoxMargin">
-          <img alt={img.alt} className="longImgStyle" src={img.src} />
-        </span>
-        <span className="shortImgBoxMargin">
-          <img alt={img.alt} className="shortImgStyle" src={img.src} />
-        </span>
-      </div>
-    );
-  });
+  return (
+    <div className="signupImageList">
+      <ul className="longSignupImageList">
+        {IMAGE_LIST.map(img => {
+          return (
+            <li key={img.id} className="longImageBoxMargin">
+              <img alt={img.alt} className="longImageStyle" src={img.src} />
+            </li>
+          );
+        })}
+      </ul>
+      <ul className="shortSignupImageList">
+        {IMAGE_LIST.map(img => {
+          return (
+            <li key={img.id} className="shortImageBoxMargin">
+              <img alt={img.alt} className="shortImageStyle" src={img.src} />
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
 };
 
 export default SignupImageList;
 
-const ImageList = [
+const IMAGE_LIST = [
   {
     id: 1,
     alt: 'signupImage1',
