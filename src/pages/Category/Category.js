@@ -3,6 +3,7 @@ import CategoryItem from './CategoryItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import { useRef } from 'react';
+import { API } from '../../config/config';
 import './category.scss';
 
 import AlarmModal from '../../components/AlarmModal/AlarmModal';
@@ -11,6 +12,9 @@ const Category = () => {
   const [itemData, setItemData] = useState([]);
   const [alarmOn, setAlarmOn] = useState(false);
 
+  const params = useParams();
+  const id = params.id;
+
   const ref = useRef();
 
   const onCartAddClick = () => {
@@ -18,10 +22,9 @@ const Category = () => {
   };
 
   useOnOutSideClick(ref, () => setAlarmOn(false));
-  const params = useParams();
-  const id = params.id;
+
   useEffect(() => {
-    fetch(`http://10.58.52.245:3000/products/${id}`, {
+    fetch(`${API.products}/${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
