@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ImageModal from '../ImageModal/ImageModal';
+import { API } from '../../../src/config/config';
+
 import './Detail.scss';
 
 const Detail = () => {
@@ -46,7 +48,7 @@ const Detail = () => {
   };
 
   useEffect(() => {
-    fetch('/data/productDetail.json', {
+    fetch(API.detail, {
       method: 'GET',
     })
       .then(res => res.json())
