@@ -80,7 +80,7 @@ const Login = () => {
       <div className="loginBox">
         <form className="inputForm">
           <div className="loginBoardEmail">
-            <span>이메일 또는 확인된 휴대폰 번호</span>
+            <span className="lineInput">이메일 또는 확인된 휴대폰 번호</span>
             <input
               type="text"
               className="inputId"
@@ -90,7 +90,7 @@ const Login = () => {
             />
           </div>
           <div className="loginBoardPw">
-            <span className="loginBordPwtitle">비밀번호</span>
+            <span className="nonePassWord">비밀번호</span>
             <input
               type="password"
               className="inputPassword"
