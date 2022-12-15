@@ -3,7 +3,14 @@ import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './categoryItem.scss';
 
-const CategoryItems = ({ name, price, image, description, rating }) => {
+const CategoryItems = ({
+  name,
+  price,
+  image,
+  description,
+  rating,
+  onCartAddClick,
+}) => {
   return (
     <div className="categoryItems">
       <div>
@@ -19,7 +26,7 @@ const CategoryItems = ({ name, price, image, description, rating }) => {
           <span className="itemStar">{rating}</span>
         </Link>
 
-        <button className="iconCart">
+        <button className="iconCart" onClick={onCartAddClick}>
           <FontAwesomeIcon icon="fa-solid fa-cart-shopping" size="lg" />
         </button>
         <button className="iconHeart">
