@@ -1,13 +1,16 @@
 @import '../../styles/mixin';
+@import '../../styles/variables';
 
 .login {
   display: flex;
+
   .titleBox {
     width: 40%;
+    padding: 32px 80px;
     background-color: #0058a3;
 
     .titleUseBox {
-      width: 20vw;
+      @include flex(column, null, space-between);
       height: 100%;
       margin: 0 auto;
       @include flex(column, center, space-between);
@@ -23,37 +26,53 @@
       }
       .logoIcon {
         position: relative;
-        right: 90%;
-        bottom: 150px;
+        align-items: center;
+        justify-content: flex-start;
         color: #cdcdcd;
-        font-size: 20px;
+
+        .logoIcon {
+          position: absolute;
+          left: -80px;
+          font-size: 20px;
+        }
+
+        .textBox {
+          font-size: 25px;
+        }
       }
     }
 
     .textBoxTitle {
       position: relative;
       width: 100%;
-      height: 300px;
       margin-top: 0%;
       color: #ffff;
 
       .title {
-        color: #ffff00;
+        margin-top: 16px;
+        color: $mainBrandYellow;
         font-size: 32px;
-        line-height: 100px;
+        font-weight: 700;
       }
+
       .titleText {
-        letter-spacing: normal;
-        line-height: 25px;
+        padding-top: 14px;
+        font-size: 14px;
+        line-height: 20px;
       }
     }
 
     .article {
-      width: 80%;
-      height: 40px;
-      margin-top: 100px;
-      margin-right: auto;
-      color: #cdcdcd;
+      display: flex;
+      flex-direction: column;
+      color: #fff;
+      font-size: 12px;
+      line-height: 1.7;
+
+      .underline {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
 
@@ -66,8 +85,10 @@
     & div {
       margin-bottom: 40px;
     }
+
     .inputForm {
       width: 448px;
+
       .loginBoardEmail {
         display: flex;
         flex-direction: column;
@@ -100,10 +121,11 @@
         font-weight: 800;
       }
     }
+
     .joinBtn {
       width: 100%;
       height: 60px;
-      border: 1px solid black;
+      border: 1px solid #000000;
       border-radius: 40px;
     }
   }
