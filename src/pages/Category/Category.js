@@ -11,7 +11,6 @@ const Category = () => {
   const [itemData, setItemData] = useState([]);
   const [alarmOn, setAlarmOn] = useState(false);
   const [searchParams, setSearchParams] = useSearchParams();
-
   const { id } = useParams();
 
   const ref = useRef();
@@ -30,7 +29,7 @@ const Category = () => {
       .then(data => {
         setItemData(data.product_Info);
       });
-  }, [searchParams]);
+  }, [id]);
 
   return (
     <div className="category">
