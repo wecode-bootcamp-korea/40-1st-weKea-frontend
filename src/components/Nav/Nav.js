@@ -117,14 +117,16 @@ const Nav = () => {
         </div>
 
         <div className="navIcons">
-          <span className="navIconsUser">
-            <FontAwesomeIcon
-              className="fontawesome"
-              icon="fa-solid fa-user"
-              size="lg"
-            />
-            <span>Hej! 로그인 또는 가입하기</span>
-          </span>
+          <Link to="/login">
+            <span className="navIconsUser">
+              <FontAwesomeIcon
+                className="fontawesome"
+                icon="fa-solid fa-user"
+                size="lg"
+              />
+              <span>Hej! 로그인 또는 가입하기</span>
+            </span>
+          </Link>
           <span className="navIconsCart">
             <Link to="/cart">
               <FontAwesomeIcon
