@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useRef } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './categoryItem.scss';
 
@@ -13,17 +14,29 @@ const CategoryItems = ({
   onCartAddClick,
 }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
+  const ref = useRef(null);
 
   return (
     <div className="categoryItems">
       <div>
         <img
+          ref={ref}
           className="categoryImg"
           src={isMouseOver ? image : image2}
           onMouseOver={() => setIsMouseOver(true)}
           onMouseOut={() => setIsMouseOver(false)}
+          // style={{ opacity: isMouseOver ? 1 : 0 }}
           alt="상품이미지"
         />
+        {/* <img
+          ref={ref}
+          className="categoryImg2"
+          src={isMouseOver ? image : image2}
+          onMouseOver={() => setIsMouseOver(false)}
+          onMouseOut={() => setIsMouseOver(true)}
+          style={{ opacity: !isMouseOver ? 1 : 0 }}
+          alt="상품이미지"
+        /> */}
       </div>
       <div className="itemInformationWrapper">
         <Link className="itemInformation" to="">
