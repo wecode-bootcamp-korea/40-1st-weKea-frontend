@@ -7,6 +7,7 @@ const Detail = () => {
   const [detailInfoList, setDetailInfoList] = useState({
     price: 0,
     imgUrl: '',
+    id: 0,
   });
   const [isClicked, setIsClicked] = useState(false);
 
@@ -14,11 +15,36 @@ const Detail = () => {
     setIsClicked(true);
   };
   const productPrice = detailInfoList.price;
+  const productID = detailInfoList.id;
   const priceWithCurrency = productPrice.toLocaleString('ko-KR');
   const detailImageList = detailInfoList.imgUrl.split(',');
   const detailImageObj = detailImageList.map((data, index) => {
     return { id: { index }, src: { data } };
   });
+
+  const buyButtonClickHandler = () => {
+    fetch('http://10.58.52.142:3000/cart/putItem', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        jwtoken:
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjcxMDczOTE1LCJleHAiOjE2NzE2Nzg3MTV9.jG9fEJlXRuN0_jSP9En-LPIDIpPwFZvCd4OPTOWYEOY',
+      },
+      body: JSON.stringify({
+        productId: productID,
+      }),
+    })
+      .then(res => {
+        if (res.status === 201) {
+          alert('장바구니에 추가되었습니다');
+        } else if (res.status === 400) {
+          alert('구매할 수 없는 상품입니다');
+        }
+      })
+      .then((res, err) => {
+        alert('ERROR:', err.message);
+      });
+  };
 
   useEffect(() => {
     fetch('/data/productDetail.json', {
@@ -29,7 +55,6 @@ const Detail = () => {
         setDetailInfoList(...data);
       });
   }, []);
-
   return (
     <>
       <div className="detail">
@@ -95,7 +120,9 @@ const Detail = () => {
                 </div>
               </div>
             </div>
-            <button className="buyButton">구매하기</button>
+            <button onClick={buyButtonClickHandler} className="buyButton">
+              구매하기
+            </button>
           </div>
         </aside>
       </div>
