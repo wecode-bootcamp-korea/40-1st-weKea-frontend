@@ -1,15 +1,22 @@
 @import '../../styles/mixin';
-
+@import '../../styles/variables';
 .nav {
   position: relative;
   height: 90px;
   padding: 0 3%;
 
   .navButton {
+    // @include flex_column;
     @include flex(column, center, null);
     position: fixed;
     top: 25px;
     left: 3%;
+    cursor: pointer;
+
+    @media (max-width: 1200px) {
+      display: none;
+      // position: static;
+    }
 
     & .fontawesome {
       margin-bottom: 14px;
@@ -21,10 +28,14 @@
     height: 100%;
     margin-left: 6%;
 
+    @media (max-width: $breakpoint-desktop) {
+      margin-left: 0;
+    }
+
     .navContainerLogo {
       width: 90px;
       height: 36px;
-      background-color: yellow;
+      object-fit: cover;
 
       &:hover {
         cursor: pointer;
@@ -33,7 +44,7 @@
 
     .navSearch {
       position: relative;
-      width: 70%;
+      width: 60%;
 
       &:focus-within::before {
         content: '';
@@ -107,8 +118,6 @@
   }
 
   .navContainer {
-    margin-left: 0;
-
     .navIcons .fontawesome {
       display: flex;
       margin-right: 20px;

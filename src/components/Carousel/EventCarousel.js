@@ -51,9 +51,7 @@ const EventCarousel = () => {
                     src={data.src}
                     alt={data.alt}
                   />
-                  <div className="carouselTextBox">
-                    Sims & co Family 멤버십을 만나보세요.
-                  </div>
+                  <div className="carouselTextBox">{data.carouselText}</div>
                   <div className="imageLinkButton">
                     <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
                   </div>
@@ -74,30 +72,31 @@ const CAROUSEL_LIST = [
     id: 1,
     src: '/images/Carousel/carousel9.jpg',
     alt: 'carouselImage',
-    btnText: '주방',
+    carouselText: 'Sims & co Family 멤버십을 만나보세요.',
   },
   {
     id: 2,
     src: '/images/Carousel/carousel6.jpg',
     alt: 'carouselImage',
-    btnText: '홈데코/장식품',
+    carouselText: '당신의 주방에 프랑스 감성을 한 스푼 더해 줄 주물 냄비',
   },
   {
     id: 3,
     src: '/images/Carousel/carousel7.jpg',
     alt: 'carouselImage',
-    btnText: '키즈',
+    carouselText: '방 안을 식물원으로, 플랜테리어의 정석을 알려드려요.',
   },
   {
     id: 4,
     src: '/images/Carousel/carousel5.jpg',
     alt: 'carouselImage',
-    btnText: '펫',
+    carouselText: '예술품으로 완성되는 감성적인 침실',
   },
   {
     id: 5,
     src: '/images/Carousel/carousel1.jpg',
     alt: 'carouselImage',
-    btnText: 'pet',
+    carouselText:
+      '행복한 주말, 가족과 함께하는 멋진 디너 파티로 당신을 초대합니다',
   },
 ];

@@ -1,0 +1,58 @@
+@import '../../styles/mixin';
+@import '../../styles/variables';
+
+.alarmModal {
+  @include flex(column, null, space-between);
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  width: 480px;
+  height: 250px;
+  padding: 30px 20px 45px;
+  transform: translateX(0px);
+  transition: transform 200ms 0s;
+  transition-property: transform, visibility;
+  border-radius: 0 0 0 10px;
+  background-color: $mainBrandBlue;
+  box-shadow: 0 0 0 9999px rgba(0, 0, 0, 0.2);
+  color: #fff;
+
+  .alarmModalButton {
+    display: flex;
+    justify-content: flex-end;
+
+    .fontAwesome {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #fff;
+      color: #000;
+      cursor: pointer;
+    }
+  }
+
+  .alarmModalTextWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    .alarmModalText {
+      font-size: 24px;
+      font-weight: 700;
+    }
+
+    .alarmModalLink {
+      margin-top: 10px;
+      font-size: 14px;
+      text-decoration: underline;
+    }
+  }
+}
+
+.alarmModalHidden {
+  visibility: hidden;
+  transform: translateX(480px);
+  transition: transform 200ms 0s;
+  transition-property: transform, visibility;
+}

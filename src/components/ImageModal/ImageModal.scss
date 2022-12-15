@@ -1,0 +1,55 @@
+@import '../../styles/mixin';
+
+.imageModalContainer {
+  visibility: visible;
+  position: fixed;
+  z-index: 9999;
+  bottom: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
+  transform: scale(1);
+  transform: opacity(1);
+  transition: 300ms ease-in-out;
+  transition-property: transform visibility;
+
+  .imageModalBox {
+    @include flex(null, center, center);
+    z-index: 1;
+    width: 90vw;
+    height: 90vh;
+    border-radius: 10px;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.3);
+
+    .modalImage {
+      position: absolute;
+      z-index: 2;
+      height: 80%;
+      object-fit: cover;
+    }
+    .closeButton {
+      position: absolute;
+      z-index: 3;
+      top: 30px;
+      right: 30px;
+      font-size: 20px;
+      cursor: pointer;
+    }
+  }
+}
+
+.imageModalHidden {
+  visibility: hidden;
+  position: absolute;
+  position: fixed;
+  z-index: 9999;
+  bottom: 5vh;
+  left: 5vw;
+  width: 90vw;
+  height: 90vh;
+  transform: scale(0);
+  transform: opacity(0);
+  transition: 300ms ease-in-out;
+  transition-property: transform visibility;
+}

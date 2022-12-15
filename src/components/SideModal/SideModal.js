@@ -3,12 +3,16 @@ import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import './SideModal.scss';
 
-const SideModal = ({ className }) => {
+const SideModal = ({ className, setIsClicked }) => {
   const navigate = useNavigate();
+  const onCloseButtonHandler = () => {
+    setIsClicked(false);
+  };
+
   return (
     <aside className={className}>
       <div className="sideModalTitle">
-        <button className="sideModalCloseButton">
+        <button className="sideModalCloseButton" onClick={onCloseButtonHandler}>
           <FontAwesomeIcon icon="fa-solid fa-xmark" size="lg" />
         </button>
         <img
@@ -16,17 +20,17 @@ const SideModal = ({ className }) => {
           onClick={() => {
             navigate('/main');
           }}
-          src="wekea"
+          src="/images/Nav/Sims&co_logo.png"
           alt="로고"
         />
       </div>
 
       <div className="sideModalListWrapper">
         <ul className="sideModalList">
-          {SIDEMENU_LIST_BOLD.map(({ id, list, endPoint }) => {
+          {SIDEMENU_LIST_BOLD.map(({ id, list }) => {
             return (
               <li className="mainBoldMenuList" key={id}>
-                <Link to={`category/${endPoint}`}>{list}</Link>
+                <Link to={`products/${id}`}>{list}</Link>
               </li>
             );
           })}
@@ -67,11 +71,11 @@ const SideModal = ({ className }) => {
 export default SideModal;
 
 const SIDEMENU_LIST_BOLD = [
-  { id: 1, list: '침대/매트리스', endPoint: 'beds-mattresses' },
-  { id: 2, list: '식탁/책상', endPoint: 'tables-desks' },
-  { id: 3, list: '주방용품', endPoint: 'kitchenware' },
-  { id: 4, list: '수납/정리', endPoint: 'storage-organisation' },
-  { id: 5, list: '의자', endPoint: 'chairs' },
+  { id: 1, list: '침대/매트리스' },
+  { id: 2, list: '식탁/책상' },
+  { id: 3, list: '주방용품' },
+  { id: 4, list: '수납/정리' },
+  { id: 5, list: '의자' },
 ];
 
 const SIDEMENU_LIST_SEMIBOLD = [
