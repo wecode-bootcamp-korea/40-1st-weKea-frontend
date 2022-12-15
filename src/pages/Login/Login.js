@@ -42,29 +42,39 @@ const Login = () => {
     <div className="login">
       <div className="titleBox">
         <div className="titleUseBox">
-          <div className="textBox">
-            <span>Sims & co</span>
+          <div className="titleNav">
+            <div
+              className="logoIcon"
+              onClick={() => {
+                navigate('/main');
+              }}
+            >
+              <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
+            </div>
+
+            <div className="textBox">
+              <span>Sims & co</span>
+            </div>
           </div>
-          <div
-            className="logoIcon"
-            onClick={() => {
-              navigate('/main');
-            }}
-          >
-            <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
-          </div>
+
           <div className="textBoxTitle">
             <h1 className="title">로그인</h1>
-            <span>외워야 할 비밀번호가 많아 불편하셨죠?</span>
             <p className="titleText">
+              외워야 할 비밀번호가 많아 불편하셨죠?
+              <br />
               이제 일회용 코드를 이용하여 간편하게 로그인하세요.
+              <br />
+              <br />
+              *이메일 또는 전화번호 최초 인증 후 사용 가능
             </p>
-
-            <p>*이메일 또는 전화번호 최초 인증 후 사용 가능</p>
           </div>
-          <div className="article">
-            <span>sims&co쿠키 정책,개인정보처리방침</span>
-          </div>
+          <p className="article">
+            <span>
+              SIMS&CO
+              <span className="underline"> 쿠키 정책, 개인정보처리방침</span>
+            </span>
+            <span>© Inter SIMS&CO Systems 1999-2022</span>
+          </p>
         </div>
       </div>
       <div className="loginBox">
