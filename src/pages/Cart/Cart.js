@@ -71,10 +71,8 @@ const Cart = () => {
         <div className="productBoxCommentBox">
           <div className="serviceBox">조립서비스를 추가하시겠습니까?</div>
           <div className="serviceDetailBox">
-            <h1 className="serviceTitle">
-              <FontAwesomeIcon icon="fa-solid fa-oil-well" size="lg" />
-              조립 서비스
-            </h1>
+            <FontAwesomeIcon icon="fa-solid fa-oil-well" size="lg" />
+            <h1 className="serviceTitle">조립 서비스</h1>
             <p>
               sims &co에게 조립을 맡기고 소중한 시간을 아끼세요.공식 협역업체가
               제공하는 조립 서비스는 ₩30,000부터 시작합니다.

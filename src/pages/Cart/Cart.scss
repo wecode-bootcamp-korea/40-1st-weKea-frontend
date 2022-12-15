@@ -12,7 +12,6 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      // width: 75vw ;
       height: 5vw;
       font-size: 30px;
 
@@ -22,7 +21,6 @@
         justify-content: center;
         width: 30px;
         height: 30px;
-        // margin-right: 15%;
         font-size: 20px;
 
         &:hover {
@@ -74,7 +72,6 @@
     }
 
     .productBoxCommentBox {
-      // width: 65vw;
       height: 440px;
       padding-right: 20px;
       border: 1px solid #dfdfdf;
@@ -82,14 +79,14 @@
 
       .serviceBox {
         @include flex(null, center, flex-start);
-        // width: 65vw;
+        // position: relative;
         height: 4vw;
-        margin-left: 10px;
+        margin-left: 20px;
         border-bottom: 1px solid #dfdfdf;
       }
 
       .serviceDetailBox {
-        margin-left: 45px;
+        margin-left: 30px;
         font-size: 16px;
         line-height: 3;
         .addLink {
@@ -119,7 +116,6 @@
   .payBox {
     // @include flex(null, null, center);
     width: 35%;
-    // height: 100vw;
     margin-top: 50px;
 
     .payDetailBox {
