@@ -21,24 +21,30 @@ const Category = () => {
 
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
+  console.log('data : ', itemData);
+  useEffect(() => {
+    fetch(`${API.products}/${id}`, {
+      method: 'GET',
+    })
+      .then(response => {
+        console.log('response : ', response);
+        return response.json();
+      })
+      .then(data => {
+        console.log('data : ', data);
+        setItemData(data.productInfo);
+      });
+  }, [id]);
+
   // useEffect(() => {
-  //   fetch(`${API.products}/${id}`, {
+  //   fetch('/data/itemsMockData.json', {
   //     method: 'GET',
   //   })
   //     .then(res => res.json())
   //     .then(data => {
-  //       setItemData(data.product_Info);
+  //       setItemData(data);
   //     });
-  // }, [id]);
-  useEffect(() => {
-    fetch('/data/itemsMockData.json', {
-      method: 'GET',
-    })
-      .then(res => res.json())
-      .then(data => {
-        setItemData(data);
-      });
-  }, []);
+  // }, []);
 
   return (
     <div className="category">
