@@ -3,12 +3,16 @@ import CategoryItem from './CategoryItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import { useRef } from 'react';
+import { API } from '../../config/config';
 import './category.scss';
 
 import AlarmModal from '../../components/AlarmModal/AlarmModal';
+import { useParams } from 'react-router-dom';
 const Category = () => {
   const [itemData, setItemData] = useState([]);
   const [alarmOn, setAlarmOn] = useState(false);
+
+  const { id } = useParams();
 
   const ref = useRef();
 
@@ -19,12 +23,12 @@ const Category = () => {
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
   useEffect(() => {
-    fetch('/data/itemsMockData.json', {
+    fetch(`${API.products}/${id}`, {
       method: 'GET',
     })
       .then(res => res.json())
       .then(data => {
-        setItemData(data);
+        setItemData(data.product_Info);
       });
   }, []);
 

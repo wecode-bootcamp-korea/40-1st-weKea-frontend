@@ -10,7 +10,7 @@
       width: 20vw;
       height: 100%;
       margin: 0 auto;
-      @include flex(space-between, center, column);
+      @include flex(column, center, space-between);
 
       .textBox {
         width: 70%;
@@ -43,6 +43,7 @@
       }
       .titleText {
         letter-spacing: normal;
+        line-height: 25px;
       }
     }
 
