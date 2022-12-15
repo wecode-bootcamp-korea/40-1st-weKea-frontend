@@ -60,6 +60,7 @@ const Cart = () => {
               <CartItem
                 key={data.id}
                 cart={data}
+                img={data.img}
                 onDeleteClick={onDeleteClick}
                 onAmountChange={onAmountChange}
               />
@@ -70,14 +71,17 @@ const Cart = () => {
         <div className="productBoxCommentBox">
           <div className="serviceBox">조립서비스를 추가하시겠습니까?</div>
           <div className="serviceDetailBox">
-            <h1 className="serviceTitle">조립 서비스</h1>
+            <h1 className="serviceTitle">
+              <FontAwesomeIcon icon="fa-solid fa-oil-well" size="lg" />
+              조립 서비스
+            </h1>
             <p>
               sims &co에게 조립을 맡기고 소중한 시간을 아끼세요.공식 협역업체가
               제공하는 조립 서비스는 ₩30,000부터 시작합니다.
             </p>
             <span>우편 번호를 추가하여 예약 가능 여부 및 가격 확인</span>
 
-            <p>추가정보 링크</p>
+            <p className="addLink">추가정보 링크</p>
           </div>
           <button className="serviceButton" type="button">
             조립 서비스 선택하기
@@ -107,7 +111,10 @@ const Cart = () => {
             <div className="giftPayBox">
               <button type="button" className="payButton">
                 결제하기
-                <FontAwesomeIcon icon="fa-solid fa-arrow-right" size="lg" />
+                <FontAwesomeIcon
+                  icon="fa-solid fa-circle-arrow-right"
+                  size="lg"
+                />
               </button>
             </div>
             <span className="payBackTitle">

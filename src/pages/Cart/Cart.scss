@@ -90,20 +90,25 @@
       .serviceDetailBox {
         // width: 74vw;
         height: 10vw;
-        margin-left: 50px;
+        margin-left: 45px;
         font-size: 16px;
-        line-height: 2;
+        line-height: 3;
+        .addLink {
+          text-decoration: underline;
+        }
       }
 
       .serviceButton {
-        width: 15vw;
-        height: 3vw;
+        width: 160px;
+        height: 40px;
+        margin-top: 30px;
         margin-left: 50px;
         border: none;
         border-radius: 20px;
         background-color: #2b2a2a;
         color: aliceblue;
         font-size: 15px;
+        cursor: pointer;
 
         &:hover {
           border-color: #f4f1f1;
@@ -187,6 +192,7 @@
             background-color: #0058a3;
             color: #f0f8ff;
             font-size: 16px;
+            cursor: pointer;
 
             &:hover {
               background-color: #064885;

@@ -1,7 +1,7 @@
 import React from 'react';
 import './CartItem.scss';
 const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
-  const { name, price, product_code, amount, id } = cart;
+  const { name, price, product_code, amount, id, img } = cart;
 
   const total = (amount * price)
     .toString()
@@ -15,7 +15,9 @@ const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
   return (
     <div className="cartItem">
       <div className="cartItemImageWrapper">
-        <div className="cartItemImage">이미지임</div>
+        <div className="cartItemImage">
+          <img src={img} alt="img" />
+        </div>
         <div className="cartItemCode">
           <span>{product_code}</span>
         </div>

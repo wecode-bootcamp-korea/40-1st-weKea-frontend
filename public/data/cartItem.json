@@ -1,6 +1,7 @@
 [
   {
     "id": 1,
+    "img": "https://images.unsplash.com/photo-1670744373330-17715880b433?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     "name": "의자11111111",
     "price": 100000,
     "product_code": "803.339.53",
@@ -9,12 +10,14 @@
   {
     "id": 2,
     "name": "의자22222222",
+    "img": "https://images.unsplash.com/photo-1670744373330-17715880b433?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     "price": 200000,
     "product_code": "803.339.53",
     "amount": 1
   },
   {
     "id": 3,
+    "img": "https://images.unsplash.com/photo-1670744373330-17715880b433?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80",
     "name": "의자33333333",
     "price": 300000,
     "product_code": "803.339.53",

@@ -7,7 +7,7 @@
   padding-bottom: 30px;
   border-bottom: 1px solid #dfdfdf;
 
-  .cartItemImage {
+  .cartItemImage img {
     width: 150px;
     height: 170px;
     background-color: blue;
@@ -67,10 +67,11 @@
       }
 
       select {
-        width: 50px;
+        width: 60px;
         height: 30px;
         border-radius: 50px;
-        font-size: 16px;
+        text-align: right;
+        text-align-last: left;
 
         &:hover {
           border-color: #484848;
