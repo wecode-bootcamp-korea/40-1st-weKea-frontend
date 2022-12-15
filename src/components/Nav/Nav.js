@@ -13,7 +13,6 @@ const Nav = () => {
   const [searchInput, setSearchInput] = useState('');
   const [itemsData, setItemsData] = useState([]);
   const [isClicked, setIsClicked] = useState(false);
-
   const navigate = useNavigate();
   const ref = useRef();
 
@@ -45,7 +44,7 @@ const Nav = () => {
     }
   });
 
-  useOnOutSideClick(ref, () => setIsFocus(false));
+  useOnOutSideClick(ref, () => setIsClicked(false));
 
   useEffect(() => {
     fetch('/data/searchMockData.json', {
@@ -138,9 +137,12 @@ const Nav = () => {
       </div>
       <div className="sideModalWrapper" ref={ref}>
         {isClicked ? (
-          <SideModal className="sideModal" />
+          <SideModal setIsClicked={setIsClicked} className="sideModal" />
         ) : (
-          <SideModal className="sideModal sideModalHidden" />
+          <SideModal
+            setIsClicked={setIsClicked}
+            className="sideModal sideModalHidden"
+          />
         )}
       </div>
     </nav>

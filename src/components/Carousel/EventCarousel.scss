@@ -75,9 +75,10 @@
             width: 450px;
             height: 300px;
             padding: 10%;
-            background-color: bisque;
+            background-color: #698c60;
             font-size: 25px;
             font-weight: bold;
+            line-height: 160%;
           }
           .imageLinkButton {
             @include flex(normal, center, center);

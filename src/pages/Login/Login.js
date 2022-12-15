@@ -13,7 +13,7 @@ const Login = () => {
     setUserLogin({ ...userLogin, [name]: value });
   };
 
-  console.log(API);
+  // console.log(API);
   const isUserTitle =
     userLogin.email.includes('@') && userLogin.password.length >= 8;
   const hadleLogin = () => {
