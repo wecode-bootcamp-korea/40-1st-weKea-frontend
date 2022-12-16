@@ -30,7 +30,7 @@ const SideModal = ({ className, setIsClicked }) => {
           {SIDEMENU_LIST_BOLD.map(({ id, list }) => {
             return (
               <li className="mainBoldMenuList" key={id}>
-                <Link to={`products/${id}`}>{list}</Link>
+                <Link to={`products/category/${id}`}>{list}</Link>
               </li>
             );
           })}

@@ -17,18 +17,25 @@ const Category = () => {
 
   const onCartAddClick = () => {
     setAlarmOn(true);
+
+    fetch(`${API.products}/${paramsId.id}`, {
+      method: 'GET',
+    })
+      .then(response => response.json())
+      .then(result => setItemData(result));
   };
 
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
   // console.log('data : ', itemData);
+  // console.log(`${API.products}/${paramsId.id}`);
   useEffect(() => {
-    fetch(`${API.products}/${paramsId.id}`, {
+    fetch(`${API.products}/${paramsId.id}?${searchParams.toString()}`, {
       method: 'GET',
     })
       .then(response => response.json())
-      .then(result => setItemData(result.productInfo));
-  }, [paramsId]);
+      .then(result => setItemData(result));
+  }, [paramsId, searchParams]);
 
   // useEffect(() => {
   //   fetch('/data/itemsMockData.json', {
@@ -40,7 +47,7 @@ const Category = () => {
   //     });
   // }, []);
 
-  console.log(itemData);
+  // console.log(itemData);
 
   return (
     <div className="category">
@@ -70,7 +77,8 @@ const Category = () => {
             return (
               <button
                 onClick={() => {
-                  searchParams.set('sort', filterList.sort);
+                  searchParams.set('filterBy', filterList.sort);
+                  searchParams.set('method', filterList.method);
                   setSearchParams(searchParams);
                 }}
                 className="categoryFilterButton"
@@ -127,37 +135,43 @@ const CATEGORY_FILTER = [
     id: 1,
     title: '높은 가격 순',
     icon: 'fa-solid fa-arrow-up-wide-short',
-    sort: 'PRICE_HIGH_TO_LOW',
+    sort: 'price',
+    method: 'DESC',
   },
   {
     id: 2,
     title: '낮은 가격 순',
     icon: 'fa-solid fa-arrow-down-short-wide',
-    sort: 'PRICE_LOW_TO_HIGH',
+    sort: 'price',
+    method: 'ASC',
   },
 
   {
     id: 3,
     title: '높은 평점 순',
     icon: 'fa-solid fa-arrow-up-wide-short',
-    sort: 'RATING_LOW_TO_HIGH',
+    sort: 'rating',
+    method: 'DESC',
   },
   {
     id: 4,
     title: '낮은 평점 순',
     icon: 'fa-solid fa-arrow-down-short-wide',
-    sort: 'RATING_HIGH_TO_LOW',
+    sort: 'rating',
+    method: 'ASC',
   },
   {
     id: 5,
     title: '알파벳 순',
     icon: 'fa-solid fa-arrow-up-a-z',
-    sort: 'NAME_ASCENDING',
+    sort: 'name',
+    method: 'ASC',
   },
   {
     id: 6,
     title: '최신순',
     icon: 'fa-solid fa-arrow-up-short-wide',
-    sort: 'RELEASE_ASCENDING',
+    sort: 'createdAt',
+    method: 'ASC',
   },
 ];

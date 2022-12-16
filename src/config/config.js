@@ -5,8 +5,8 @@ const API = {
   login: `${BASE_URL}/login`,
   signup: `${BASE_URL}/auth/signUp`,
   signin: `${BASE_URL}/auth/signIn`,
-  detail: `${BASE_URL}/detail`,
-  products: `${BASE_URL}/products`,
+  detail: `${BASE_URL}/products/detail`,
+  products: `${BASE_URL}/products/category`,
 };
 
 export { API, BASE_URL };
