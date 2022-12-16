@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { API } from '../../config/config';
 import './Login.scss';
@@ -61,19 +61,27 @@ const Login = () => {
     <div className="login">
       <div className="titleBox">
         <div className="titleUseBox">
-          <img
-            className="textBox"
-            src="/images/Nav/Sims&co_logo.png"
-            alt="logoImage"
-          />
+          <div className="titleUseBoxWrapper">
+            <Link to="/main">
+              <img
+                className="logoBox"
+                src="/images/Nav/Sims&co_logo.png"
+                alt="logoImage"
+              />
+            </Link>
 
-          <div
-            className="logoIcon"
-            onClick={() => {
-              navigate('/main');
-            }}
-          >
-            <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
+            <div
+              className="logoIcon"
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              <FontAwesomeIcon
+                className="fontAwesome"
+                icon="fa-solid fa-arrow-left"
+                size="lg"
+              />
+            </div>
           </div>
 
           <div className="textBoxTitle">
@@ -98,7 +106,7 @@ const Login = () => {
       </div>
       <div className="loginBox">
         <form className="inputForm">
-          <div className="loginBoardEmail">
+          <div className="loginInput">
             <span className="lineInput">이메일 또는 확인된 휴대폰 번호</span>
             <input
               type="text"
@@ -108,8 +116,8 @@ const Login = () => {
               onChange={userInfo}
             />
           </div>
-          <div className="loginBoardPw">
-            <span className="nonePassWord">비밀번호</span>
+          <div className="loginInput">
+            <span className="lineInput">비밀번호</span>
             <input
               type="password"
               className="inputPassword"

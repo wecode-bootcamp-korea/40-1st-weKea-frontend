@@ -7,57 +7,51 @@
   .titleBox {
     width: 40%;
     padding: 32px 80px;
-    background-color: #0058a3;
+    background-color: $mainBrandBlue;
 
     .titleUseBox {
       @include flex(column, null, space-between);
       height: 100%;
       margin: 0 auto;
-      @include flex(column, center, space-between);
 
-      .textBox {
-        width: 90px;
-        height: 36px;
-        object-fit: cover;
-        margin-top: 20px;
-        margin-right: 70px;
-        color: #cdcdcd;
-        font-size: 25px;
-      }
-      .logoIcon {
+      .titleUseBoxWrapper {
         position: relative;
-        align-items: center;
-        justify-content: flex-start;
-        color: #cdcdcd;
+
+        .logoBox {
+          width: 90px;
+          height: 36px;
+          object-fit: cover;
+        }
 
         .logoIcon {
           position: absolute;
-          left: -80px;
-          font-size: 20px;
+          top: 0;
+          left: -50px;
+          transform: translateY(50%);
         }
+      }
 
-        .textBox {
-          font-size: 25px;
-        }
+      .textBox {
+        font-size: 25px;
       }
     }
 
     .textBoxTitle {
       position: relative;
       width: 100%;
-      margin-top: 0%;
+      margin-bottom: 10px;
       color: #ffff;
 
       .title {
         margin-top: 16px;
         color: $mainBrandYellow;
-        font-size: 32px;
+        font-size: 34px;
         font-weight: 700;
       }
 
       .titleText {
-        padding-top: 14px;
-        font-size: 14px;
+        margin: 16px 0;
+        font-size: 16px;
         line-height: 20px;
       }
     }
@@ -89,7 +83,7 @@
     .inputForm {
       width: 448px;
 
-      .loginBoardEmail {
+      .loginInput {
         display: flex;
         flex-direction: column;
       }
@@ -104,6 +98,10 @@
         border: 1px solid #000000;
         border-radius: 5px;
         font-size: 1rem;
+
+        &:hover {
+          border-width: 3px;
+        }
       }
 
       .inputPassword {
@@ -113,6 +111,10 @@
         padding-left: 1rem;
         border: 1px solid #000000;
         border-radius: 5px;
+
+        &:hover {
+          border-width: 3px;
+        }
       }
 
       .loginBtn {
@@ -120,20 +122,31 @@
         height: 60px;
         margin-bottom: 40px;
         border-radius: 70px;
-        background-color: #0058a3;
+        background-color: $mainBrandBlue;
         color: #ffffff;
         font-size: 0.95rem;
         font-weight: 800;
+
+        &:hover {
+          background-color: $mainBrandBlueHover;
+        }
       }
+
       .joinBtn {
         width: 100%;
         height: 60px;
-        border: 1px solid #000000;
+        border: 1px solid #000;
         border-radius: 40px;
+        background-color: transparent;
+
+        &:hover {
+          border-width: 3px;
+        }
       }
     }
   }
 }
+
 @media screen and (max-width: 640px) {
   .titleBox {
     width: 100%;
