@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useParams } from 'react-router-dom';
 import './categoryItem.scss';
 
 const CategoryItems = ({
   name,
+  productsId,
   price,
   image,
   image2,
@@ -13,6 +15,10 @@ const CategoryItems = ({
   onCartAddClick,
 }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
+  const params = useParams();
+  const id = params;
+
+  console.log('id : ', id);
 
   return (
     <div className="categoryItems">
@@ -25,8 +31,9 @@ const CategoryItems = ({
           alt="상품이미지"
         />
       </div>
+
       <div className="itemInformationWrapper">
-        <Link className="itemInformation" to="">
+        <Link className="itemInformation" to={`/products/detail/${productsId}`}>
           <h3 className="itemTitle">
             <span className="itemName">{name}</span>
             <span className="itemDescription">{description}</span>

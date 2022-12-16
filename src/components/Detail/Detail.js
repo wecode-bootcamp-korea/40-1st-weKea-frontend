@@ -53,6 +53,7 @@ const Detail = () => {
     })
       .then(res => res.json())
       .then(data => {
+        console.log('detailData : ', data);
         setDetailInfoList(...data);
       });
   }, []);

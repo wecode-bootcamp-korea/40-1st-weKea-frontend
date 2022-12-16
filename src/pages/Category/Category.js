@@ -102,6 +102,7 @@ const Category = () => {
               return (
                 <CategoryItem
                   key={id}
+                  productsId={id}
                   name={name}
                   price={price}
                   description={description}
