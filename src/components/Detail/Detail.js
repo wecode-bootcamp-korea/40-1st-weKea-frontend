@@ -80,6 +80,7 @@ const Detail = () => {
               );
             })}
           </ul>
+
           <div className="detailSummary">{detailInfoList.description}</div>
           <div className="productCodeBox">
             <div className="productCodeTitle">제품 번호</div>
