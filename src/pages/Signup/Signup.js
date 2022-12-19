@@ -110,7 +110,7 @@ const Signup = () => {
           {SIGNUP_INPUT_LIST.map(input => {
             return (
               <div key={input.id}>
-                {input.title}
+                <div className="inputTitle">{input.title}</div>
                 <input
                   type={input.type}
                   className="inputItemStyle"
