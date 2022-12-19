@@ -7,9 +7,38 @@ import './Cart.scss';
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
 
+  const total = cartData
+    .reduce((prev, current) => prev + current.price * current.amount, 0)
+    .toString()
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+
   const onDeleteClick = id => {
     setCartData(cartData => cartData.filter(cart => cart.id !== id));
   };
+
+  // 수량 수정
+  // const onAmountEdit = () => {
+  //   fetch(`${API.cartEdit}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       // Authorization: window.localStorage.getItem('TOKEN'),
+  //     },
+  //     // body: JSON.stringify({ productId: productsId }),
+  //   });
+  // };
+
+  // 장바구니 삭제
+  // const onDeleteClick = () => {
+  //   fetch(`${API.cartDelete}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       // Authorization: window.localStorage.getItem('TOKEN'),
+  //     },
+  //     // body: JSON.stringify({ productId: productsId }),
+  //   });
+  // };
 
   const onAmountChange = (id, amount) => {
     setCartData(cartData =>
@@ -20,11 +49,6 @@ const Cart = () => {
     );
   };
 
-  const total = cartData
-    .reduce((prev, current) => prev + current.price * current.amount, 0)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
-
   useEffect(() => {
     fetch(`${API.cartPage}`, {
       method: 'GET',
@@ -34,10 +58,7 @@ const Cart = () => {
       },
     })
       .then(res => res.json())
-      .then(data => {
-        console.log(data);
-        setCartData(data[0]);
-      });
+      .then(data => setCartData(data[0]));
   }, []);
 
   return (

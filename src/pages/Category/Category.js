@@ -15,14 +15,8 @@ const Category = () => {
 
   const ref = useRef();
 
-  console.log('itemData : ', itemData);
-
   const onCartAddClick = productsId => {
     setAlarmOn(true);
-    console.log(window.localStorage.getItem('TOKEN'));
-    // console.log('productId', productsId);
-    // console.log('itemData : ', { productId: itemData.id });
-    // console.log('itemDataJSON : ', JSON.stringify({ productId: productsId }));
     fetch(`${API.cart}`, {
       method: 'POST',
       headers: {
@@ -42,18 +36,6 @@ const Category = () => {
       .then(response => response.json())
       .then(result => setItemData(result));
   }, [paramsId, searchParams]);
-
-  // useEffect(() => {
-  //   fetch('/data/itemsMockData.json', {
-  //     method: 'GET',
-  //   })
-  //     .then(res => res.json())
-  //     .then(data => {
-  //       setItemData(data);
-  //     });
-  // }, []);
-
-  // console.log(itemData);
 
   return (
     <div className="category">
@@ -151,7 +133,6 @@ const CATEGORY_FILTER = [
     sort: 'price',
     method: 'ASC',
   },
-
   {
     id: 3,
     title: '높은 평점 순',
