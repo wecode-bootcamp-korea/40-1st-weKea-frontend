@@ -15,20 +15,26 @@ const Category = () => {
 
   const ref = useRef();
 
-  const onCartAddClick = () => {
-    setAlarmOn(true);
+  console.log('itemData : ', itemData);
 
-    fetch(`${API.products}/${paramsId.id}`, {
-      method: 'GET',
-    })
-      .then(response => response.json())
-      .then(result => setItemData(result));
+  const onCartAddClick = productsId => {
+    setAlarmOn(true);
+    console.log(window.localStorage.getItem('TOKEN'));
+    // console.log('productId', productsId);
+    // console.log('itemData : ', { productId: itemData.id });
+    // console.log('itemDataJSON : ', JSON.stringify({ productId: productsId }));
+    fetch(`${API.cart}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.localStorage.getItem('TOKEN'),
+      },
+      body: JSON.stringify({ productId: productsId }),
+    });
   };
 
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
-  // console.log('data : ', itemData);
-  // console.log(`${API.products}/${paramsId.id}`);
   useEffect(() => {
     fetch(`${API.products}/${paramsId.id}?${searchParams.toString()}`, {
       method: 'GET',

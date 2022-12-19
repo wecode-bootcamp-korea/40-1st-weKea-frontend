@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import CartItem from './CartItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { API } from '../../config/config';
 import './Cart.scss';
 
 const Cart = () => {
@@ -25,10 +26,17 @@ const Cart = () => {
     .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
 
   useEffect(() => {
-    fetch('/data/cartItem.json')
+    fetch(`${API.cartPage}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.localStorage.getItem('TOKEN'),
+      },
+    })
       .then(res => res.json())
       .then(data => {
-        setCartData(data);
+        console.log(data);
+        setCartData(data[0]);
       });
   }, []);
 

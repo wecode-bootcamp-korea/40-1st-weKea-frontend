@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { useParams } from 'react-router-dom';
 import './categoryItem.scss';
 
 const CategoryItems = ({
@@ -15,10 +14,6 @@ const CategoryItems = ({
   onCartAddClick,
 }) => {
   const [isMouseOver, setIsMouseOver] = useState(false);
-  const params = useParams();
-  const id = params;
-
-  console.log('id : ', id);
 
   return (
     <div className="categoryItems">
@@ -42,7 +37,7 @@ const CategoryItems = ({
           <span className="itemStar">{rating}</span>
         </Link>
 
-        <button className="iconCart" onClick={onCartAddClick}>
+        <button className="iconCart" onClick={() => onCartAddClick(productsId)}>
           <FontAwesomeIcon icon="fa-solid fa-cart-shopping" size="lg" />
         </button>
         <button className="iconHeart">

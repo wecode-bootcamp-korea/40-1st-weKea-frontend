@@ -16,8 +16,6 @@ const Login = () => {
   const isUserTitle =
     userLogin.email.includes('@') && userLogin.password.length >= 8;
 
-  console.log(userLogin);
-
   const hadleLogin = e => {
     e.preventDefault();
 
@@ -27,11 +25,9 @@ const Login = () => {
       body: JSON.stringify({ ...userLogin }),
     })
       .then(response => {
-        console.log('response : ', response);
         return response.json();
       })
       .then(data => {
-        console.log('data : ', data);
         localStorage.setItem('TOKEN', data.accessToken);
         alert('로그인에 성공했습니다');
         navigate('/main');
@@ -107,7 +103,7 @@ const Login = () => {
       <div className="loginBox">
         <form className="inputForm">
           <div className="loginInput">
-            <span className="lineInput">이메일 또는 확인된 휴대폰 번호</span>
+            <span className="lineInput">이메일</span>
             <input
               type="text"
               className="inputId"

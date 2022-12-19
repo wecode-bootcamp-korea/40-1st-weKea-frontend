@@ -7,6 +7,8 @@ const API = {
   signin: `${BASE_URL}/auth/signIn`,
   detail: `${BASE_URL}/products/detail`,
   products: `${BASE_URL}/products/category`,
+  cart: `${BASE_URL}/cart/insertion`,
+  cartPage: `${BASE_URL}/cart/retrieval`,
 };
 
 export { API, BASE_URL };
