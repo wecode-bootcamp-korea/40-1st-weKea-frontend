@@ -41,9 +41,12 @@ const Category = () => {
     <div className="category">
       <div ref={ref} className="alarmModalWrapper">
         {alarmOn === true ? (
-          <AlarmModal className="alarmModal" />
+          <AlarmModal className="alarmModal" setAlarmOn={setAlarmOn} />
         ) : (
-          <AlarmModal className="alarmModal alarmModalHidden" />
+          <AlarmModal
+            className="alarmModal alarmModalHidden"
+            setAlarmOn={setAlarmOn}
+          />
         )}
       </div>
 
