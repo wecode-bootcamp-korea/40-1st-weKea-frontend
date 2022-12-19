@@ -46,7 +46,7 @@ const Signup = () => {
   //         .then(data => {
   //           if (data.message === 'signup success') {
   //             alert('Sims&co 가입을 축하합니다');
-  //             navigate('/main');
+  //             navigate('/');
   //           } else {
   //             alert('이미 가입한 회원입니다');
   //           }
@@ -68,7 +68,7 @@ const Signup = () => {
       .then(data => {
         if (data.message === 'success') {
           alert('Sims&co 가입을 축하합니다');
-          navigate('/main');
+          navigate('/');
         } else {
           alert('이미 가입한 회원입니다');
         }
@@ -79,7 +79,7 @@ const Signup = () => {
     <div className="signup">
       <div>
         <header className="headerArray">
-          <Link to="/Main" className="arrowMargin">
+          <Link to="/" className="arrowMargin">
             <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
           </Link>
           <img

@@ -30,7 +30,7 @@ const Login = () => {
       .then(data => {
         localStorage.setItem('TOKEN', data.accessToken);
         alert('로그인에 성공했습니다');
-        navigate('/main');
+        navigate('/');
       });
 
     // .then(response => {
@@ -46,7 +46,7 @@ const Login = () => {
     //   if (data.message === 'login success') {
     //   localStorage.setItem('TOKEN', data.accessToken);
     //   alert('로그인에 성공했습니다');
-    //   navigate('/main');
+    //   navigate('/');
     //   } else {
     //   alert('아이디와 비밀번호를 확인 해 주세요');
     //   }
@@ -58,7 +58,7 @@ const Login = () => {
       <div className="titleBox">
         <div className="titleUseBox">
           <div className="titleUseBoxWrapper">
-            <Link to="/main">
+            <Link to="/">
               <img
                 className="logoBox"
                 src="/images/Nav/Sims&co_logo.png"

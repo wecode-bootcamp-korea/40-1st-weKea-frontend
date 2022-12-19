@@ -19,7 +19,7 @@ const SideModal = ({ className, setIsClicked }) => {
         <img
           className="modalLogo"
           onClick={() => {
-            navigate('/main');
+            navigate('/');
           }}
           src="/images/Nav/Sims&co_logo.png"
           alt="로고"
