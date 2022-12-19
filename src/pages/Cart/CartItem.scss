@@ -56,7 +56,7 @@
       align-content: space-evenly;
       margin-bottom: 15px;
       @include flex(null, center, null);
-      .cartItemDelet {
+      .cartItemDelete {
         margin-left: 20px;
 
         button {

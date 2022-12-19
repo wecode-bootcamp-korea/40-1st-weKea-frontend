@@ -60,7 +60,6 @@ const Detail = () => {
       .then(res => res.json())
       .then(data => setDetailInfoList(data[0]));
   }, []);
-  console.log(detailInfoList);
 
   return (
     <>

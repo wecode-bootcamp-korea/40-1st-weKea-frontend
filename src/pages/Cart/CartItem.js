@@ -1,25 +1,26 @@
 import React from 'react';
 import './CartItem.scss';
-const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
-  const { name, price, product_code, amount, id, img } = cart;
-
-  const total = (amount * price)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+const CartItem = ({ cart, onDeleteClick, onQuantityChange }) => {
+  const { name, price, productCode, quantity, id, thumbnailUrl } = cart;
+  const total = (quantity * price).toLocaleString('ko-KR', {
+    style: 'currency',
+    currency: 'EUR',
+  });
 
   const onSelectChange = e => {
-    const value = Number(e.target.value);
-    onAmountChange(id, value);
+    const quantity = Number(e.target.value);
+    const id = Number(e.target.id);
+    onQuantityChange(id, quantity);
   };
 
   return (
     <div className="cartItem">
       <div className="cartItemImageWrapper">
         <div className="cartItemImage">
-          <img src={img} alt="img" />
+          <img src={thumbnailUrl} alt="img" />
         </div>
         <div className="cartItemCode">
-          <span>{product_code}</span>
+          <span>{productCode}</span>
         </div>
       </div>
 
@@ -29,21 +30,22 @@ const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
             <div className="cartItemName">{name}</div>
             <div>카테고리</div>
           </div>
-          <div className="cartItemPrice">₩{total}</div>
+          <div className="cartItemPrice">{total}</div>
         </div>
 
         <div className="cartItemButton">
           <select
             className="cartItemSelect"
             onChange={onSelectChange}
-            value={amount}
+            id={id}
+            value={quantity}
           >
-            {CART_AMOUNT.map(cartAmount => {
-              return <option key={cartAmount.id}>{cartAmount.id}</option>;
+            {CART_AMOUNT.map(cartQuantity => {
+              return <option key={cartQuantity.id}>{cartQuantity.id}</option>;
             })}
           </select>
 
-          <div className="cartItemDelet">
+          <div className="cartItemDelete">
             <button onClick={() => onDeleteClick(id)}>삭제</button>
           </div>
         </div>
@@ -55,6 +57,9 @@ const CartItem = ({ cart, onDeleteClick, onAmountChange }) => {
 export default CartItem;
 
 const CART_AMOUNT = [
+  {
+    id: 0,
+  },
   {
     id: 1,
   },

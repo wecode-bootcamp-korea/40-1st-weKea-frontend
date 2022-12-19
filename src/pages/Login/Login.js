@@ -32,25 +32,6 @@ const Login = () => {
         alert('로그인에 성공했습니다');
         navigate('/');
       });
-
-    // .then(response => {
-    //   console.log('response : ', response);
-    //   // if (response.ok === true) {
-    //   return response.json();
-    //   // }
-    //   // alert('실패');
-    //   // throw new Error('네트워크가 불안정합니다. 다시 시도 해 주세요');
-    // })
-    // .then(data => {
-    //   console.log('data : ', data);
-    //   if (data.message === 'login success') {
-    //   localStorage.setItem('TOKEN', data.accessToken);
-    //   alert('로그인에 성공했습니다');
-    //   navigate('/');
-    //   } else {
-    //   alert('아이디와 비밀번호를 확인 해 주세요');
-    //   }
-    // });
   };
 
   return (
