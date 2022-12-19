@@ -2,16 +2,26 @@ import React, { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ImageModal from '../ImageModal/ImageModal';
 import { API } from '../../../src/config/config';
+import { useParams } from 'react-router-dom';
 
 import './Detail.scss';
 
 const Detail = () => {
   const [detailInfoList, setDetailInfoList] = useState({
-    price: 0,
-    imgUrl: '',
     id: 0,
+    koreanName: '',
+    name: '',
+    price: 0,
+    imageUrl: '',
+    description: '',
+    productCode: '',
+    rating: 0,
   });
+
   const [isClicked, setIsClicked] = useState(false);
+
+  const { productDetailId } = useParams();
+  // const productDetailId = params.id;
 
   const onClickHandler = () => {
     setIsClicked(true);
@@ -19,10 +29,7 @@ const Detail = () => {
   const productPrice = detailInfoList.price;
   const productID = detailInfoList.id;
   const priceWithCurrency = productPrice.toLocaleString('ko-KR');
-  const detailImageList = detailInfoList.imgUrl.split(',');
-  const detailImageObj = detailImageList.map((data, index) => {
-    return { id: { index }, src: { data } };
-  });
+  const detailImageList = detailInfoList.imageUrl.split(', ');
 
   const buyButtonClickHandler = () => {
     fetch('http://10.58.52.142:3000/cart/putItem', {
@@ -46,40 +53,37 @@ const Detail = () => {
         alert('ERROR:', err.message);
       });
   };
-
   useEffect(() => {
-    fetch(API.detail, {
+    fetch(`${API.detail}/${productDetailId}`, {
       method: 'GET',
     })
       .then(res => res.json())
-      .then(data => {
-        setDetailInfoList(...data);
-      });
+      .then(data => setDetailInfoList(data[0]));
   }, []);
+  console.log(detailInfoList);
+
   return (
     <>
       <div className="detail">
         <main className="detailMainContainer">
           <ul className="detailImageContainer">
-            {detailImageObj.map(data => {
+            {detailImageList.map((src, index) => {
               return (
-                <li key={data.id.index} className="detailImageBox">
+                <li key={index} className="detailImageBox">
                   <img
                     onClick={onClickHandler}
                     className="detailImageEach"
-                    src={data.src.data}
+                    src={src}
                     alt="detailImage"
                   />
                 </li>
               );
             })}
           </ul>
-          <div className="detailSummary">
-            {detailInfoList.description_summary}
-          </div>
+          <div className="detailSummary">{detailInfoList.description}</div>
           <div className="productCodeBox">
             <div className="productCodeTitle">제품 번호</div>
-            <span className="productCode">{detailInfoList.product_code}</span>
+            <span className="productCode">{detailInfoList.productCode}</span>
           </div>
           <ul className="detailList">
             {DETAIL_LIST.map(data => {
@@ -97,10 +101,10 @@ const Detail = () => {
         <aside className="productBuyModule">
           <div className="stickyContainer">
             <div className="productNameBox">
-              <span className="productName">{detailInfoList.french_name}</span>
-              <span className="productName">{detailInfoList.korean_name}</span>
+              <span className="productName">{detailInfoList.name}</span>
+              <span className="productName">{detailInfoList.koreanName}</span>
             </div>
-            <div className="subDescription">{detailInfoList.category}</div>
+            {/* <div className="subDescription">{detailInfoList.category}</div> */}
             <div className="price">
               <div className="currencyStyle">&#8361;</div>
               {priceWithCurrency}
