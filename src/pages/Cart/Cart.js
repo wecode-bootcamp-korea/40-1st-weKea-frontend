@@ -1,14 +1,44 @@
 import React, { useState, useEffect } from 'react';
 import CartItem from './CartItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { API } from '../../config/config';
 import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
 
+  const total = cartData
+    .reduce((prev, current) => prev + current.price * current.amount, 0)
+    .toString()
+    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
+
   const onDeleteClick = id => {
     setCartData(cartData => cartData.filter(cart => cart.id !== id));
   };
+
+  // 수량 수정
+  // const onAmountEdit = () => {
+  //   fetch(`${API.cartEdit}`, {
+  //     method: 'PATCH',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       // Authorization: window.localStorage.getItem('TOKEN'),
+  //     },
+  //     // body: JSON.stringify({ productId: productsId }),
+  //   });
+  // };
+
+  // 장바구니 삭제
+  // const onDeleteClick = () => {
+  //   fetch(`${API.cartDelete}`, {
+  //     method: 'DELETE',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       // Authorization: window.localStorage.getItem('TOKEN'),
+  //     },
+  //     // body: JSON.stringify({ productId: productsId }),
+  //   });
+  // };
 
   const onAmountChange = (id, amount) => {
     setCartData(cartData =>
@@ -19,17 +49,16 @@ const Cart = () => {
     );
   };
 
-  const total = cartData
-    .reduce((prev, current) => prev + current.price * current.amount, 0)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
-
   useEffect(() => {
-    fetch('/data/cartItem.json')
+    fetch(`${API.cartPage}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.localStorage.getItem('TOKEN'),
+      },
+    })
       .then(res => res.json())
-      .then(data => {
-        setCartData(data);
-      });
+      .then(data => setCartData(data[0]));
   }, []);
 
   return (

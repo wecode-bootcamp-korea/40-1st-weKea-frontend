@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { API } from '../../config/config';
 import './Login.scss';
@@ -15,46 +15,69 @@ const Login = () => {
 
   const isUserTitle =
     userLogin.email.includes('@') && userLogin.password.length >= 8;
-  const hadleLogin = () => {
-    fetch(`${API}`, {
+
+  const hadleLogin = e => {
+    e.preventDefault();
+
+    fetch(`${API.signin}`, {
       method: 'POST',
-      headers: { 'Content-type': 'application/json;charset=utf-8' },
-      body: JSON.stringify(userLogin),
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ ...userLogin }),
     })
       .then(response => {
-        if (response.ok === true) {
-          return response.json();
-        }
-        throw new Error('네트워크가 불안정합니다. 다시 시도 해 주세요');
+        return response.json();
       })
       .then(data => {
-        if (data.message === 'login success') {
-          localStorage.setItem('TOKEN', data.accessToken);
-          alert('로그인에 성공했습니다');
-          navigate('/main');
-        } else {
-          alert('아이디와 비밀번호를 확인 해 주세요');
-        }
+        localStorage.setItem('TOKEN', data.accessToken);
+        alert('로그인에 성공했습니다');
+        navigate('/');
       });
+
+    // .then(response => {
+    //   console.log('response : ', response);
+    //   // if (response.ok === true) {
+    //   return response.json();
+    //   // }
+    //   // alert('실패');
+    //   // throw new Error('네트워크가 불안정합니다. 다시 시도 해 주세요');
+    // })
+    // .then(data => {
+    //   console.log('data : ', data);
+    //   if (data.message === 'login success') {
+    //   localStorage.setItem('TOKEN', data.accessToken);
+    //   alert('로그인에 성공했습니다');
+    //   navigate('/');
+    //   } else {
+    //   alert('아이디와 비밀번호를 확인 해 주세요');
+    //   }
+    // });
   };
 
   return (
     <div className="login">
       <div className="titleBox">
         <div className="titleUseBox">
-          <img
-            className="textBox"
-            src="/images/Nav/Sims&co_logo.png"
-            alt="logoImage"
-          />
+          <div className="titleUseBoxWrapper">
+            <Link to="/">
+              <img
+                className="logoBox"
+                src="/images/Nav/Sims&co_logo.png"
+                alt="logoImage"
+              />
+            </Link>
 
-          <div
-            className="logoIcon"
-            onClick={() => {
-              navigate('/main');
-            }}
-          >
-            <FontAwesomeIcon icon="fa-solid fa-arrow-left" size="lg" />
+            <div
+              className="logoIcon"
+              onClick={() => {
+                navigate(-1);
+              }}
+            >
+              <FontAwesomeIcon
+                className="fontAwesome"
+                icon="fa-solid fa-arrow-left"
+                size="lg"
+              />
+            </div>
           </div>
 
           <div className="textBoxTitle">
@@ -79,8 +102,8 @@ const Login = () => {
       </div>
       <div className="loginBox">
         <form className="inputForm">
-          <div className="loginBoardEmail">
-            <span className="lineInput">이메일 또는 확인된 휴대폰 번호</span>
+          <div className="loginInput">
+            <span className="lineInput">이메일</span>
             <input
               type="text"
               className="inputId"
@@ -89,8 +112,8 @@ const Login = () => {
               onChange={userInfo}
             />
           </div>
-          <div className="loginBoardPw">
-            <span className="nonePassWord">비밀번호</span>
+          <div className="loginInput">
+            <span className="lineInput">비밀번호</span>
             <input
               type="password"
               className="inputPassword"
