@@ -13,12 +13,16 @@ const Login = () => {
     setUserLogin({ ...userLogin, [name]: value });
   };
 
-  const isUserTitle =
-    userLogin.email.includes('@') && userLogin.password.length >= 8;
+  const { email, password } = userLogin;
+  const emailRegex =
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+  const passwordRegex =
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
+  const emailValueCheck = emailRegex.test(email);
+  const passwordValueCheck = passwordRegex.test(password);
 
-  const hadleLogin = e => {
-    e.preventDefault();
-
+  const isUserTitle = emailValueCheck || passwordValueCheck;
+  const hadleLogin = () => {
     fetch(`${API.signin}`, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -87,17 +91,24 @@ const Login = () => {
             <span className="lineInput">이메일</span>
             <input
               type="text"
-              className="inputId"
+              className={isUserTitle ? 'inputId' : 'inputId inputDisabled'}
               name="email"
               value={userLogin.email}
               onChange={userInfo}
             />
+            {isUserTitle ? (
+              ''
+            ) : (
+              <span className="noneTitle"> 이메일 을 입력하세요</span>
+            )}
           </div>
           <div className="loginInput">
             <span className="lineInput">비밀번호</span>
             <input
               type="password"
-              className="inputPassword"
+              className={
+                isUserTitle ? 'inputPassword' : 'inputPassword inputFail'
+              }
               name="password"
               onChange={userInfo}
               value={userLogin.password}
