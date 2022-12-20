@@ -13,8 +13,24 @@ const Login = () => {
     setUserLogin({ ...userLogin, [name]: value });
   };
 
-  const isUserTitle =
-    userLogin.email.includes('@') && userLogin.password.length >= 8;
+  const { email, password } = userLogin;
+  const addUserLogin = e => {
+    const { value, name } = e.target;
+    setUserLogin({
+      ...userLogin,
+      [name]: value,
+    });
+  };
+  const emailRegex =
+    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+  const passwordRegex =
+    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,}$/;
+  const emailValueCheck = emailRegex.test(email);
+  const passwordValueCheck = passwordRegex.test(password);
+
+  const isUserTitle = emailValueCheck || passwordValueCheck;
+  // const isUserTitle =
+  //   userLogin.email.includes('@') && userLogin.password.length >= 8;
   const hadleLogin = () => {
     fetch(`${API}`, {
       method: 'POST',
