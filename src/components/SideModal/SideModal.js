@@ -5,6 +5,7 @@ import './SideModal.scss';
 
 const SideModal = ({ className, setIsClicked }) => {
   const navigate = useNavigate();
+
   const onCloseButtonHandler = () => {
     setIsClicked(false);
   };
@@ -18,7 +19,7 @@ const SideModal = ({ className, setIsClicked }) => {
         <img
           className="modalLogo"
           onClick={() => {
-            navigate('/main');
+            navigate('/');
           }}
           src="/images/Nav/Sims&co_logo.png"
           alt="로고"
@@ -29,8 +30,12 @@ const SideModal = ({ className, setIsClicked }) => {
         <ul className="sideModalList">
           {SIDEMENU_LIST_BOLD.map(({ id, list }) => {
             return (
-              <li className="mainBoldMenuList" key={id}>
-                <Link to={`products/${id}`}>{list}</Link>
+              <li
+                className="mainBoldMenuList"
+                onClick={onCloseButtonHandler}
+                key={id}
+              >
+                <Link to={`products/category/${id}`}>{list}</Link>
               </li>
             );
           })}

@@ -18,7 +18,7 @@ const Main = () => {
       </div>
       <div className="mainPromoStyle">
         <div className="mainPromoTitle">
-          올 겨울, 더 따듯한 우리집을 위해 최대 70% 할인 + 멤버 5% 추가할인
+          올 겨울, 더 따듯한 우리집을 위해 최대 70% 할인
         </div>
         <div className="mainPromoSubTextBox">
           <div className="mainPromoTextStyle">

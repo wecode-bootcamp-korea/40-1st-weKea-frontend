@@ -5,6 +5,7 @@ import './categoryItem.scss';
 
 const CategoryItems = ({
   name,
+  productsId,
   price,
   image,
   image2,
@@ -25,8 +26,9 @@ const CategoryItems = ({
           alt="상품이미지"
         />
       </div>
+
       <div className="itemInformationWrapper">
-        <Link className="itemInformation" to="">
+        <Link className="itemInformation" to={`/products/detail/${productsId}`}>
           <h3 className="itemTitle">
             <span className="itemName">{name}</span>
             <span className="itemDescription">{description}</span>
@@ -35,7 +37,7 @@ const CategoryItems = ({
           <span className="itemStar">{rating}</span>
         </Link>
 
-        <button className="iconCart" onClick={onCartAddClick}>
+        <button className="iconCart" onClick={() => onCartAddClick(productsId)}>
           <FontAwesomeIcon icon="fa-solid fa-cart-shopping" size="lg" />
         </button>
         <button className="iconHeart">

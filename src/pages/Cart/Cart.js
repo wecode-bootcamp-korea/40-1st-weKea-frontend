@@ -1,35 +1,65 @@
 import React, { useState, useEffect } from 'react';
 import CartItem from './CartItem';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { API } from '../../config/config';
 import './Cart.scss';
 
 const Cart = () => {
   const [cartData, setCartData] = useState([]);
 
+  const total = cartData
+    .reduce((prev, current) => prev + current.price * current.quantity, 0)
+    .toLocaleString('ko-KR', { style: 'currency', currency: 'EUR' });
+
   const onDeleteClick = id => {
-    setCartData(cartData => cartData.filter(cart => cart.id !== id));
+    fetch(`${API.cart}`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.localStorage.getItem('TOKEN'),
+      },
+      body: JSON.stringify({ productId: id }),
+    });
+
+    fetch(`${API.cart}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.localStorage.getItem('TOKEN'),
+      },
+    })
+      .then(res => res.json())
+      .then(data => setCartData(data));
   };
 
-  const onAmountChange = (id, amount) => {
+  const onQuantityChange = (id, quantity) => {
+    fetch(`${API.cart}`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.localStorage.getItem('TOKEN'),
+      },
+      body: JSON.stringify({ productId: id, quantity: quantity }),
+    });
+
     setCartData(cartData =>
       cartData.map(cart => {
-        if (cart.id === id) cart.amount = amount;
+        if (cart.id === id) cart.quantity = quantity;
         return cart;
       })
     );
   };
 
-  const total = cartData
-    .reduce((prev, current) => prev + current.price * current.amount, 0)
-    .toString()
-    .replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ',');
-
   useEffect(() => {
-    fetch('/data/cartItem.json')
+    fetch(`${API.cart}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: window.localStorage.getItem('TOKEN'),
+      },
+    })
       .then(res => res.json())
-      .then(data => {
-        setCartData(data);
-      });
+      .then(data => setCartData(data));
   }, []);
 
   return (
@@ -60,9 +90,8 @@ const Cart = () => {
               <CartItem
                 key={data.id}
                 cart={data}
-                img={data.img}
                 onDeleteClick={onDeleteClick}
-                onAmountChange={onAmountChange}
+                onQuantityChange={onQuantityChange}
               />
             );
           })}
@@ -95,17 +124,17 @@ const Cart = () => {
             <div className="priceDetailBox">주문 내역</div>
             <div className="orderHistoryBox">
               <span>제품 가격</span>
-              <div className="boxPrice">₩{total}</div>
+              <div className="boxPrice">{total}</div>
             </div>
             <div className="textShipping">
               <span>배송</span>
               <span className="noneShipping">
-                아직 배송비가 사정되지 않았습니다
+                아직 배송비가 산정되지 않았습니다
               </span>
             </div>
             <div className="totalPrice">
               <span>총 주문금액</span>
-              <div className="wonBox">₩{total}</div>
+              <div className="wonBox">{total}</div>
             </div>
 
             <div className="giftPayBox">

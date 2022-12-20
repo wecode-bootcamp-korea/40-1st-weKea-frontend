@@ -10,8 +10,8 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const [signupValue, setSignupValue] = useState({
-    fullName: '',
-    dateOfBirth: '',
+    name: '',
+    birthdate: '',
     phoneNumber: '',
     gender: '',
     address: '',
@@ -20,8 +20,8 @@ const Signup = () => {
   });
 
   const getSignupValue = e => {
-    const { name, value } = e.target;
-    setSignupValue({ ...signupValue, [name]: value });
+    const { id, value } = e.target;
+    setSignupValue({ ...signupValue, [id]: value });
   };
 
   const isValid =
@@ -29,35 +29,57 @@ const Signup = () => {
     signupValue.email.includes('@') &&
     signupValue.password.length >= 8;
 
+  // const gotoMain = () => {
+  //   !isValid
+  //     ? alert('입력되지 않은 정보가 있습니다')
+  //     : fetch(API.signup, {
+  //         method: 'POST',
+  //         headers: { 'Content-Type': 'application/json;charset=utf-8' },
+  //         body: JSON.stringify({ signupValue }),
+  //       })
+  //         .then(response => {
+  //           if (response.ok === true) {
+  //             return response.json();
+  //           }
+  //           // throw new Error('잘못된 접근입니다');
+  //         })
+  //         .then(data => {
+  //           if (data.message === 'signup success') {
+  //             alert('Sims&co 가입을 축하합니다');
+  //             navigate('/');
+  //           } else {
+  //             alert('이미 가입한 회원입니다');
+  //           }
+  //         });
+  // };
+
   const gotoMain = () => {
-    !isValid
-      ? alert('입력되지 않은 정보가 있습니다')
-      : fetch(API.signup, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json;charset=utf-8' },
-          body: JSON.stringify({ signupValue }),
-        })
-          .then(response => {
-            if (response.ok === true) {
-              return response.json();
-            }
-            throw new Error('잘못된 접근입니다');
-          })
-          .then(data => {
-            if (data.message === 'signup success') {
-              alert('Sims&co 가입을 축하합니다');
-              navigate('/main');
-            } else {
-              alert('이미 가입한 회원입니다');
-            }
-          });
+    fetch(`${API.signup}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...signupValue }),
+    })
+      .then(response => {
+        if (response.ok === true) {
+          return response.json();
+        }
+        // throw new Error('잘못된 접근입니다');
+      })
+      .then(data => {
+        if (data.message === 'success') {
+          alert('Sims&co 가입을 축하합니다');
+          navigate('/');
+        } else {
+          alert('이미 가입한 회원입니다');
+        }
+      });
   };
 
   return (
     <div className="signup">
       <div>
         <header className="headerArray">
-          <Link to="/Main" className="arrowMargin">
+          <Link to="/" className="arrowMargin">
             <FontAwesomeIcon icon="fa-solid fa-arrow-left" />
           </Link>
           <img
@@ -82,24 +104,26 @@ const Signup = () => {
           <SignupImageList />
         </span>
       </div>
+
       <div className="inputContainerStyle">
         <form>
           {SIGNUP_INPUT_LIST.map(input => {
             return (
               <div key={input.id}>
-                {input.title}
+                <div className="inputTitle">{input.title}</div>
                 <input
                   type={input.type}
                   className="inputItemStyle"
-                  name={input.name}
-                  value={signupValue.name}
+                  id={input.name}
+                  value={signupValue[input.name]}
                   onChange={getSignupValue}
                 />
               </div>
             );
           })}
         </form>
-        <button className="buttonStyle" disabled={isValid} onClick={gotoMain}>
+
+        <button className="buttonStyle" disabled={!isValid} onClick={gotoMain}>
           가입 하기
         </button>
       </div>
@@ -113,13 +137,13 @@ const SIGNUP_INPUT_LIST = [
     id: 1,
     title: '이름',
     type: 'text',
-    name: 'fullName',
+    name: 'name',
   },
   {
     id: 2,
     title: '생일',
     type: 'date',
-    name: 'dateOfBirth',
+    name: 'birthdate',
   },
   {
     id: 3,

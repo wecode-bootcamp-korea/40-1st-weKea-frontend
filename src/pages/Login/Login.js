@@ -14,43 +14,27 @@ const Login = () => {
   };
 
   const { email, password } = userLogin;
-  const addUserLogin = e => {
-    const { value, name } = e.target;
-    setUserLogin({
-      ...userLogin,
-      [name]: value,
-    });
-  };
   const emailRegex =
-    /^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i;
+    /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
   const passwordRegex =
-    /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&#]{8,}$/;
+    /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/;
   const emailValueCheck = emailRegex.test(email);
   const passwordValueCheck = passwordRegex.test(password);
 
   const isUserTitle = emailValueCheck || passwordValueCheck;
-  // const isUserTitle =
-  //   userLogin.email.includes('@') && userLogin.password.length >= 8;
   const hadleLogin = () => {
-    fetch(`${API}`, {
+    fetch(`${API.signin}`, {
       method: 'POST',
-      headers: { 'Content-type': 'application/json;charset=utf-8' },
-      body: JSON.stringify(userLogin),
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify({ ...userLogin }),
     })
       .then(response => {
-        if (response.ok === true) {
-          return response.json();
-        }
-        throw new Error('네트워크가 불안정합니다. 다시 시도 해 주세요');
+        return response.json();
       })
       .then(data => {
-        if (data.message === 'login success') {
-          localStorage.setItem('TOKEN', data.accessToken);
-          alert('로그인에 성공했습니다');
-          navigate('/main');
-        } else {
-          alert('아이디와 비밀번호를 확인 해 주세요');
-        }
+        localStorage.setItem('TOKEN', data.accessToken);
+        alert('로그인에 성공했습니다');
+        navigate('/');
       });
   };
 
@@ -59,7 +43,7 @@ const Login = () => {
       <div className="titleBox">
         <div className="titleUseBox">
           <div className="titleUseBoxWrapper">
-            <Link to="/main">
+            <Link to="/">
               <img
                 className="logoBox"
                 src="/images/Nav/Sims&co_logo.png"
@@ -104,20 +88,27 @@ const Login = () => {
       <div className="loginBox">
         <form className="inputForm">
           <div className="loginInput">
-            <span className="lineInput">이메일 또는 확인된 휴대폰 번호</span>
+            <span className="lineInput">이메일</span>
             <input
               type="text"
-              className="inputId"
+              className={isUserTitle ? 'inputId' : 'inputId inputDisabled'}
               name="email"
               value={userLogin.email}
               onChange={userInfo}
             />
+            {isUserTitle ? (
+              ''
+            ) : (
+              <span className="noneTitle"> 이메일 을 입력하세요</span>
+            )}
           </div>
           <div className="loginInput">
             <span className="lineInput">비밀번호</span>
             <input
               type="password"
-              className="inputPassword"
+              className={
+                isUserTitle ? 'inputPassword' : 'inputPassword inputFail'
+              }
               name="password"
               onChange={userInfo}
               value={userLogin.password}

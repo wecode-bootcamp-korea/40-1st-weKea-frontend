@@ -77,7 +77,7 @@ const Nav = () => {
         <img
           className="navContainerLogo"
           onClick={() => {
-            navigate('/main');
+            navigate('/');
           }}
           src="/images/Nav/Sims&co_logo.png"
           alt="로고"
