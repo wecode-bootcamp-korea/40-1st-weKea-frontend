@@ -19,17 +19,13 @@ const Cart = () => {
         Authorization: window.localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({ productId: id }),
+    }).then(res => {
+      if (res.ok) {
+        setCartData(cartData.filter(cart => cart.id !== id));
+      } else {
+        throw new Error('다시 한 번 시도해주세요');
+      }
     });
-
-    fetch(`${API.cart}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: window.localStorage.getItem('TOKEN'),
-      },
-    })
-      .then(res => res.json())
-      .then(data => setCartData(data));
   };
 
   const onQuantityChange = (id, quantity) => {
