@@ -24,6 +24,8 @@
 | 문승훈 (FE) | 로그인, 장바구니 | <a href="https://github.com/Moonseunghun"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
 | 배효빈 (FE) | 회원가입, 메인페이지, 상세 페이지 |  <a href="https://github.com/HyobinBae"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
 
+</br>
+
 | 윤형준 (BE) | 초기세팅, 모델링, 로그인 / 회원가입 API, 상품 필터링 API, 장바구니 API | <a href="https://github.com/hysy9255"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
 | --- | --- | --- |
 | 임다슬 (BE) | 초기세팅, 모델링, 카테고리별 상품 리스트 API, 상세 페이지 API | <a href="https://github.com/gkgkda"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
@@ -32,7 +34,7 @@
 
 # 기술 스택
 
-프론트엔드
+### 프론트엔드
 
 |JavaScript|React|Sass|esLint|Prettier|
 | :--: | :--: | :--: | :--: | :--: |
@@ -40,7 +42,8 @@
 
 
 </br>
-백엔드
+
+### 백엔드
 
 |JavaScript|Nodejs|MySql|Rest|
 | :--: | :--: | :--: | :--: |
@@ -68,6 +71,7 @@
 
 # 구현 기능  FrontEnd
 
+</br>
 
 ## 로그인
 - 로그인 시 이메일 및 비밀번호 정규표현식을 통한 유효성 검사 구현
