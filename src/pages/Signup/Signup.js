@@ -37,15 +37,22 @@ const Signup = () => {
   };
 
   const check = {
-    email:
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i,
-    password:
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/,
-    phoneNumber: /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/,
+    email: value =>
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
+        value
+      ),
+    password: value =>
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/.test(
+        value
+      ),
+    phoneNumber: value => /^01([0|1|6|7|8|9])([0-9]{4})([0-9]{4})$/.test(value),
   };
 
+  console.log(signupValue.phoneNumber);
+  console.log(verifyMessage.phoneNumber);
+
   const verifySignupValues = e => {
-    if (signupValue[e.target.id].match(check[e.target.id]) === null) {
+    if (!check[e.target.id](signupValue[e.target.id])) {
       if (e.target.id === 'email') {
         setVerifyMessage({
           ...verifyMessage,
