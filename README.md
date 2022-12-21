@@ -19,16 +19,16 @@
 
 # 개발 인원 및 파트
 
-| 김태윤 (FE) | 네비게이션바, Footer, 카테고리, 장바구니 | <a href="https://github.com/Taeyooooon"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
+| 김태윤 (FE) | 네비게이션바, Footer, 카테고리, 장바구니 | <a href="https://github.com/Taeyooooon"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a> |
 | --- | --- | --- |
-| 문승훈 (FE) | 로그인, 장바구니 | <a href="https://github.com/Moonseunghun"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
-| 배효빈 (FE) | 회원가입, 메인페이지, 상세 페이지 |  <a href="https://github.com/HyobinBae"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
+| 문승훈 (FE) | 로그인, 장바구니 | <a href="https://github.com/Moonseunghun"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a> |
+| 배효빈 (FE) | 회원가입, 메인페이지, 상세 페이지 |  <a href="https://github.com/HyobinBae"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a> |
 
 </br>
 
-| 윤형준 (BE) | 초기세팅, 모델링, 로그인 / 회원가입 API, 상품 필터링 API, 장바구니 API | <a href="https://github.com/hysy9255"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
+| 윤형준 (BE) | 초기세팅, 모델링, 로그인 / 회원가입 API, 상품 필터링 API, 장바구니 API | <a href="https://github.com/hysy9255"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a> |
 | --- | --- | --- |
-| 임다슬 (BE) | 초기세팅, 모델링, 카테고리별 상품 리스트 API, 상세 페이지 API | <a href="https://github.com/gkgkda"><img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/></a> |
+| 임다슬 (BE) | 초기세팅, 모델링, 카테고리별 상품 리스트 API, 상세 페이지 API | <a href="https://github.com/gkgkda"><img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/></a> |
 
 </br>
 
@@ -55,12 +55,12 @@
 # 툴
 
 <div>
-<img src="https://img.shields.io/badge/Git-orange?style=flat&logo=Git&logoColor=white"/>
-<img src="https://img.shields.io/badge/GitHub-black?style=flat&logo=GitHub&logoColor=white"/>
-<img src="https://img.shields.io/badge/Slack-D91D57?style=flat&logo=Slack&logoColor=white"/>
-<img src="https://img.shields.io/badge/Trello-9cf?style=flat&logo=Trello&logoColor=white"/>
-<img src="https://img.shields.io/badge/Notion-white?style=flat&logo=Notion&logoColor=black"/>
-<img src="https://img.shields.io/badge/VSCode-blue?style=flat&logo=Visual Studio Code&logoColor=white"/>
+<img src="https://img.shields.io/badge/Git-F05032?style=flat&logo=Git&logoColor=white"/>
+<img src="https://img.shields.io/badge/GitHub-181717?style=flat&logo=GitHub&logoColor=white"/>
+<img src="https://img.shields.io/badge/Slack-4A154B?style=flat&logo=Slack&logoColor=white"/>
+<img src="https://img.shields.io/badge/Trello-0052CC?style=flat&logo=Trello&logoColor=white"/>
+<img src="https://img.shields.io/badge/Notion-000000?style=flat&logo=Notion&logoColor=white"/>
+<img src="https://img.shields.io/badge/VSCode-007ACC?style=flat&logo=Visual Studio Code&logoColor=white"/>
 </div>
 
 </br>
