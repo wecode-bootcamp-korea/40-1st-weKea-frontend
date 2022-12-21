@@ -5,6 +5,27 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { API } from '../../config/config.js';
 import './Signup.scss';
 
+const Validator = {
+  email: {
+    test: value =>
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
+        value
+      ),
+    message: '올바르지 않은 이메일 형식입니다.',
+  },
+  password: {
+    test: value =>
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/.test(
+        value
+      ),
+    message: '영문, 숫자, 특수문자 포함 8글자 이상',
+  },
+  phoneNumber: {
+    test: value => /^(010)-?([0-9]{4})-?([0-9]{4})$/.test(value),
+    message: '올바르지 않은 휴대폰 번호입니다.',
+  },
+};
+
 const Signup = () => {
   const inputRef = useRef();
   const navigate = useNavigate();
@@ -18,66 +39,19 @@ const Signup = () => {
     email: '',
     password: '',
   });
-
-  const [verifyMessage, setVerifyMessage] = useState({
-    phoneNumber: null,
-    email: null,
-    password: null,
-  });
-
   const getOptionValue = e => {
-    const { id } = e.target;
+    const { name } = e.target;
     const optionValue = e.target.options[e.target.selectedIndex].text;
-    setSignupValue({ ...signupValue, [id]: optionValue });
+    setSignupValue({ ...signupValue, [name]: optionValue });
   };
 
   const getSignupValue = e => {
-    const { id, value } = e.target;
-    setSignupValue({ ...signupValue, [id]: value });
+    const { name, value } = e.target;
+
+    setSignupValue({ ...signupValue, [name]: value });
   };
 
-  const check = {
-    email: value =>
-      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i.test(
-        value
-      ),
-    password: value =>
-      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/.test(
-        value
-      ),
-    phoneNumber: value => /^01([0|1|6|7|8|9])([0-9]{4})([0-9]{4})$/.test(value),
-  };
-
-  console.log(signupValue.phoneNumber);
-  console.log(verifyMessage.phoneNumber);
-
-  const verifySignupValues = e => {
-    if (!check[e.target.id](signupValue[e.target.id])) {
-      if (e.target.id === 'email') {
-        setVerifyMessage({
-          ...verifyMessage,
-          [e.target.id]: '유효하지 않은 이메일 주소입니다',
-        });
-      } else if (e.target.id === 'password') {
-        setVerifyMessage({
-          ...verifyMessage,
-          [e.target.id]: '영문, 숫자, 특수문자 포함 최소 8자 이상',
-        });
-      } else if (e.target.id === 'phoneNumber') {
-        setVerifyMessage({
-          ...verifyMessage,
-          [e.target.id]: '유효하지 않은 휴대폰 번호입니다',
-        });
-      }
-    } else
-      setVerifyMessage({
-        ...verifyMessage,
-        [e.target.id]: null,
-      });
-  };
-
-  const isValid =
-    Object.values(signupValue).every(value => value) && !verifySignupValues();
+  const isAllValid = Object.values(signupValue).every(value => value);
 
   const gotoMain = () => {
     fetch(`${API.signup}`, {
@@ -158,20 +132,26 @@ const Signup = () => {
                   ref={inputRef}
                   type={input.type}
                   className="inputItemStyle"
+                  name={input.name}
                   id={input.name}
                   value={signupValue[input.name]}
-                  onChange={e => {
-                    getSignupValue(e);
-                    verifySignupValues(e);
-                  }}
+                  onChange={getSignupValue}
                 />
-                <div className="alertMessage">{verifyMessage[input.name]}</div>
+                <div className="alertMessage">
+                  {signupValue[input.name].length === 0 ||
+                    (!Validator[input.name]?.test(signupValue[input.name]) &&
+                      Validator[input.name]?.message)}
+                </div>
               </div>
             );
           })}
         </form>
 
-        <button className="buttonStyle" disabled={!isValid} onClick={gotoMain}>
+        <button
+          className="buttonStyle"
+          disabled={!isAllValid}
+          onClick={gotoMain}
+        >
           가입 하기
         </button>
       </div>
