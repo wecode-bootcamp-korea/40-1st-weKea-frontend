@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import SignupImageList from '../../components/Signup/SignupImageList';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { API } from '../../config/config.js';
-
 import './Signup.scss';
 
 const Signup = () => {
+  const inputRef = useRef();
   const navigate = useNavigate();
 
   const [signupValue, setSignupValue] = useState({
@@ -19,39 +19,58 @@ const Signup = () => {
     password: '',
   });
 
+  const [verifyMessage, setVerifyMessage] = useState({
+    phoneNumber: null,
+    email: null,
+    password: null,
+  });
+
+  const getOptionValue = e => {
+    const { id } = e.target;
+    const optionValue = e.target.options[e.target.selectedIndex].text;
+    setSignupValue({ ...signupValue, [id]: optionValue });
+  };
+
   const getSignupValue = e => {
     const { id, value } = e.target;
     setSignupValue({ ...signupValue, [id]: value });
   };
 
-  const isValid =
-    Object.values(signupValue).every(value => value) &&
-    signupValue.email.includes('@') &&
-    signupValue.password.length >= 8;
+  const check = {
+    email:
+      /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i,
+    password:
+      /^(?=.*[A-Za-z])(?=.*\d)(?=.*[$@$!%*#?&])[A-Za-z\d$@$!%*#?&]{8,}$/,
+    phoneNumber: /^01([0|1|6|7|8|9])-?([0-9]{3,4})-?([0-9]{4})$/,
+  };
 
-  // const gotoMain = () => {
-  //   !isValid
-  //     ? alert('입력되지 않은 정보가 있습니다')
-  //     : fetch(API.signup, {
-  //         method: 'POST',
-  //         headers: { 'Content-Type': 'application/json;charset=utf-8' },
-  //         body: JSON.stringify({ signupValue }),
-  //       })
-  //         .then(response => {
-  //           if (response.ok === true) {
-  //             return response.json();
-  //           }
-  //           // throw new Error('잘못된 접근입니다');
-  //         })
-  //         .then(data => {
-  //           if (data.message === 'signup success') {
-  //             alert('Sims&co 가입을 축하합니다');
-  //             navigate('/');
-  //           } else {
-  //             alert('이미 가입한 회원입니다');
-  //           }
-  //         });
-  // };
+  const verifySignupValues = e => {
+    if (signupValue[e.target.id].match(check[e.target.id]) === null) {
+      if (e.target.id === 'email') {
+        setVerifyMessage({
+          ...verifyMessage,
+          [e.target.id]: '유효하지 않은 이메일 주소입니다',
+        });
+      } else if (e.target.id === 'password') {
+        setVerifyMessage({
+          ...verifyMessage,
+          [e.target.id]: '영문, 숫자, 특수문자 포함 최소 8자 이상',
+        });
+      } else if (e.target.id === 'phoneNumber') {
+        setVerifyMessage({
+          ...verifyMessage,
+          [e.target.id]: '유효하지 않은 휴대폰 번호입니다',
+        });
+      }
+    } else
+      setVerifyMessage({
+        ...verifyMessage,
+        [e.target.id]: null,
+      });
+  };
+
+  const isValid =
+    Object.values(signupValue).every(value => value) && !verifySignupValues();
 
   const gotoMain = () => {
     fetch(`${API.signup}`, {
@@ -63,7 +82,6 @@ const Signup = () => {
         if (response.ok === true) {
           return response.json();
         }
-        // throw new Error('잘못된 접근입니다');
       })
       .then(data => {
         if (data.message === 'success') {
@@ -108,16 +126,39 @@ const Signup = () => {
       <div className="inputContainerStyle">
         <form>
           {SIGNUP_INPUT_LIST.map(input => {
+            if (input.id === 4) {
+              return (
+                <div key={input.id}>
+                  <div className="inputTitle">{input.title}</div>
+                  <select
+                    id={input.name}
+                    className="inputItemStyle"
+                    style={{ marginBottom: '34px' }}
+                    onChange={getOptionValue}
+                    required
+                  >
+                    <option value="" />
+                    <option value="남성">남성</option>
+                    <option value="여성">여성</option>
+                  </select>
+                </div>
+              );
+            }
             return (
               <div key={input.id}>
-                <div className="inputTitle">{input.title}</div>
+                <div className="inputTitle">{input.title} </div>
                 <input
+                  ref={inputRef}
                   type={input.type}
                   className="inputItemStyle"
                   id={input.name}
                   value={signupValue[input.name]}
-                  onChange={getSignupValue}
+                  onChange={e => {
+                    getSignupValue(e);
+                    verifySignupValues(e);
+                  }}
                 />
+                <div className="alertMessage">{verifyMessage[input.name]}</div>
               </div>
             );
           })}
@@ -153,7 +194,7 @@ const SIGNUP_INPUT_LIST = [
   },
   {
     id: 4,
-    title: '성별(남성, 여성)',
+    title: '성별',
     type: 'text',
     name: 'gender',
   },

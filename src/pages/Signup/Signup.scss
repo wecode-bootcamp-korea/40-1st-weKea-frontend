@@ -47,11 +47,18 @@
       display: block;
       width: 420px;
       height: 50px;
-      margin-bottom: 35px;
+      margin-bottom: 4px;
       padding-left: 10px;
       border: 1px solid #000000;
       border-radius: 5px;
       font-size: 15px;
+    }
+
+    .alertMessage {
+      margin-right: 0px;
+      margin-bottom: 30px;
+      color: #ff0000;
+      font-size: 13px;
     }
 
     .buttonStyle {
