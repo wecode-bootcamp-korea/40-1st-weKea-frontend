@@ -67,6 +67,8 @@
 
 # 데모 영상
 
+https://drive.google.com/file/d/108UXNA5ZbRBS6zyY4cMiYf-mL71L1W69/view?usp=sharing
+
 </br>
 
 # 구현 기능  FrontEnd
