@@ -22,7 +22,8 @@ const Login = () => {
   const passwordValueCheck = passwordRegex.test(password);
 
   const isUserTitle = emailValueCheck || passwordValueCheck;
-  const hadleLogin = () => {
+  const hadleLogin = e => {
+    e.preventDefault();
     fetch(`${API.signin}`, {
       method: 'POST',
       headers: { 'Content-type': 'application/json' },
@@ -91,24 +92,22 @@ const Login = () => {
             <span className="lineInput">이메일</span>
             <input
               type="text"
-              className={isUserTitle ? 'inputId' : 'inputId inputDisabled'}
+              className="inputId"
               name="email"
               value={userLogin.email}
               onChange={userInfo}
             />
-            {isUserTitle ? (
+            {emailValueCheck || userLogin.email.length === 0 ? (
               ''
             ) : (
-              <span className="noneTitle"> 이메일 을 입력하세요</span>
+              <span className="noneTitle"> 이메일을 입력하세요</span>
             )}
           </div>
           <div className="loginInput">
             <span className="lineInput">비밀번호</span>
             <input
               type="password"
-              className={
-                isUserTitle ? 'inputPassword' : 'inputPassword inputFail'
-              }
+              className="inputPassword"
               name="password"
               onChange={userInfo}
               value={userLogin.password}

@@ -52,6 +52,8 @@ const Signup = () => {
   };
 
   const isAllValid = Object.values(signupValue).every(value => value);
+  console.log(signupValue);
+  console.log(isAllValid);
 
   const gotoMain = () => {
     fetch(`${API.signup}`, {
@@ -149,7 +151,7 @@ const Signup = () => {
 
         <button
           className="buttonStyle"
-          disabled={!isAllValid}
+          // disabled={!isAllValid}
           onClick={gotoMain}
         >
           가입 하기

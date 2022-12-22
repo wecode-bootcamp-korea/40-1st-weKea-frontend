@@ -34,7 +34,9 @@ const CategoryItems = ({
             <span className="itemDescription">{description}</span>
           </h3>
           <span className="itemPrice">{price}</span>
-          <span className="itemStar">{rating}</span>
+          <span className="itemStar">
+            {'★'.repeat(rating) + '☆'.repeat(5 - rating)}
+          </span>
         </Link>
 
         <button className="iconCart" onClick={() => onCartAddClick(productsId)}>

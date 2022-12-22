@@ -1,8 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ImageModal from '../ImageModal/ImageModal';
+import useOnOutSideClick from '../../hooks/useOnOutSideClick';
 import { API } from '../../../src/config/config';
-import { useParams } from 'react-router-dom';
+import AlarmModal from '../../components/AlarmModal/AlarmModal';
 
 import './Detail.scss';
 
@@ -17,11 +19,12 @@ const Detail = () => {
     productCode: '',
     rating: 0,
   });
+  const [alarmOn, setAlarmOn] = useState(false);
+  const ref = useRef();
 
   const [isClicked, setIsClicked] = useState(false);
 
   const { productDetailId } = useParams();
-  // const productDetailId = params.id;
 
   const onClickHandler = () => {
     setIsClicked(true);
@@ -32,20 +35,19 @@ const Detail = () => {
   const detailImageList = detailInfoList.imageUrl.split(', ');
 
   const buyButtonClickHandler = () => {
-    fetch('http://10.58.52.142:3000/cart/putItem', {
+    setAlarmOn(true);
+    fetch(`${API.cart}`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        jwtoken: window.localStorage.getItem('jwtoken'),
+        Authorization: window.localStorage.getItem('TOKEN'),
       },
       body: JSON.stringify({
         productId: productID,
       }),
     })
       .then(res => {
-        if (res.status === 201) {
-          alert('장바구니에 추가되었습니다');
-        } else if (res.status === 400) {
+        if (res.status === 400) {
           alert('구매할 수 없는 상품입니다');
         }
       })
@@ -53,6 +55,9 @@ const Detail = () => {
         alert('ERROR:', err.message);
       });
   };
+
+  useOnOutSideClick(ref, () => setAlarmOn(false));
+
   useEffect(() => {
     fetch(`${API.detail}/${productDetailId}`, {
       method: 'GET',
@@ -64,6 +69,16 @@ const Detail = () => {
   return (
     <>
       <div className="detail">
+        <div ref={ref} className="alarmModalWrapper">
+          {alarmOn === true ? (
+            <AlarmModal className="alarmModal" setAlarmOn={setAlarmOn} />
+          ) : (
+            <AlarmModal
+              className="alarmModal alarmModalHidden"
+              setAlarmOn={setAlarmOn}
+            />
+          )}
+        </div>
         <main className="detailMainContainer">
           <ul className="detailImageContainer">
             {detailImageList.map((src, index) => {
@@ -109,7 +124,11 @@ const Detail = () => {
               <div className="currencyStyle">&#8361;</div>
               {priceWithCurrency}
             </div>
-            <div className="subRating">{detailInfoList.rating}</div>
+
+            <div className="subRating">
+              {'★'.repeat(detailInfoList.rating) +
+                '☆'.repeat(5 - detailInfoList.rating)}
+            </div>
             <div className="buyMethodContainer">
               <div className="buyMethodMsg">어떻게 구매하시겠어요?</div>
               <div className="buyMethodBox">

@@ -51,7 +51,7 @@ const Category = () => {
       </div>
 
       <div className="categoryTitle">
-        <h1>카테고리 이름</h1>
+        <h1>주방용품</h1>
       </div>
 
       <div className="buttonCountWrapper">
