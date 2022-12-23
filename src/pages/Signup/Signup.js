@@ -51,7 +51,11 @@ const Signup = () => {
     setSignupValue({ ...signupValue, [name]: value });
   };
 
-  const isAllValid = Object.values(signupValue).every(value => value);
+  const isAllValid =
+    Object.values(signupValue).every(value => value) &&
+    Validator.email.test(signupValue.email) &&
+    Validator.password.test(signupValue.password) &&
+    Validator.phoneNumber.test(signupValue.phoneNumber);
 
   const gotoMain = () => {
     fetch(`${API.signup}`, {
@@ -112,7 +116,7 @@ const Signup = () => {
                 <div key={input.id}>
                   <div className="inputTitle">{input.title}</div>
                   <select
-                    id={input.name}
+                    name={input.name}
                     className="inputItemStyle"
                     style={{ marginBottom: '34px' }}
                     onChange={getOptionValue}
