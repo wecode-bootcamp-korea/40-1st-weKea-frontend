@@ -93,7 +93,7 @@ const Signup = () => {
           <div className="titleMargin">
             <h1 className="titleStyle">Sims & co 회원 가입</h1>
             <div>
-              <span>이미 가입하셨나요?</span>{' '}
+              <span>이미 가입하셨나요?</span>
               <Link to="/login">로그인 하기</Link>
             </div>
           </div>

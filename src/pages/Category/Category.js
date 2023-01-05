@@ -30,6 +30,7 @@ const Category = () => {
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
   useEffect(() => {
+    console.log(searchParams.toString());
     fetch(`${API.products}/${paramsId.id}?${searchParams.toString()}`, {
       method: 'GET',
     })
