@@ -8,17 +8,19 @@ import AlarmModal from '../../components/AlarmModal/AlarmModal';
 
 import './Detail.scss';
 
+const INITIAL_STATE = {
+  id: 0,
+  koreanName: '',
+  name: '',
+  price: 0,
+  imageUrl: '',
+  description: '',
+  productCode: '',
+  rating: 0,
+};
+
 const Detail = () => {
-  const [detailInfoList, setDetailInfoList] = useState({
-    id: 0,
-    koreanName: '',
-    name: '',
-    price: 0,
-    imageUrl: '',
-    description: '',
-    productCode: '',
-    rating: 0,
-  });
+  const [detailInfoList, setDetailInfoList] = useState(INITIAL_STATE);
   const [alarmOn, setAlarmOn] = useState(false);
   const ref = useRef();
 
@@ -119,7 +121,6 @@ const Detail = () => {
               <span className="productName">{detailInfoList.name}</span>
               <span className="productName">{detailInfoList.koreanName}</span>
             </div>
-            {/* <div className="subDescription">{detailInfoList.category}</div> */}
             <div className="price">
               <div className="currencyStyle">&#8361;</div>
               {priceWithCurrency}

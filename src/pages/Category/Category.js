@@ -30,8 +30,8 @@ const Category = () => {
   useOnOutSideClick(ref, () => setAlarmOn(false));
 
   useEffect(() => {
-    console.log(searchParams.toString());
-    fetch(`${API.products}/${paramsId.id}?${searchParams.toString()}`, {
+    // fetch(`${API.products}/${paramsId.id}?${searchParams.toString()}`, {
+    fetch('/data/itemsMockData.json', {
       method: 'GET',
     })
       .then(response => response.json())
