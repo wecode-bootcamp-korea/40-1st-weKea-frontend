@@ -14,7 +14,7 @@ const AlarmModal = ({ setAlarmOn, className }) => {
       </div>
       <div className="alarmModalTextWrapper">
         <span className="alarmModalText">
-          SIMS PS 심즈 피에스 제품이 장바구니에 추가되었습니다.
+          제품이 장바구니에 추가되었습니다.
         </span>
 
         <span className="alarmModalLink">
